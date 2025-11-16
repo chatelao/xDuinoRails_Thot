@@ -1,4 +1,4 @@
-# xDuinoRails_Apollo: A Multi-Protocol Locomotive Decoder
+# xDuinoRails_Thot: A Multi-Protocol Signal Decoder
 
 This repository contains the documentation, schematics, and source code for the xDuinoRails_Apollo, a multi-protocol (DCC and Märklin-Motorola) locomotive decoder.
 
