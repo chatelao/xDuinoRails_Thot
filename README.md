@@ -1,25 +1,27 @@
-# xDuinoRails_Apollo: A Multi-Protocol Locomotive Decoder
+# xDuinoRails_Thot: A Multi-Protocol Signal Decoder
 
-This repository contains the documentation, schematics, and source code for the xDuinoRails_Apollo, a multi-protocol (DCC and Märklin-Motorola) locomotive decoder.
+Welcome to the repository for xDuinoRails_Thot, a revolutionary, multi-protocol signal decoder designed to bring your model railway's signaling system to life. Named after the Egyptian god of wisdom, Thot is engineered for intelligence, flexibility, and realism.
 
 ## Features
 
-*   **Multi-Protocol Support:** Supports both DCC and Märklin-Motorola (MM) protocols.
-*   **Advanced Motor Control:** Utilizes the `xDuinoRails_MotorControl` library for advanced, closed-loop motor control.
-*   **Flexible Function Mapping:** The `FunctionManager` allows for declarative mapping of function keys to physical outputs and behaviors.
-*   **Modern Hardware:** The decoder is designed for the Seeed Studio XIAO RP2040 microcontroller.
+*   **Multi-Protocol Support:** Natively understands both DCC and Märklin-Motorola (MM) signal commands.
+*   **Advanced Signal Logic:** Supports a wide and growing range of international signal systems, including German H/V, Ks, Swiss, and Dutch signals. The logic is designed to be easily extendable.
+*   **Highly Configurable:** A comprehensive CV table allows for detailed configuration of signal types, dimming speeds, special effects, and protocol settings.
+*   **Realistic Effects:** Features smooth transitions and dimming for simulating the behavior of incandescent bulbs, bringing a new level of realism to your layout.
+*   **Modular Design:** The hardware and firmware are designed to be modular, allowing for easy adaptation to different types of signals and custom installations.
+*   **Modern Hardware:** Built upon the powerful and cost-effective Seeed Studio XIAO RP2040 microcontroller.
 
 ## Repository Structure
 
-*   `docs/`: Contains all project documentation, including concepts for the sound and light systems.
-*   `firmware/`: Contains the PlatformIO project for the decoder's firmware.
-*   `hardware/`: Contains schematics, wiring diagrams, and other hardware-related files.
+*   `docs/`: Contains all project documentation, including signal system concepts, CV tables, and wiring diagrams.
+*   `firmware/`: The PlatformIO project for the decoder's firmware.
+*   `hardware/`: Schematics, PCB layouts, and other hardware-related files.
 
 ## Getting Started
 
 ### Hardware
 
-The decoder is designed for the Seeed Studio XIAO RP2040. You can find more information about the hardware in the `hardware/` directory.
+The decoder is designed for the Seeed Studio XIAO RP2040. You can find detailed schematics and wiring instructions in the `hardware/` directory.
 
 ### Firmware
 
@@ -29,19 +31,16 @@ The firmware is a PlatformIO project. To build the firmware, you will need to ha
     ```bash
     pip install platformio
     ```
-2.  **Build the firmware:** You can build the firmware for a specific protocol using the following command:
+2.  **Build the firmware:** You can build the firmware with the following command:
     ```bash
-    # For DCC
-    python -m platformio run -d firmware -e xiao_dcc
-
-    # For Märklin-Motorola
-    python -m platformio run -d firmware -e xiao_mm
+    python -m platformio run -d firmware -e xiao_signal_decoder
     ```
 
 ## Long-Term Vision
 
-This project has a long-term vision that includes:
+Our vision is to create the most powerful and flexible signal decoder on the market. Future plans include:
 
-*   A state-of-the-art, polyphonic sound system.
-*   A state-of-the-art light and auxiliary function management system.
-*   RailCom support.
+*   Support for a vast library of international signal systems.
+*   Seamless integration with popular computer control software like JMRI and Rocrail.
+*   An intuitive, network-based configuration interface for easy setup.
+*   Full RailCom support for bidirectional communication and on-the-main programming.
