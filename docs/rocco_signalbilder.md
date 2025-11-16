@@ -1,114 +1,49 @@
-# Rocco Signalbilder
+# Roco Signalbilder für Streckensignale
 
-Dieses Dokument erklärt, wie verschiedene Beleuchtungsszenarien (bekannt als "Signalbilder") für Modelllokomotiven, insbesondere solche der Marke Rocco, unter Verwendung des RCN-227-Standards für erweitertes Function Mapping konfiguriert werden.
+Dieses Dokument beschreibt das Verhalten und die Konfiguration von Roco-Streckensignalen (Signale am Schienenrand) im Zusammenspiel mit einem stationären Signaldecoder.
 
-## Die Logik verstehen: RCN-227
+## Grundlegendes Verhalten von Roco-Signalen
 
-Der Kern der Lichtsteuerung ist der RCN-227-Standard, der eine hochflexible und leistungsstarke Zuordnung von Funktionstasten (wie F0, F1 usw.) zu den physischen Lichtausgängen am Decoder ermöglicht. Dieser Standard geht über einfache Ein-/Aus-Befehle hinaus und ermöglicht komplexe, zustandsabhängige Beleuchtungsverhalten.
+Roco-Streckensignale, insbesondere die neueren Modelle mit LEDs, sind oft so konzipiert, dass sie direkt von einem Decoder angesteuert werden können, der die entsprechenden Signalbilder erzeugen kann. Die Ansteuerung erfolgt typischerweise über separate Ausgänge für jede Farbe (z.B. Rot, Grün, Gelb).
 
-### Schlüsselkonzepte von RCN-227
+## Ansteuerung mit einem stationären Signaldecoder
 
-*   **Ausgänge:** Dies sind die physischen Anschlüsse am Decoder, die die Lichter steuern (z. B. Frontscheinwerfer, rote Schlusslichter).
-*   **Funktionen:** Dies sind die Befehle, die von Ihrer Digitalzentrale gesendet werden und in der Regel durch Funktionstasten (F0, F1, F2 usw.) ausgelöst werden.
-*   **Fahrtrichtungsabhängigkeit:** Die Beleuchtung kann so konfiguriert werden, dass sie sich je nach Fahrtrichtung der Lokomotive (vorwärts oder rückwärts) ändert.
-*   **Sperrfunktionen:** Eine Funktion kann so konfiguriert werden, dass sie eine andere blockiert und das Einschalten eines Lichts verhindert. Dies ist nützlich für Szenarien wie das Deaktivieren der Scheinwerfer auf der an einen Zug gekoppelten Seite der Lokomotive.
-*   **CVs (Konfigurationsvariablen):** Die gesamte Logik wird durch das Einstellen spezifischer CVs am Decoder programmiert. RCN-227 verwendet einen dedizierten Block von CVs, um seine komplexen Zuordnungsregeln zu speichern.
+Ein stationärer Signaldecoder hat die Aufgabe, die Befehle von der Digitalzentrale (z.B. über Weichenadressen) in die korrekte Ansteuerung der Lichtausgänge für das Signal umzusetzen.
 
-Die folgenden Abschnitte enthalten praktische Beispiele, wie gängige "Signalbilder" mit den in der RCN-227-Norm definierten CVs programmiert werden.
+### Beispiel 1: Einfaches Blocksignal (Hp 0 / Hp 1)
 
-## Beispiel 1: Schweizer Lichtwechsel
+Dieses Signal kann zwei Zustände anzeigen: "Halt" (rot) und "Fahrt" (grün).
 
-Der Schweizer Lichtwechsel ist ein gängiges Muster, bei dem drei weiße Scheinwerfer an der Vorderseite der Lokomotive und ein einzelnes weißes Schlusslicht am Heck leuchten. Dies ändert sich mit der Fahrtrichtung.
+*   **Gewünschtes Verhalten:**
+    *   **Befehl 1 (z.B. Weichenadresse 1, rot):** Das rote Licht leuchtet (Hp 0). Das grüne Licht ist aus.
+    *   **Befehl 2 (z.B. Weichenadresse 1, grün):** Das grüne Licht leuchtet (Hp 1). Das rote Licht ist aus.
 
-### Gewünschtes Verhalten
+*   **Decoder-Konfiguration:**
+    *   **Ausgang 1:** Verbunden mit dem roten Licht des Signals.
+    *   **Ausgang 2:** Verbunden mit dem grünen Licht des Signals.
+    *   Der Decoder wird so konfiguriert, dass er je nach empfangenem Befehl entweder Ausgang 1 oder Ausgang 2 aktiviert.
 
-*   **Bei Vorwärtsfahrt:** Drei weiße Scheinwerfer sind vorne an, und ein weißes Schlusslicht ist hinten an.
-*   **Bei Rückwärtsfahrt:** Die Beleuchtung ist umgekehrt. Die drei weißen Scheinwerfer sind am (physischen) Heck an, und das einzelne Schlusslicht ist an der (physischen) Front an.
-*   Dieses gesamte Verhalten wird typischerweise über die Funktionstaste `F0` gesteuert.
+### Beispiel 2: Ausfahrsignal mit Vorsignal (Hp 0 / Hp 1 / Hp 2 + Vr 0 / Vr 1 / Vr 2)
 
-### Ausgangskonfiguration
+Dieses Signal kombiniert ein Hauptsignal mit einem Vorsignal für den nächsten Block.
 
-Nehmen wir an, die Ausgänge des Decoders sind wie folgt verdrahtet:
-*   **Ausgang 1:** Steuert die drei Hauptscheinwerfer vorne.
-*   **Ausgang 2:** Steuert die drei Hauptscheinwerfer hinten.
-*   **Ausgang 3:** Steuert das einzelne Schlusslicht vorne.
-*   **Ausgang 4:** Steuert das einzelne Schlusslicht hinten.
+*   **Gewünschtes Verhalten (vereinfacht):**
+    *   **Hp 0 (Halt):** Rotes Licht an.
+    *   **Hp 1 (Fahrt):** Grünes Licht an.
+    *   **Hp 2 (Langsamfahrt):** Grünes und gelbes Licht an.
+    *   Das Vorsignal am selben Mast zeigt an, was das nächste Hauptsignal anzeigen wird. Dies erfordert eine komplexere Logik im Decoder, die oft über CVs konfiguriert wird.
 
-### CV-Programmierung (unter Verwendung von RCN-227 Version 3)
+*   **Decoder-Konfiguration:**
+    *   **Ausgang 1:** Rot (Hauptsignal)
+    *   **Ausgang 2:** Grün (Hauptsignal)
+    *   **Ausgang 3:** Gelb (Hauptsignal)
+    *   **Ausgang 4:** Grün (Vorsignal)
+    *   **Ausgang 5:** Gelb (Vorsignal)
+    *   Die Decodereinstellungen (CVs) müssen gemäß der RCN-213 Spezifikation so eingestellt werden, dass die korrekten Kombinationen von Lichtern für jedes Signalbild aktiviert werden.
 
-Wir verwenden Version 3 des RCN-227-Standards ("Funktions- oder Binärzustandsnummer"), da sie die notwendige richtungsabhängige Steuerung bietet.
+## Überblendeffekte
 
-*   **Für Ausgang 1 (Frontscheinwerfer):**
-    *   `CV257 = 64` (Funktion `F0` + wirkt nur vorwärts)
-*   **Für Ausgang 2 (Heckscheinwerfer):**
-    *   `CV265 = 128` (Funktion `F0` + wirkt nur rückwärts)
-*   **Für Ausgang 3 (Frontschlusslicht):**
-    *   Dieses Licht sollte leuchten, wenn die Lokomotive rückwärts fährt (d. h. wenn die Front das Heck des Zuges ist).
-    *   `CV273 = 128` (Funktion `F0` + wirkt nur rückwärts)
-*   **Für Ausgang 4 (Heckschlusslicht):**
-    *   Dieses Licht sollte leuchten, wenn die Lokomotive vorwärts fährt.
-    *   `CV281 = 64` (Funktion `F0` + wirkt nur vorwärts)
+Moderne Signaldecoder können "weiche" Übergänge zwischen den Signalbildern erzeugen, bei denen die Lichter langsam ein- und ausgeblendet werden, anstatt hart zu schalten. Dies simuliert das Verhalten von Glühlampen und wirkt realistischer.
 
-## Beispiel 2: Rangiermodus ("Rangiergang")
-
-Der Rangiermodus ist ein Sonderzustand für den Betrieb auf dem Rangierbahnhof. Er beinhaltet typischerweise das Einschalten der Hauptscheinwerfer an beiden Enden der Lokomotive, um die Sichtbarkeit zu erhöhen.
-
-### Gewünschtes Verhalten
-
-*   Wird durch eine dedizierte Funktionstaste aktiviert, zum Beispiel `F6`.
-*   Wenn `F6` aktiv ist, sind die drei weißen Scheinwerfer sowohl vorne als auch hinten an der Lokomotive eingeschaltet, unabhängig von der Richtung.
-*   Die einzelnen Schlusslichter aus dem Schweizer Lichtwechsel sollten ausgeschaltet sein.
-*   Der normale `F0`-Lichtwechsel sollte außer Kraft gesetzt werden.
-
-### CV-Programmierung (Erweiterung von Beispiel 1)
-
-Wir fügen die Logik für `F6` zu den bestehenden CVs für die Hauptscheinwerfer hinzu und ergänzen eine Sperrlogik für die Schlusslichter.
-
-*   **Für Ausgang 1 (Frontscheinwerfer):**
-    *   `CV257 = 64` (Aus Beispiel 1: F0 vorwärts)
-    *   `CV258 = 6` (Funktion `F6`, wirkt richtungsunabhängig)
-*   **Für Ausgang 2 (Heckscheinwerfer):**
-    *   `CV265 = 128` (Aus Beispiel 1: F0 rückwärts)
-    *   `CV266 = 6` (Funktion `F6`, wirkt richtungsunabhängig)
-*   **Für Ausgang 3 (Frontschlusslicht):**
-    *   `CV273 = 128` (Aus Beispiel 1: F0 rückwärts)
-    *   `CV274 = 198` (Funktion `F6` + sperrt den Ausgang = 6 + 192)
-*   **Für Ausgang 4 (Heckschlusslicht):**
-    *   `CV281 = 64` (Aus Beispiel 1: F0 vorwärts)
-    *   `CV282 = 198` (Funktion `F6` + sperrt den Ausgang = 6 + 192)
-
-## Beispiel 3: Fernlicht
-
-Fernlicht ist eine Funktion, bei der ein zusätzlicher, hellerer Satz von Lichtern eingeschaltet werden kann, normalerweise während die Hauptscheinwerfer bereits aktiv sind.
-
-### Gewünschtes Verhalten
-
-*   Wird durch eine dedizierte Funktionstaste aktiviert, zum Beispiel `F5`.
-*   Das Fernlicht kann nur aktiviert werden, wenn die Hauptscheinwerfer (`F0`) bereits eingeschaltet sind.
-*   Das Fernlicht sollte der Richtung der Hauptscheinwerfer folgen.
-
-### Ausgangskonfiguration
-
-Nehmen wir an, der Decoder hat zwei zusätzliche Ausgänge für das Fernlicht:
-*   **Ausgang 5:** Steuert das Fernlicht vorne.
-*   **Ausgang 6:** Steuert das Fernlicht hinten.
-
-### CV-Programmierung (RCN-227 Version 2)
-
-Für dieses Beispiel verwenden wir Version 2 des RCN-227-Standards ("Funktionsnummer"), die sich gut für diese Art von geschichteter Logik eignet. In dieser Version schalten die ersten drei Bytes einen Ausgang ein, und das vierte Byte kann verwendet werden, um ihn zu sperren.
-
-*   **Für Ausgang 5 (Front-Fernlicht):**
-    *   Wir benötigen diesen Ausgang nur dann, wenn `F0` an UND `F5` an ist.
-    *   Diese Logik ist mit einer einfachen ODER-Logik nicht direkt möglich. Wir können dies jedoch erreichen, indem wir `F5` als primären Auslöser verwenden und dann eine separate Funktion verwenden, um ihn zu blockieren, wenn `F0` AUS ist. Dies ist eine fortgeschrittene Technik.
-    *   Ein einfacherer, gebräuchlicherer Ansatz besteht darin, `F5` einfach dem Fernlichtausgang zuzuordnen und sich darauf zu verlassen, dass der Benutzer `F5` nur drückt, wenn `F0` aktiv ist.
-    *   Programmieren wir den einfacheren Fall:
-    *   Für die Vorwärtsrichtung:
-        *   `CV305 = 5` (Funktion `F5`)
-        *   `CV308 = 0` (Wird durch das Ausschalten von Funktion `F0` blockiert - dies erfordert eine Inversion, `!F0`, die oft einer anderen Funktionsnummer wie F28 zugewiesen wird). Der Einfachheit halber nehmen wir an, `F1` blockiert es, wenn `F0` aus ist. Sagen wir, wir richten eine Bedingung ein, die `F1` aktiv macht, wenn `F0` aus ist. `CV308 = 1`.
-        *   Um es für dieses Beispiel einfach und direkt zu halten, werden wir `F5` nur richtungsabhängig zuordnen.
-    *   Verwendung von RCN-227 Version 3 für eine bessere Richtungssteuerung:
-        *   `CV289 = 70` (Funktion `F5` + wirkt nur vorwärts = 5 + 64)
-
-*   **Für Ausgang 6 (Heck-Fernlicht):**
-    *   Verwendung von RCN-227 Version 3:
-        *   `CV297 = 133` (Funktion `F5` + wirkt nur rückwärts = 5 + 128)
+*   **Konfiguration:**
+    *   Die Geschwindigkeit des Überblendens wird in der Regel über eine oder mehrere CVs im Decoder eingestellt.
