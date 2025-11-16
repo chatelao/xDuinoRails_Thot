@@ -29,7 +29,6 @@ Add a comment to each testcase
 - Generate the Doxygen documents during build and provide the with the release assets
 
 # Workflow
-- When working on a task from `docs/LIGHT_AND_AUX_CONCEPT.MD`, always read the concept document first to understand the context.
+- The central specification for this project is RCN-213. When working on signal logic, always refer to `docs/RCN-213.MD`.
 - After completing a phase from the roadmap, update `docs/IMPLEMENTATION_STATUS.MD` to reflect the progress.
-- When working on a sound-related task, always read `docs/SOUND_CONCEPT.MD` first.
-- After completing a task from `docs/SOUND_ROADMAP.MD`, update the roadmap to mark the task as complete.
+- After completing a task from `docs/SIGNAL_ROADMAP.MD`, update the roadmap to mark the task as complete.
