@@ -10,10 +10,10 @@
 #include "CVManagerAdapter.h"
 #include <xDuinoRails_DccLightsAndFunctions.h>
 #include <xDuinoRails_DccSounds.h>
-#include "sound/VSDReader.h"
-#include "sound/WAVStream.h"
-#include "sound/VSDConfigParser.h"
-#include "sound/SoftwareMixer.h"
+#include <VSDReader.h>
+#include <WAVStream.h>
+#include <VSDConfigParser.h>
+#include <SoftwareMixer.h>
 
 // --- Global Objects ---
 SoundController soundController;
