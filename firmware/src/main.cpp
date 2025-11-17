@@ -18,6 +18,8 @@ void setup() {
  * @brief Main loop, called repeatedly.
  */
 void loop() {
+  signalManager.update();
+
   // Cycle through the signal aspects every 3 seconds
   signalManager.setAspect(HP0);
   delay(3000);

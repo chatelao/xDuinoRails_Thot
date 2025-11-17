@@ -5,6 +5,11 @@
 #pragma once
 
 #include <Arduino.h>
+#include "xDuinoRails_DccLightsAndFunctions.h"
+#include "LightSources/SingleLed.h"
+#include "LogicalFunction.h"
+#include "effects/Effect.h"
+#include <memory>
 
 // Define the signal aspects
 enum SignalAspect {
@@ -24,9 +29,22 @@ public:
    * @brief Initializes the SignalManager.
    */
   void begin() {
-    pinMode(LED_RED_PIN, OUTPUT);
-    pinMode(LED_GREEN_PIN, OUTPUT);
-    pinMode(LED_YELLOW_PIN, OUTPUT);
+    lightManager.addLightSource(std::make_unique<xDuinoRails::SingleLed>(LED_RED_PIN));
+    lightManager.addLightSource(std::make_unique<xDuinoRails::SingleLed>(LED_GREEN_PIN));
+    lightManager.addLightSource(std::make_unique<xDuinoRails::SingleLed>(LED_YELLOW_PIN));
+
+    redLight = new xDuinoRails::LogicalFunction(new xDuinoRails::EffectSteady(255));
+    redLight->addOutput(lightManager.getOutputById(0));
+    lightManager.addLogicalFunction(redLight);
+
+    greenLight = new xDuinoRails::LogicalFunction(new xDuinoRails::EffectSteady(255));
+    greenLight->addOutput(lightManager.getOutputById(1));
+    lightManager.addLogicalFunction(greenLight);
+
+    yellowLight = new xDuinoRails::LogicalFunction(new xDuinoRails::EffectSteady(255));
+    yellowLight->addOutput(lightManager.getOutputById(2));
+    lightManager.addLogicalFunction(yellowLight);
+
     setAspect(HP0);
   }
 
@@ -36,20 +54,33 @@ public:
    */
   void setAspect(SignalAspect aspect) {
     // Turn off all LEDs first
-    digitalWrite(LED_RED_PIN, LOW);
-    digitalWrite(LED_GREEN_PIN, LOW);
-    digitalWrite(LED_YELLOW_PIN, LOW);
+    redLight->setActive(false);
+    greenLight->setActive(false);
+    yellowLight->setActive(false);
 
     switch (aspect) {
       case HP0:
-        digitalWrite(LED_RED_PIN, HIGH);
+        redLight->setActive(true);
         break;
       case KS1:
-        digitalWrite(LED_GREEN_PIN, HIGH);
+        greenLight->setActive(true);
         break;
       case KS2:
-        digitalWrite(LED_YELLOW_PIN, HIGH);
+        yellowLight->setActive(true);
         break;
     }
   }
+
+  /**
+   * @brief Updates the light effects. Should be called in the main loop.
+   */
+  void update() {
+    lightManager.update(millis());
+  }
+
+private:
+  xDuinoRails::AuxController lightManager;
+  xDuinoRails::LogicalFunction* redLight;
+  xDuinoRails::LogicalFunction* greenLight;
+  xDuinoRails::LogicalFunction* yellowLight;
 };
