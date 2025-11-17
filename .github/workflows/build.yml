@@ -7,9 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        protocol: [dcc, mm]
 
     steps:
     - uses: actions/checkout@v4
@@ -40,11 +37,11 @@ jobs:
         path: firmware/.pio
         key: ${{ runner.os }}-${{ hashFiles('firmware/platformio.ini') }}
 
-    - name: Build Firmware (${{ matrix.protocol }})
-      run: pio run -d firmware -e xiao_${{ matrix.protocol }}
+    - name: Build Firmware
+      run: pio run -d firmware -e xiao_signal_decoder
 
     - name: Archive Firmware
       uses: actions/upload-artifact@v4
       with:
-        name: firmware-${{ matrix.protocol }}
-        path: firmware/.pio/build/xiao_${{ matrix.protocol }}/firmware.uf2
+        name: firmware
+        path: firmware/.pio/build/xiao_signal_decoder/firmware.uf2
