@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="ch" name="CH-N-Hauptsignal-1" svg="CH-N-Hauptsignal-1.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="500" color="green"/>
+      <lightbulb id="L2" x="-250" y="0" color="yellow"/>
+      <lightbulb id="L3" x="250" y="0" color="red"/>
+      <lightbulb id="L4" x="0" y="-500" color="white"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Halt">
+        <light id="L3"/>
+      </aspect>
+      <aspect name="Freie Fahrt">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Warnung">
+        <light id="L2"/>
+      </aspect>
+    </aspects>
+  </signal>
+  <signal country="ch" name="CH-L-Hauptsignal-1" svg="CH-L-Hauptsignal-1.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="500" color="green"/>
+      <lightbulb id="L2" x="0" y="0" color="red"/>
+      <lightbulb id="L3" x="0" y="-500" color="yellow"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Halt">
+        <light id="L2"/>
+      </aspect>
+      <aspect name="Freie Fahrt">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Warnung">
+        <light id="L3"/>
+      </aspect>
+    </aspects>
+  </signal>
+  <signal country="ch" name="CH-L-Vorsignal-1" svg="CH-L-Vorsignal-1.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="-250" y="250" color="green"/>
+      <lightbulb id="L2" x="250" y="250" color="yellow"/>
+      <lightbulb id="L3" x="-250" y="-250" color="green"/>
+      <lightbulb id="L4" x="250" y="-250" color="yellow"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Warnung">
+        <light id="L2"/>
+        <light id="L4"/>
+      </aspect>
+      <aspect name="Freie Fahrt">
+        <light id="L1"/>
+        <light id="L3"/>
+      </aspect>
+      <aspect name="Geschwindigkeits-Ankündigung 40 km/h">
+        <light id="L1"/>
+        <light id="L4"/>
+      </aspect>
+    </aspects>
+  </signal>
+  <signal country="ch" name="CH-N-Vorsignal-1" svg="CH-N-Vorsignal-1.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="500" color="green"/>
+      <lightbulb id="L2" x="-250" y="0" color="yellow"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Freie Fahrt">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Warnung">
+        <light id="L2"/>
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>

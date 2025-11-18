@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="signalDefinitions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="signal" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="lightbulbs">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="lightbulb" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                        <xs:attribute name="x" type="xs:decimal" use="required"/>
+                        <xs:attribute name="y" type="xs:decimal" use="required"/>
+                        <xs:attribute name="color" type="xs:string" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="aspects">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="aspect" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="light" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="id" type="xs:string" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="name" type="xs:string" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="country" type="xs:string" use="required"/>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+            <xs:attribute name="svg" type="xs:string" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
