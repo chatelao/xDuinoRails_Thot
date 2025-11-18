@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="fr" name="FR-Signalisation-Lumineuse-1" svg="FR-Signalisation-Lumineuse-1.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="10" color="green"/>
+      <lightbulb id="L2" x="0" y="0" color="yellow"/>
+      <lightbulb id="L3" x="0" y="-10" color="red"/>
+      <lightbulb id="L4" x="0" y="-20" color="red"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Carré">
+        <light id="L3"/>
+        <light id="L4"/>
+      </aspect>
+      <aspect name="Sémaphore">
+        <light id="L3"/>
+      </aspect>
+      <aspect name="Avertissement">
+        <light id="L2"/>
+      </aspect>
+      <aspect name="Voie libre">
+        <light id="L1"/>
+      </aspect>
+    </aspects>
+  </signal>
+  <signal country="fr" name="FR-Carre-Violet-1" svg="FR-Carre-Violet-1.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="0" color="violet"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Carré violet">
+        <light id="L1"/>
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="de" name="DE-HV-Hauptsignal-1" svg="DE-HV-Hauptsignal-1.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="500" color="green"/>
+      <lightbulb id="L2" x="0" y="0" color="red"/>
+      <lightbulb id="L3" x="0" y="-500" color="yellow"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Hp 0">
+        <light id="L2"/>
+      </aspect>
+      <aspect name="Hp 1">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Hp 2">
+        <light id="L1"/>
+        <light id="L3"/>
+      </aspect>
+    </aspects>
+  </signal>
+  <signal country="de" name="DE-HV-Zwergsignal-1" svg="DE-HV-Zwergsignal-1.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="-100" y="100" color="white"/>
+      <lightbulb id="L2" x="100" y="100" color="red"/>
+      <lightbulb id="L3" x="-100" y="-100" color="red"/>
+      <lightbulb id="L4" x="100" y="-100" color="white"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Sh 0">
+        <light id="L2"/>
+        <light id="L3"/>
+      </aspect>
+      <aspect name="Sh 1">
+        <light id="L1"/>
+        <light id="L4"/>
+      </aspect>
+    </aspects>
+  </signal>
+  <signal country="de" name="DE-HV-Vorsignal-1" svg="DE-HV-Vorsignal-1.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="-250" y="250" color="green"/>
+      <lightbulb id="L2" x="250" y="250" color="yellow"/>
+      <lightbulb id="L3" x="-250" y="-250" color="green"/>
+      <lightbulb id="L4" x="250" y="-250" color="yellow"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Vr 0">
+        <light id="L2"/>
+        <light id="L4"/>
+      </aspect>
+      <aspect name="Vr 1">
+        <light id="L1"/>
+        <light id="L3"/>
+      </aspect>
+      <aspect name="Vr 2">
+        <light id="L1"/>
+        <light id="L4"/>
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>
