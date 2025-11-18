@@ -69,6 +69,9 @@ private:
     Adafruit_NeoPixel _strip;
     uint16_t _numPixels;
     SwissNSignalAspect _aspect;
+    uint32_t _lastBlinkTime;
+    bool _isBlinking;
+    bool _blinkState;
 };
 
 }
