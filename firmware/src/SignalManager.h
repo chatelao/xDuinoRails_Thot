@@ -6,7 +6,17 @@
 
 #include <Arduino.h>
 #include "xDuinoRails_DccLightsAndFunctions.h"
+
+#if defined(SIGNAL_TYPE_SWISS)
 #include "LightSources/SwissNSignal.h"
+#elif defined(SIGNAL_TYPE_DUTCH)
+#include "LightSources/DutchSignal.h"
+#elif defined(SIGNAL_TYPE_FRENCH)
+#include "LightSources/FrenchSignal.h"
+#elif defined(SIGNAL_TYPE_ITALIAN)
+#include "LightSources/ItalianSignal.h"
+#endif
+
 #include <memory>
 
 #define NEOPIXEL_PIN 2
@@ -18,25 +28,55 @@ public:
    * @brief Initializes the SignalManager.
    */
   void begin() {
-    swissSignal = new xDuinoRails::SwissNSignal(NEOPIXEL_PIN, NUM_PIXELS);
-    swissSignal->begin();
+#if defined(SIGNAL_TYPE_SWISS)
+    signal = new xDuinoRails::SwissNSignal(NEOPIXEL_PIN, NUM_PIXELS);
+#elif defined(SIGNAL_TYPE_DUTCH)
+    signal = new xDuinoRails::DutchSignal(NEOPIXEL_PIN, NUM_PIXELS);
+#elif defined(SIGNAL_TYPE_FRENCH)
+    signal = new xDuinoRails::FrenchSignal(NEOPIXEL_PIN, NUM_PIXELS);
+#elif defined(SIGNAL_TYPE_ITALIAN)
+    signal = new xDuinoRails::ItalianSignal(NEOPIXEL_PIN, NUM_PIXELS);
+#endif
+    signal->begin();
   }
 
   /**
    * @brief Sets the signal aspect.
    * @param aspect The new signal aspect.
    */
+#if defined(SIGNAL_TYPE_SWISS)
   void setAspect(xDuinoRails::SwissNSignalAspect aspect) {
-    swissSignal->setAspect(aspect);
+    signal->setAspect(aspect);
   }
+#elif defined(SIGNAL_TYPE_DUTCH)
+  void setAspect(xDuinoRails::DutchSignalAspect aspect) {
+    signal->setAspect(aspect);
+  }
+#elif defined(SIGNAL_TYPE_FRENCH)
+    void setAspect(xDuinoRails::FrenchSignalAspect aspect) {
+    signal->setAspect(aspect);
+  }
+#elif defined(SIGNAL_TYPE_ITALIAN)
+    void setAspect(xDuinoRails::ItalianSignalAspect aspect) {
+    signal->setAspect(aspect);
+  }
+#endif
 
   /**
    * @brief Updates the light effects. Should be called in the main loop.
    */
   void update() {
-    swissSignal->update(millis());
+    signal->update(millis());
   }
 
 private:
-  xDuinoRails::SwissNSignal* swissSignal;
+#if defined(SIGNAL_TYPE_SWISS)
+  xDuinoRails::SwissNSignal* signal;
+#elif defined(SIGNAL_TYPE_DUTCH)
+  xDuinoRails::DutchSignal* signal;
+#elif defined(SIGNAL_TYPE_FRENCH)
+  xDuinoRails::FrenchSignal* signal;
+#elif defined(SIGNAL_TYPE_ITALIAN)
+  xDuinoRails::ItalianSignal* signal;
+#endif
 };
