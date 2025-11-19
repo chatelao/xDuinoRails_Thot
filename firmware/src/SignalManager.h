@@ -17,6 +17,8 @@
 #include "LightSources/ItalianSignal.h"
 #elif defined(SIGNAL_TYPE_AUSTRALIAN)
 #include "LightSources/AustralianNSignal.h"
+#elif defined(SIGNAL_TYPE_USA)
+#include "LightSources/UsaSignal.h"
 #endif
 
 #include <memory>
@@ -40,6 +42,8 @@ public:
     signal = new xDuinoRails::ItalianSignal(NEOPIXEL_PIN, NUM_PIXELS);
 #elif defined(SIGNAL_TYPE_AUSTRALIAN)
     signal = new xDuinoRails::AustralianNSignal(NEOPIXEL_PIN, NUM_PIXELS);
+#elif defined(SIGNAL_TYPE_USA)
+    signal = new xDuinoRails::UsaSignal(NEOPIXEL_PIN, NUM_PIXELS);
 #endif
     signal->begin();
   }
@@ -68,6 +72,10 @@ public:
   void setAspect(xDuinoRails::AustralianNSignalAspect aspect) {
     signal->setAspect(aspect);
   }
+#elif defined(SIGNAL_TYPE_USA)
+  void setAspect(xDuinoRails::UsaSignalAspect aspect) {
+    signal->setAspect(aspect);
+  }
 #endif
 
   /**
@@ -88,5 +96,7 @@ private:
   xDuinoRails::ItalianSignal* signal;
 #elif defined(SIGNAL_TYPE_AUSTRALIAN)
   xDuinoRails::AustralianNSignal* signal;
+#elif defined(SIGNAL_TYPE_USA)
+  xDuinoRails::UsaSignal* signal;
 #endif
 };
