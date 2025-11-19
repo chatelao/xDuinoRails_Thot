@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="uk" name="UK-Colour-Light-Signal-2-Aspect" svg="UK-Colour-Light-Signal-2-Aspect.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="500" color="green"/>
+      <lightbulb id="L2" x="0" y="0" color="red"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Clear">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Danger">
+        <light id="L2"/>
+      </aspect>
+    </aspects>
+  </signal>
+  <signal country="uk" name="UK-Colour-Light-Signal-3-Aspect" svg="UK-Colour-Light-Signal-3-Aspect.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="500" color="green"/>
+      <lightbulb id="L2" x="0" y="0" color="yellow"/>
+      <lightbulb id="L3" x="0" y="-500" color="red"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Clear">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Caution">
+        <light id="L2"/>
+      </aspect>
+      <aspect name="Danger">
+        <light id="L3"/>
+      </aspect>
+    </aspects>
+  </signal>
   <signal country="uk" name="UK-Colour-Light-Signal-4-Aspect" svg="UK-Colour-Light-Signal-4-Aspect.svg">
     <lightbulbs>
       <lightbulb id="L1" x="0" y="30" color="yellow"/>
@@ -19,6 +51,52 @@
         <light id="L3"/>
       </aspect>
       <aspect name="Danger">
+        <light id="L4"/>
+      </aspect>
+    </aspects>
+  </signal>
+  <signal country="uk" name="UK-Lower-Quadrant-Stop-Semaphore" svg="UK-Lower-Quadrant-Stop-Semaphore.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="0" color="green"/>
+      <lightbulb id="L2" x="0" y="0" color="red"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Clear">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Danger">
+        <light id="L2"/>
+      </aspect>
+    </aspects>
+  </signal>
+  <signal country="uk" name="UK-Lower-Quadrant-Distant-Semaphore" svg="UK-Lower-Quadrant-Distant-Semaphore.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="0" color="green"/>
+      <lightbulb id="L2" x="0" y="0" color="yellow"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Clear">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Caution">
+        <light id="L2"/>
+      </aspect>
+    </aspects>
+  </signal>
+  <signal country="uk" name="UK-Position-Light-Signal" svg="UK-Position-Light-Signal.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="-100" y="100" color="white"/>
+      <lightbulb id="L2" x="100" y="-100" color="white"/>
+      <lightbulb id="L3" x="-100" y="-100" color="red"/>
+      <lightbulb id="L4" x="100" y="100" color="red"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Proceed">
+        <light id="L1"/>
+        <light id="L2"/>
+      </aspect>
+      <aspect name="Stop">
+        <light id="L3"/>
         <light id="L4"/>
       </aspect>
     </aspects>

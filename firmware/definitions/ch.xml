@@ -35,6 +35,45 @@
       <aspect name="Warnung">
         <light id="L3"/>
       </aspect>
+      <aspect name="Geschwindigkeit 40 km/h">
+        <light id="L1"/>
+        <light id="L3"/>
+      </aspect>
+    </aspects>
+  </signal>
+  <signal country="ch" name="CH-L-Hauptsignal-2" svg="CH-L-Hauptsignal-2.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="1000" color="green"/>
+      <lightbulb id="L2" x="0" y="500" color="green"/>
+      <lightbulb id="L3" x="0" y="0" color="green"/>
+      <lightbulb id="L4" x="0" y="-500" color="red"/>
+      <lightbulb id="L5" x="0" y="-1000" color="yellow"/>
+      <lightbulb id="L6" x="0" y="-1500" color="yellow"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Halt">
+        <light id="L4"/>
+      </aspect>
+      <aspect name="Freie Fahrt">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Geschwindigkeit 40 km/h">
+        <light id="L1"/>
+        <light id="L5"/>
+      </aspect>
+      <aspect name="Geschwindigkeit 60 km/h">
+        <light id="L1"/>
+        <light id="L2"/>
+      </aspect>
+      <aspect name="Geschwindigkeit 90 km/h">
+        <light id="L1"/>
+        <light id="L2"/>
+        <light id="L3"/>
+      </aspect>
+      <aspect name="Kurze Fahrt 20 km/h">
+        <light id="L5"/>
+        <light id="L6"/>
+      </aspect>
     </aspects>
   </signal>
   <signal country="ch" name="CH-L-Vorsignal-1" svg="CH-L-Vorsignal-1.svg">
@@ -57,6 +96,16 @@
         <light id="L1"/>
         <light id="L4"/>
       </aspect>
+      <aspect name="Geschwindigkeits-Ankündigung 60 km/h">
+        <light id="L1"/>
+        <light id="L3"/>
+        <light id="L2"/>
+      </aspect>
+      <aspect name="Geschwindigkeits-Ankündigung 90 km/h">
+        <light id="L1"/>
+        <light id="L3"/>
+        <light id="L4"/>
+      </aspect>
     </aspects>
   </signal>
   <signal country="ch" name="CH-N-Vorsignal-1" svg="CH-N-Vorsignal-1.svg">
@@ -70,6 +119,27 @@
       </aspect>
       <aspect name="Warnung">
         <light id="L2"/>
+      </aspect>
+    </aspects>
+  </signal>
+  <signal country="ch" name="CH-Zwergsignal-1" svg="CH-Zwergsignal-1.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="100" color="white"/>
+      <lightbulb id="L2" x="-100" y="0" color="white"/>
+      <lightbulb id="L3" x="100" y="0" color="white"/>
+      <lightbulb id="L4" x="0" y="-100" color="white"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Halt">
+        <light id="L2"/>
+        <light id="L3"/>
+      </aspect>
+      <aspect name="Fahrt">
+        <light id="L1"/>
+        <light id="L4"/>
+      </aspect>
+      <aspect name="Fahrt mit Vorsicht">
+        <light id="L1"/>
       </aspect>
     </aspects>
   </signal>
