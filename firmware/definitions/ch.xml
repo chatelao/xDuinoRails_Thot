@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
-  <signal country="ch" name="CH-N-Hauptsignal-1" svg="CH-N-Hauptsignal-1.svg">
+  <!-- System N Signals -->
+  <signal country="ch" name="CH-N-Hauptsignal-1" svg="CH-N-Hauptsignal-1.svg" outline="M -350,750 L 350,750 L 350,-750 L -350,-750 Z" outlineColor="#000000">
     <lightbulbs>
-      <lightbulb id="L1" x="0" y="500" color="green"/>
-      <lightbulb id="L2" x="-250" y="0" color="yellow"/>
-      <lightbulb id="L3" x="250" y="0" color="red"/>
-      <lightbulb id="L4" x="0" y="-500" color="white"/>
+      <lightbulb id="L1" x="0" y="500" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="-250" y="0" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L3" x="250" y="0" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L4" x="0" y="-500" color="white" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
       <aspect name="Halt">
@@ -19,57 +20,100 @@
       </aspect>
     </aspects>
   </signal>
-  <signal country="ch" name="CH-L-Hauptsignal-1" svg="CH-L-Hauptsignal-1.svg">
+  <signal country="ch" name="CH-N-Vorsignal-1" svg="CH-N-Vorsignal-1.svg" outline="M -350,750 L 350,750 L 350,-750 L -350,-750 Z" outlineColor="#000000">
     <lightbulbs>
-      <lightbulb id="L1" x="0" y="500" color="green"/>
-      <lightbulb id="L2" x="0" y="0" color="red"/>
-      <lightbulb id="L3" x="0" y="-500" color="yellow"/>
+      <lightbulb id="L1" x="0" y="500" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="-250" y="0" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Freie Fahrt">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Warnung">
+        <light id="L2"/>
+      </aspect>
+    </aspects>
+  </signal>
+
+  <!-- System L Signals -->
+  <signal country="ch" name="CH-L-Hauptsignal-3L" svg="CH-L-Hauptsignal-3L.svg" outline="M -200,750 L 200,750 L 200,-750 L -200,-750 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="500" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="0" y="0" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L3" x="0" y="-500" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
       <aspect name="Halt">
         <light id="L2"/>
       </aspect>
-      <aspect name="Freie Fahrt">
+      <aspect name="Freie Fahrt"> <!-- Fb 1 -->
         <light id="L1"/>
       </aspect>
-      <aspect name="Warnung">
+      <aspect name="Ausführung 40"> <!-- Fb 2 -->
+        <light id="L1"/>
+        <light id="L3"/>
+      </aspect>
+      <aspect name="Kurze Fahrt"> <!-- Fb 6 -->
+        <light id="L1"/>
+        <light id="L3"/>
+      </aspect>
+      <aspect name="Warnung"> <!-- Distant aspect -->
         <light id="L3"/>
       </aspect>
     </aspects>
   </signal>
-  <signal country="ch" name="CH-L-Vorsignal-1" svg="CH-L-Vorsignal-1.svg">
+
+  <signal country="ch" name="CH-L-Hauptsignal-4L" svg="CH-L-Hauptsignal-4L.svg" outline="M -200,850 L 200,850 L 200,-850 L -200,-850 Z" outlineColor="#000000">
     <lightbulbs>
-      <lightbulb id="L1" x="-250" y="250" color="green"/>
-      <lightbulb id="L2" x="250" y="250" color="yellow"/>
-      <lightbulb id="L3" x="-250" y="-250" color="green"/>
-      <lightbulb id="L4" x="250" y="-250" color="yellow"/>
+      <lightbulb id="L1" x="0" y="600" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="0" y="200" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L3" x="0" y="-200" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L4" x="0" y="-600" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Warnung">
+      <aspect name="Halt">
         <light id="L2"/>
-        <light id="L4"/>
       </aspect>
-      <aspect name="Freie Fahrt">
+      <aspect name="Freie Fahrt"> <!-- Fb 1 -->
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Ausführung 40"> <!-- Fb 2 -->
         <light id="L1"/>
         <light id="L3"/>
       </aspect>
-      <aspect name="Geschwindigkeits-Ankündigung 40 km/h">
+      <aspect name="Ausführung 60"> <!-- Fb 3 -->
         <light id="L1"/>
         <light id="L4"/>
       </aspect>
+      <aspect name="Kurze Fahrt"> <!-- Fb 6 -->
+        <light id="L1"/>
+        <light id="L3"/>
+      </aspect>
+      <aspect name="Warnung"> <!-- Distant aspect -->
+        <light id="L3"/>
+      </aspect>
     </aspects>
   </signal>
-  <signal country="ch" name="CH-N-Vorsignal-1" svg="CH-N-Vorsignal-1.svg">
+
+  <signal country="ch" name="CH-L-Vorsignal-Standard" svg="CH-L-Vorsignal-Standard.svg" outline="M -400,400 L 400,400 L 400,-400 L -400,-400 Z" outlineColor="#000000">
     <lightbulbs>
-      <lightbulb id="L1" x="0" y="500" color="green"/>
-      <lightbulb id="L2" x="-250" y="0" color="yellow"/>
+      <lightbulb id="L1" x="-250" y="250" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="250" y="250" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L3" x="-250" y="-250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L4" x="250" y="250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Freie Fahrt">
+      <aspect name="Warnung"> <!-- Warnung: Two Yellows Horizontal -->
         <light id="L1"/>
-      </aspect>
-      <aspect name="Warnung">
         <light id="L2"/>
+      </aspect>
+      <aspect name="Freie Fahrt"> <!-- Freie Fahrt: Two Greens Diagonal -->
+        <light id="L3"/>
+        <light id="L4"/>
+      </aspect>
+      <aspect name="Ankündigung 40"> <!-- Ankündigung 40: Yellow + Green -->
+        <light id="L1"/>
+        <light id="L4"/>
       </aspect>
     </aspects>
   </signal>

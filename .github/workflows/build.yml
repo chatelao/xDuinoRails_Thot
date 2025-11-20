@@ -48,3 +48,20 @@ jobs:
       with:
         name: firmware
         path: firmware/.pio/build/xiao_signal_decoder/firmware.uf2
+
+    - name: Generate Signal SVGs
+      run: python firmware/scripts/generate_svgs.py
+
+    - name: Archive Signal SVGs
+      uses: actions/upload-artifact@v4
+      with:
+        name: signal-svgs
+        path: firmware/definitions/signal_svgs.zip
+
+    - name: Release
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v2
+      with:
+        files: |
+          firmware/definitions/signal_svgs.zip
+          firmware/.pio/build/xiao_signal_decoder/firmware.uf2
