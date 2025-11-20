@@ -95,5 +95,13 @@ void loop() {
   delay(3000);
   signalManager.setAspect(xDuinoRails::IT_ASPECT_PROCEED_CAUTION);
   delay(3000);
+#elif defined(SIGNAL_TYPE_USA)
+  // Cycle through the signal aspects every 3 seconds
+  signalManager.setAspect(xDuinoRails::USA_ASPECT_STOP);
+  delay(3000);
+  signalManager.setAspect(xDuinoRails::USA_ASPECT_CLEAR);
+  delay(3000);
+  signalManager.setAspect(xDuinoRails::USA_ASPECT_APPROACH);
+  delay(3000);
 #endif
 }
