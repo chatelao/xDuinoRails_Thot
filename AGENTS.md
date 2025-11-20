@@ -3,6 +3,7 @@
 
 # Documentation
 - Keep ".md" documentation filenames uppercase snake
+- Update ".md" documentation in "/docs" after adjusting ".xml" files
 - Create and maintain on every change a README.md, add the usual summary
 - Create a LICENSE.md if missing with AGPL 3.0 (Affero GNU)
 - Create and maintain on every change a “CONTRIBUTE.md”
