@@ -8,8 +8,8 @@ The core logic of this library revolves around DCC Function Mapping, which defin
 
 This project adheres to the **RailCommunity (RCN) standards** for function mapping. The relevant specifications are located in the `/docs` directory:
 
--   **`RCN-225.en.md`**: Defines the standard Configuration Variables (CVs).
--   **`RCN-227.en.md`**: Defines the extended function mapping systems.
+-   **`RCN-225.EN.md`**: Defines the standard Configuration Variables (CVs).
+-   **`RCN-227.EN.md`**: Defines the extended function mapping systems.
 
 ### Key Configuration Variable: CV 96
 
