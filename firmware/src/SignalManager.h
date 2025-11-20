@@ -9,6 +9,8 @@
 
 #if defined(SIGNAL_TYPE_SWISS)
 #include "LightSources/SwissNSignal.h"
+#elif defined(SIGNAL_TYPE_SWISS_L)
+#include "LightSources/SwissLSignal.h"
 #elif defined(SIGNAL_TYPE_DUTCH)
 #include "LightSources/DutchSignal.h"
 #elif defined(SIGNAL_TYPE_FRENCH)
@@ -26,6 +28,8 @@
 #define NEOPIXEL_PIN 2
 #define NUM_PIXELS 1
 
+const int seven_segment_pins[7] = {10, 11, 12, 13, 14, 15, 16}; // A, B, C, D, E, F, G
+
 class SignalManager {
 public:
   /**
@@ -33,7 +37,9 @@ public:
    */
   void begin() {
 #if defined(SIGNAL_TYPE_SWISS)
-    signal = new xDuinoRails::SwissNSignal(NEOPIXEL_PIN, NUM_PIXELS);
+    signal = new xDuinoRails::SwissNSignal(NEOPIXEL_PIN, NUM_PIXELS, seven_segment_pins);
+#elif defined(SIGNAL_TYPE_SWISS_L)
+    signal = new xDuinoRails::SwissLSignal(NEOPIXEL_PIN, NUM_PIXELS);
 #elif defined(SIGNAL_TYPE_DUTCH)
     signal = new xDuinoRails::DutchSignal(NEOPIXEL_PIN, NUM_PIXELS);
 #elif defined(SIGNAL_TYPE_FRENCH)
@@ -54,6 +60,10 @@ public:
    */
 #if defined(SIGNAL_TYPE_SWISS)
   void setAspect(xDuinoRails::SwissNSignalAspect aspect) {
+    signal->setAspect(aspect);
+  }
+#elif defined(SIGNAL_TYPE_SWISS_L)
+    void setAspect(xDuinoRails::SwissLSignalAspect aspect) {
     signal->setAspect(aspect);
   }
 #elif defined(SIGNAL_TYPE_DUTCH)
@@ -88,6 +98,8 @@ public:
 private:
 #if defined(SIGNAL_TYPE_SWISS)
   xDuinoRails::SwissNSignal* signal;
+#elif defined(SIGNAL_TYPE_SWISS_L)
+  xDuinoRails::SwissLSignal* signal;
 #elif defined(SIGNAL_TYPE_DUTCH)
   xDuinoRails::DutchSignal* signal;
 #elif defined(SIGNAL_TYPE_FRENCH)
