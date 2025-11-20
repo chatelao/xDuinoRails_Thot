@@ -73,41 +73,4 @@
       </aspect>
     </aspects>
   </signal>
-  <signal country="ch" name="CH-L-Hauptsignal-2" svg="CH-L-Hauptsignal-2.svg">
-    <lightbulbs>
-      <lightbulb id="L1" x="0" y="500" color="green"/>
-      <lightbulb id="L2" x="0" y="250" color="yellow"/>
-      <lightbulb id="L3" x="0" y="0" color="red"/>
-    </lightbulbs>
-    <aspects>
-      <aspect name="Halt">
-        <light id="L3"/>
-      </aspect>
-      <aspect name="Freie Fahrt">
-        <light id="L1"/>
-      </aspect>
-      <aspect name="Geschwindigkeits-Ausführung 40 km/h">
-        <light id="L1"/>
-        <light id="L2"/>
-      </aspect>
-    </aspects>
-  </signal>
-  <signal country="ch" name="CH-N-Hauptsignal-mit-Ziffer" svg="CH-N-Hauptsignal-mit-Ziffer.svg">
-    <lightbulbs>
-      <lightbulb id="L1" x="0" y="500" color="green"/>
-      <lightbulb id="L2" x="0" y="0" color="red"/>
-    </lightbulbs>
-    <aspects>
-      <aspect name="Halt">
-        <light id="L2"/>
-      </aspect>
-      <aspect name="Freie Fahrt">
-        <light id="L1"/>
-      </aspect>
-      <aspect name="Geschwindigkeit 60 km/h">
-        <light id="L1"/>
-        <!-- This is a simplification. The real signal has a digital display. -->
-      </aspect>
-    </aspects>
-  </signal>
 </signalDefinitions>
