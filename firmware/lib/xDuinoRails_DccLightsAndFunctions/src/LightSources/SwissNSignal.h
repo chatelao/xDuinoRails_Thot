@@ -20,6 +20,9 @@ enum SwissNSignalAspect {
     N_ASPECT_OBSTRUCTION_AHEAD, ///< Obstruction close ahead
     N_ASPECT_TRACK_OCCUPIED,    ///< Track occupied
     N_ASPECT_PREWARNING,        ///< Prewarning
+    N_ASPECT_SPEED_ANNOUNCEMENT_40,
+    N_ASPECT_SPEED_ANNOUNCEMENT_60,
+    N_ASPECT_SPEED_ANNOUNCEMENT_90,
 };
 
 class SwissNSignal : public LightSource {
@@ -29,8 +32,9 @@ public:
      *
      * @param pin The pin the NeoPixel is connected to.
      * @param numPixels The number of pixels in the NeoPixel strip.
+     * @param seven_segment_pins An array of 7 pins for the 7-segment display.
      */
-    SwissNSignal(uint8_t pin, uint16_t numPixels);
+    SwissNSignal(uint8_t pin, uint16_t numPixels, const int* seven_segment_pins);
 
     /**
      * @brief Initializes the signal.
@@ -66,12 +70,14 @@ public:
     void setAspect(SwissNSignalAspect aspect);
 
 private:
+    void displayDigit(int digit);
     Adafruit_NeoPixel _strip;
     uint16_t _numPixels;
     SwissNSignalAspect _aspect;
     uint32_t _lastBlinkTime;
     bool _isBlinking;
     bool _blinkState;
+    const int* _seven_segment_pins;
 };
 
 }
