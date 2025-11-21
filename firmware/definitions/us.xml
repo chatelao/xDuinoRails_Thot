@@ -18,4 +18,22 @@
       </aspect>
     </aspects>
   </signal>
+  <signal country="us" name="US-Dwarf-Color-Light" svg="US-Dwarf-Color-Light.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="300" color="green"/>
+      <lightbulb id="L2" x="0" y="0" color="yellow"/>
+      <lightbulb id="L3" x="0" y="-300" color="red"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Stop">
+        <light id="L3"/>
+      </aspect>
+      <aspect name="Clear">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Approach">
+        <light id="L2"/>
+      </aspect>
+    </aspects>
+  </signal>
 </signalDefinitions>

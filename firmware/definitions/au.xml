@@ -41,4 +41,18 @@
       </aspect>
     </aspects>
   </signal>
+  <signal country="au" name="AU-NSW-Shunt-Color-Light" svg="AU-NSW-Shunt-Color-Light.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="200" color="yellow"/>
+      <lightbulb id="L2" x="0" y="0" color="red"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Stop">
+        <light id="L2"/>
+      </aspect>
+      <aspect name="Proceed">
+        <light id="L1"/>
+      </aspect>
+    </aspects>
+  </signal>
 </signalDefinitions>
