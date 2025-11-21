@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signal Viewer</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .controls {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .control-group {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        select {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-width: 200px;
+        }
+        #display {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        img {
+            max-width: 100%;
+            max-height: 600px;
+            height: auto;
+        }
+        p.placeholder {
+            color: #888;
+            font-style: italic;
+        }
+        .error {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Signal Viewer</h1>
+
+    <div class="controls">
+        <div class="control-group">
+            <label for="country">Country</label>
+            <select id="country">
+                <option value="">Select Country</option>
+                <option value="at">Austria (AT)</option>
+                <option value="au">Australia (AU)</option>
+                <option value="ch">Switzerland (CH)</option>
+                <option value="de">Germany (DE)</option>
+                <option value="fr">France (FR)</option>
+                <option value="it">Italy (IT)</option>
+                <option value="uk">United Kingdom (UK)</option>
+                <option value="us">United States (US)</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label for="signal">Signal</label>
+            <select id="signal" disabled>
+                <option value="">Select Signal</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="display">
+        <p class="placeholder">Select a country and a signal to view it.</p>
+    </div>
+
+    <script>
+        const countrySelect = document.getElementById('country');
+        const signalSelect = document.getElementById('signal');
+        const displayDiv = document.getElementById('display');
+
+        // Map signal names to SVG filenames
+        let currentSignals = {};
+
+        countrySelect.addEventListener('change', async () => {
+            const country = countrySelect.value;
+
+            // Reset signal selection
+            signalSelect.innerHTML = '<option value="">Select Signal</option>';
+            signalSelect.disabled = true;
+            displayDiv.innerHTML = '<p class="placeholder">Select a signal to view it.</p>';
+            currentSignals = {};
+
+            if (!country) {
+                displayDiv.innerHTML = '<p class="placeholder">Select a country and a signal to view it.</p>';
+                return;
+            }
+
+            try {
+                // Fetch the XML definition for the selected country
+                // Assuming the webtool is accessed from the root or similar depth so that ../firmware works
+                // If hosted on GitHub Pages root: /webtool/index.html -> ../firmware -> /firmware
+                const response = await fetch(`../firmware/definitions/${country}.xml`);
+
+                if (!response.ok) {
+                    throw new Error(`Failed to load definition for ${country} (Status: ${response.status})`);
+                }
+
+                const text = await response.text();
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(text, "text/xml");
+
+                // Check for parser errors
+                const parserError = xmlDoc.querySelector('parsererror');
+                if (parserError) {
+                    throw new Error('Error parsing XML');
+                }
+
+                const signals = xmlDoc.getElementsByTagName('signal');
+
+                if (signals.length === 0) {
+                    throw new Error('No signals found in definition');
+                }
+
+                // Populate signal dropdown
+                const signalOptions = [];
+                for (let i = 0; i < signals.length; i++) {
+                    const name = signals[i].getAttribute('name');
+                    const svg = signals[i].getAttribute('svg');
+
+                    if (name && svg) {
+                        currentSignals[name] = svg;
+                        signalOptions.push(name);
+                    }
+                }
+
+                // Sort alphabetically
+                signalOptions.sort();
+
+                signalOptions.forEach(name => {
+                    const option = document.createElement('option');
+                    option.value = name;
+                    option.textContent = name;
+                    signalSelect.appendChild(option);
+                });
+
+                signalSelect.disabled = false;
+
+            } catch (e) {
+                console.error(e);
+                displayDiv.innerHTML = `<p class="error">Error: ${e.message}.<br>Ensure you are viewing this via a web server that serves the entire repository.</p>`;
+            }
+        });
+
+        signalSelect.addEventListener('change', () => {
+            const signalName = signalSelect.value;
+            if (!signalName) {
+                displayDiv.innerHTML = '<p class="placeholder">Select a signal to view it.</p>';
+                return;
+            }
+
+            const svgFile = currentSignals[signalName];
+            const imgPath = `../firmware/definitions/generated_svgs/${svgFile}`;
+
+            displayDiv.innerHTML = `<img src="${imgPath}" alt="${signalName}" onerror="this.onerror=null; this.parentNode.innerHTML='<p class=\'error\'>Error loading SVG: ${svgFile}</p>'">`;
+        });
+    </script>
+</body>
+</html>
