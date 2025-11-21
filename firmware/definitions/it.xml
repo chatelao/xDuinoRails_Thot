@@ -19,4 +19,22 @@
       </aspect>
     </aspects>
   </signal>
+  <signal country="it" name="IT-Marmotta" svg="IT-Marmotta.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="-50" y="0" color="white"/> <!-- Left -->
+      <lightbulb id="L2" x="50" y="0" color="white"/>  <!-- Right -->
+      <lightbulb id="L3" x="0" y="50" color="white"/>  <!-- Top -->
+      <lightbulb id="L4" x="0" y="-50" color="white"/> <!-- Bottom -->
+    </lightbulbs>
+    <aspects>
+      <aspect name="Stop"> <!-- Via impedita -->
+        <light id="L1"/>
+        <light id="L2"/>
+      </aspect>
+      <aspect name="Proceed"> <!-- Via libera -->
+        <light id="L3"/>
+        <light id="L4"/>
+      </aspect>
+    </aspects>
+  </signal>
 </signalDefinitions>
