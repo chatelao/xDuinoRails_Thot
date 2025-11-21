@@ -1,0 +1,43 @@
+# Architecture
+
+## Overview
+xDuinoRails_Thot is a multi-protocol signal decoder firmware designed for model railroad signaling. It utilizes the Seeed Studio XIAO RP2040 microcontroller and supports various national signaling systems through a modular architecture.
+
+## Directory Structure
+- `firmware/`: Contains the PlatformIO project.
+  - `src/`: Main application logic (`main.cpp`, `SignalManager.h`).
+  - `lib/`: Shared libraries.
+    - `xDuinoRails_DccLightsAndFunctions/`: Core library for signal logic and DCC control.
+  - `definitions/`: XML files defining signal aspects and configurations.
+  - `scripts/`: Build and validation scripts.
+
+## Build System
+The project uses **PlatformIO** for dependency management and building.
+- **Environments**: Defined in `platformio.ini`, corresponding to different signal types (e.g., `env:xiao_signal_decoder_ch_n`).
+- **Build Flags**: `SIGNAL_TYPE_*` macros select the active signaling system at compile time.
+- **Validation**: `validate_xml.py` runs as a pre-build step to verify signal definition XMLs against the XSD schema (`signals.xsd`).
+
+## Code Architecture
+
+### Firmware Application
+The main application (`firmware/src/main.cpp`) initializes and drives the signal logic.
+- **SignalManager**: A facade that manages the instantiation and control of specific signal types based on build flags.
+- **Signal Implementation**: Signal types are instantiated conditionally (e.g., `SwissNSignal`, `AustralianNSignal`) and controlled via aspect setting methods.
+
+### Library: xDuinoRails_DccLightsAndFunctions
+This library contains the core logic for the decoder and is designed to handle DCC decoding and signal logic.
+- **LightSources**: Abstract base class `LightSource` with implementations for specific hardware (e.g., `Neopixel`, `SingleLed`) and national signal rules.
+- **AuxController**: Manages DCC function mapping, effects, and physical outputs (compliant with RCN-225/227 standards).
+  *Note: While `AuxController` provides full DCC decoding capabilities, the current `main.cpp` application primarily utilizes the `LightSources` component for signal driving.*
+
+## Data-Driven Design
+Signal aspects and configurations are defined in XML files located in `firmware/definitions/`.
+- **XML Definitions**: Each country/signal type has an XML file (e.g., `au.xml`, `ch.xml`) defining valid aspects and light patterns.
+- **Validation**: These files are validated against `signals.xsd` to ensure data integrity during the build process.
+- **Visualizations**: SVG images of signal aspects are generated from these definitions.
+
+## Hardware Abstraction
+The firmware targets the **RP2040** (Seeed XIAO) but uses an abstraction layer (`LightSource`) to support various LED configurations, including:
+- **Neopixel**: Addressable LEDs.
+- **Discrete LEDs**: Single or Charlieplexed LEDs.
+- **7-Segment Displays**: For speed indication (supported by classes like `SwissNSignal`).
