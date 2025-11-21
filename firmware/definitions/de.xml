@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
-  <signal country="de" name="DE-HV-Hauptsignal-1" svg="DE-HV-Hauptsignal-1.svg">
+  <!-- H/V System -->
+  <signal country="de" name="DE-HV-Hauptsignal-1" svg="DE-HV-Hauptsignal-1.svg" outline="M -350,750 L 350,750 L 350,-750 L -350,-750 Z" outlineColor="#000000">
     <lightbulbs>
-      <lightbulb id="L1" x="0" y="500" color="green"/>
-      <lightbulb id="L2" x="0" y="0" color="red"/>
-      <lightbulb id="L3" x="0" y="-500" color="yellow"/>
+      <lightbulb id="L1" x="0" y="500" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="0" y="0" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L3" x="0" y="-500" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
       <aspect name="Hp 0">
@@ -19,12 +20,13 @@
       </aspect>
     </aspects>
   </signal>
-  <signal country="de" name="DE-HV-Zwergsignal-1" svg="DE-HV-Zwergsignal-1.svg">
+
+  <signal country="de" name="DE-HV-Zwergsignal-1" svg="DE-HV-Zwergsignal-1.svg" outline="M -200,200 L 200,200 L 200,-200 L -200,-200 Z" outlineColor="#000000">
     <lightbulbs>
-      <lightbulb id="L1" x="-100" y="100" color="white"/>
-      <lightbulb id="L2" x="100" y="100" color="red"/>
-      <lightbulb id="L3" x="-100" y="-100" color="red"/>
-      <lightbulb id="L4" x="100" y="-100" color="white"/>
+      <lightbulb id="L1" x="-100" y="100" color="white" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="100" y="100" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L3" x="-100" y="-100" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L4" x="100" y="-100" color="white" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
       <aspect name="Sh 0">
@@ -37,12 +39,13 @@
       </aspect>
     </aspects>
   </signal>
-  <signal country="de" name="DE-HV-Vorsignal-1" svg="DE-HV-Vorsignal-1.svg">
+
+  <signal country="de" name="DE-HV-Vorsignal-1" svg="DE-HV-Vorsignal-1.svg" outline="M -400,400 L 400,400 L 400,-400 L -400,-400 Z" outlineColor="#000000">
     <lightbulbs>
-      <lightbulb id="L1" x="-250" y="250" color="green"/>
-      <lightbulb id="L2" x="250" y="250" color="yellow"/>
-      <lightbulb id="L3" x="-250" y="-250" color="green"/>
-      <lightbulb id="L4" x="250" y="-250" color="yellow"/>
+      <lightbulb id="L1" x="-250" y="250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="250" y="250" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L3" x="-250" y="-250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L4" x="250" y="-250" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
       <aspect name="Vr 0">
@@ -54,6 +57,55 @@
         <light id="L3"/>
       </aspect>
       <aspect name="Vr 2">
+        <light id="L1"/>
+        <light id="L4"/>
+      </aspect>
+    </aspects>
+  </signal>
+
+  <!-- Ks System -->
+  <signal country="de" name="DE-KS-Signal" svg="DE-KS-Signal.svg" outline="M -350,750 L 350,750 L 350,-750 L -350,-750 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="500" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="0" y="0" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L3" x="0" y="-500" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L4" x="-150" y="-300" color="white" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Hp 0">
+        <light id="L2"/>
+      </aspect>
+      <aspect name="Ks 1">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Ks 2">
+        <light id="L3"/>
+      </aspect>
+       <aspect name="Sh 1">
+        <light id="L4"/>
+      </aspect>
+    </aspects>
+  </signal>
+
+  <!-- Hl System (Simplified) -->
+  <signal country="de" name="DE-HL-Signal" svg="DE-HL-Signal.svg" outline="M -350,1000 L 350,1000 L 350,-1000 L -350,-1000 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="750" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="0" y="250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L3" x="0" y="-250" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L4" x="0" y="-750" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Hl 13"> <!-- Stop -->
+        <light id="L3"/>
+      </aspect>
+      <aspect name="Hl 1"> <!-- Clear -->
+        <light id="L2"/>
+      </aspect>
+      <aspect name="Hl 10"> <!-- Expect Stop -->
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Hl 12a"> <!-- 40 + Expect Stop -->
         <light id="L1"/>
         <light id="L4"/>
       </aspect>
