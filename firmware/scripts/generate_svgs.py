@@ -3,6 +3,7 @@ import glob
 import re
 import zipfile
 import xml.etree.ElementTree as ET
+import cairosvg
 
 def generate_svg(xml_file, output_dir):
     try:
@@ -91,8 +92,17 @@ def generate_svg(xml_file, output_dir):
             svg_lines.append('  </g>')
             svg_lines.append('</svg>')
 
-            with open(os.path.join(output_dir, filename), 'w') as f:
+            svg_path = os.path.join(output_dir, filename)
+            with open(svg_path, 'w') as f:
                 f.write('\n'.join(svg_lines))
+
+            # Generate PNG
+            png_filename = filename.replace('.svg', '.png')
+            png_path = os.path.join(output_dir, png_filename)
+            try:
+                cairosvg.svg2png(url=svg_path, write_to=png_path)
+            except Exception as e:
+                print(f"Error generating PNG for {filename}: {e}")
 
     except Exception as e:
         print(f"Error processing {xml_file}: {e}")
