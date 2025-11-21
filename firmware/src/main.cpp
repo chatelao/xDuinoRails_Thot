@@ -103,5 +103,25 @@ void loop() {
   delay(3000);
   signalManager.setAspect(xDuinoRails::USA_ASPECT_APPROACH);
   delay(3000);
+#elif defined(SIGNAL_TYPE_GERMAN)
+  // Cycle through German signal aspects
+  signalManager.setAspect(xDuinoRails::DE_ASPECT_HP0);
+  delay(3000);
+  signalManager.setAspect(xDuinoRails::DE_ASPECT_HP1);
+  delay(3000);
+  signalManager.setAspect(xDuinoRails::DE_ASPECT_HP2);
+  delay(3000);
+  signalManager.setAspect(xDuinoRails::DE_ASPECT_VR0);
+  delay(3000);
+  signalManager.setAspect(xDuinoRails::DE_ASPECT_VR1);
+  delay(3000);
+  signalManager.setAspect(xDuinoRails::DE_ASPECT_KS1);
+  delay(3000);
+  signalManager.setAspect(xDuinoRails::DE_ASPECT_KS2);
+  delay(3000);
+  signalManager.setAspect(xDuinoRails::DE_ASPECT_HL1);
+  delay(3000);
+  signalManager.setAspect(xDuinoRails::DE_ASPECT_HL13);
+  delay(3000);
 #endif
 }
