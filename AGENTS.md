@@ -33,4 +33,8 @@ Add a comment to each testcase
 - The central specification for this project is RCN-213. When working on signal logic, always refer to `docs/RCN-213.MD`.
 - After completing a phase from the roadmap, update `docs/IMPLEMENTATION_STATUS.MD` to reflect the progress.
 - After completing a task from `docs/SIGNAL_ROADMAP.MD`, update the roadmap to mark the task as complete.
+
+# Signal Definitions
+- Add outlines if available to each signal in the XML definition.
+- Generate the SVG and PNG files from the XML definitions before each commit using `firmware/scripts/generate_svgs.py`.
 - If merge conflicts occur in `firmware/definitions/signal_svgs.zip` or generated SVGs/PNGs, resolve them by regenerating the files using `firmware/scripts/generate_svgs.py`.
