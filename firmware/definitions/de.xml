@@ -23,42 +23,49 @@
 
   <signal country="de" name="DE-HV-Zwergsignal-1" svg="DE-HV-Zwergsignal-1.svg" outline="M -200,200 L 200,200 L 200,-200 L -200,-200 Z" outlineColor="#000000">
     <lightbulbs>
-      <lightbulb id="L1" x="-100" y="100" color="white" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L2" x="100" y="100" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L3" x="-100" y="-100" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L4" x="100" y="-100" color="white" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L1_RED" x="-100" y="0" color="red" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <lightbulb id="L2_RED" x="100" y="0" color="red" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <lightbulb id="L3_WHITE" x="-100" y="-100" color="white" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <lightbulb id="L4_WHITE" x="100" y="100" color="white" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
     </lightbulbs>
     <aspects>
       <aspect name="Sh 0">
-        <light id="L2"/>
-        <light id="L3"/>
+        <light id="L1_RED"/>
+        <light id="L2_RED"/>
       </aspect>
       <aspect name="Sh 1">
-        <light id="L1"/>
-        <light id="L4"/>
+        <light id="L3_WHITE"/>
+        <light id="L4_WHITE"/>
       </aspect>
     </aspects>
   </signal>
 
   <signal country="de" name="DE-HV-Vorsignal-1" svg="DE-HV-Vorsignal-1.svg" outline="M -400,400 L 400,400 L 400,-400 L -400,-400 Z" outlineColor="#000000">
     <lightbulbs>
-      <lightbulb id="L1" x="-250" y="250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L2" x="250" y="250" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L3" x="-250" y="-250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L4" x="250" y="-250" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <!-- Top Right Position: Can show Yellow or Green -->
+      <lightbulb id="L_TR_Y" x="250" y="250" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L_TR_G" x="250" y="250" color="green" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+
+      <!-- Bottom Left Position: Can show Yellow or Green -->
+      <lightbulb id="L_BL_Y" x="-250" y="-250" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L_BL_G" x="-250" y="-250" color="green" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
     </lightbulbs>
     <aspects>
       <aspect name="Vr 0">
-        <light id="L2"/>
-        <light id="L4"/>
+        <!-- Two Yellows rising diagonal (/) -->
+        <light id="L_BL_Y"/>
+        <light id="L_TR_Y"/>
       </aspect>
       <aspect name="Vr 1">
-        <light id="L1"/>
-        <light id="L3"/>
+        <!-- Two Greens rising diagonal (/) -->
+        <light id="L_BL_G"/>
+        <light id="L_TR_G"/>
       </aspect>
       <aspect name="Vr 2">
-        <light id="L1"/>
-        <light id="L4"/>
+        <!-- Green/Yellow rising diagonal (/) -->
+        <!-- Usually Yellow (Bottom Left) + Green (Top Right) -->
+        <light id="L_BL_Y"/>
+        <light id="L_TR_G"/>
       </aspect>
     </aspects>
   </signal>
