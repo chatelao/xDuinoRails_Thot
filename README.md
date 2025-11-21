@@ -11,6 +11,10 @@ Welcome to the repository for xDuinoRails_Thot, a revolutionary, multi-protocol 
 *   **Modular Design:** The hardware and firmware are designed to be modular, allowing for easy adaptation to different types of signals and custom installations.
 *   **Modern Hardware:** Built upon the powerful and cost-effective Seeed Studio XIAO RP2040 microcontroller.
 
+## Signal Viewer
+
+Explore the supported signals and their aspects using our online [Signal Viewer](https://chatelao.github.io/xDuinoRails_Thot/webtool/).
+
 ## Repository Structure
 
 *   `docs/`: Contains all project documentation, including signal system concepts, CV tables, and wiring diagrams.
