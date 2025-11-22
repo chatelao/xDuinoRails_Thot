@@ -31,9 +31,10 @@
         <light id="L1"/>
       </aspect>
       <aspect name="Caution">
-        <light id="L2"/>
+        <light id="L3"/>
       </aspect>
       <aspect name="Medium">
+        <light id="L1"/>
         <light id="L3"/>
       </aspect>
       <aspect name="Stop">
