@@ -95,15 +95,16 @@
     </aspects>
   </signal>
 
-  <signal country="ch" name="CH-L-Vorsignal-Standard" svg="CH-L-Vorsignal-Standard.svg" outline="M -400,400 L 400,400 L 400,-400 L -400,-400 Z" outlineColor="#000000">
+  <signal country="ch" name="CH-L-Vorsignal-Standard" svg="CH-L-Vorsignal-Standard.svg" outline="M -350,400 L 350,400 A 50,50 0 0 0 400,350 L 400,-350 A 50,50 0 0 0 350,-400 L -350,-400 A 50,50 0 0 0 -400,-350 L -400,350 A 50,50 0 0 0 -350,400 Z" outlineColor="#000000">
     <lightbulbs>
-      <lightbulb id="L1" x="-250" y="250" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L2" x="250" y="250" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L1" x="-250" y="250" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="250" y="250" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
       <lightbulb id="L3" x="-250" y="-250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
       <lightbulb id="L4" x="250" y="250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L5" x="250" y="-250" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Warnung"> <!-- Warnung: Two Yellows Horizontal -->
+      <aspect name="Warnung"> <!-- Warnung: Two Oranges Horizontal -->
         <light id="L1"/>
         <light id="L2"/>
       </aspect>
@@ -111,7 +112,7 @@
         <light id="L3"/>
         <light id="L4"/>
       </aspect>
-      <aspect name="Ankündigung 40"> <!-- Ankündigung 40: Yellow + Green -->
+      <aspect name="Ankündigung 40"> <!-- Ankündigung 40: Orange + Green -->
         <light id="L1"/>
         <light id="L4"/>
       </aspect>
