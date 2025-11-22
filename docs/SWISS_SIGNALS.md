@@ -46,6 +46,7 @@ The signal definitions in `firmware/definitions/ch.xml` have been updated to sup
 - **`CH-L-Vorsignal-Standard`**: 4-lamp System L distant signal. Supports Warnung (YY), Freie Fahrt (GG), Ankündigung 40 (YG).
 - **`CH-N-Hauptsignal-1`**: System N main signal.
 - **`CH-N-Vorsignal-1`**: System N distant signal.
+- **`CH-Zwergsignal`**: Standard dwarf signal. Supports Halt (Horizontal), Fahrt (Diagonal /), and Fahrt mit Vorsicht (Diagonal \).
 
 ## Usage
 The signals are defined with accurate relative positions. The `d` attribute on lightbulbs ensures they can be rendered correctly in SVG visualizations with a diameter of 200mm (r=100).
