@@ -57,9 +57,6 @@
         <light id="L1"/>
         <light id="L3"/>
       </aspect>
-      <aspect name="Warnung"> <!-- Distant aspect -->
-        <light id="L3"/>
-      </aspect>
     </aspects>
   </signal>
 
@@ -87,9 +84,6 @@
       </aspect>
       <aspect name="Kurze Fahrt"> <!-- Fb 6 -->
         <light id="L1"/>
-        <light id="L3"/>
-      </aspect>
-      <aspect name="Warnung"> <!-- Distant aspect -->
         <light id="L3"/>
       </aspect>
     </aspects>
