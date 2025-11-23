@@ -67,6 +67,43 @@
             color: #d32f2f;
             font-weight: bold;
         }
+        /* Aspect Table Styles */
+        #aspect-table-container {
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+        table.aspect-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        table.aspect-table th, table.aspect-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        table.aspect-table th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            color: #333;
+        }
+        table.aspect-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        table.aspect-table tr.selected {
+            background-color: #fff3cd; /* Light yellow highlight */
+            border-left: 4px solid #ffc107;
+        }
+        .light-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            margin: 2px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            background-color: #eee;
+            border: 1px solid #ccc;
+        }
     </style>
 </head>
 <body>
@@ -107,11 +144,14 @@
         <p class="placeholder">Select a country and a signal to view it.</p>
     </div>
 
+    <div id="aspect-table-container"></div>
+
     <script>
         const countrySelect = document.getElementById('country');
         const signalSelect = document.getElementById('signal');
         const aspectSelect = document.getElementById('aspect');
         const displayDiv = document.getElementById('display');
+        const aspectTableContainer = document.getElementById('aspect-table-container');
 
         // Map signal names to signal data objects
         let currentSignals = {};
@@ -198,6 +238,7 @@
             aspectSelect.innerHTML = '<option value="">Select Aspect</option>';
             aspectSelect.disabled = true;
             displayDiv.innerHTML = '<p class="placeholder">Select a signal to view it.</p>';
+            aspectTableContainer.innerHTML = '';
             currentSignals = {};
             currentXmlDoc = null;
             loadedCountry = null;
@@ -295,6 +336,7 @@
             }
 
             renderSignalSVG(signalNode);
+            renderAspectTable(signalNode);
         }
 
         function onAspectChange(aspectName) {
@@ -303,6 +345,7 @@
 
             const signalNode = currentSignals[signalName];
             updateSignalAspect(signalNode, aspectName);
+            updateAspectTableSelection(aspectName);
         }
 
         // --- Event Listeners ---
@@ -463,6 +506,96 @@
                     }
                 }
             }
+        }
+
+        function renderAspectTable(signalNode) {
+            aspectTableContainer.innerHTML = '';
+
+            const table = document.createElement('table');
+            table.className = 'aspect-table';
+
+            // Header
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            ['Aspect Name', 'Active Lights'].forEach(text => {
+                const th = document.createElement('th');
+                th.textContent = text;
+                headerRow.appendChild(th);
+            });
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            // Body
+            const tbody = document.createElement('tbody');
+
+            // Map light IDs to colors/info
+            const lightInfo = {};
+            const lightbulbs = signalNode.getElementsByTagName('lightbulb');
+            for(let i=0; i<lightbulbs.length; i++) {
+                const id = lightbulbs[i].getAttribute('id');
+                const color = lightbulbs[i].getAttribute('color');
+                lightInfo[id] = color;
+            }
+
+            const aspects = signalNode.getElementsByTagName('aspect');
+            for (let i = 0; i < aspects.length; i++) {
+                const aspect = aspects[i];
+                const name = aspect.getAttribute('name');
+                const tr = document.createElement('tr');
+                tr.dataset.aspectName = name;
+
+                // Name Cell
+                const nameTd = document.createElement('td');
+                nameTd.textContent = name;
+                tr.appendChild(nameTd);
+
+                // Lights Cell
+                const lightsTd = document.createElement('td');
+                const lights = aspect.getElementsByTagName('light');
+                const activeLights = [];
+
+                for(let j=0; j<lights.length; j++) {
+                    const lid = lights[j].getAttribute('id');
+                    const blink = lights[j].getAttribute('blink') === 'true';
+                    let info = lid;
+                    if (lightInfo[lid]) {
+                        info += ` (${lightInfo[lid]})`;
+                    }
+                    if (blink) {
+                        info += ' [Blink]';
+                    }
+                    activeLights.push(info);
+                }
+
+                // Create badges for lights
+                if (activeLights.length > 0) {
+                    activeLights.forEach(info => {
+                        const span = document.createElement('span');
+                        span.className = 'light-badge';
+                        span.textContent = info;
+                        lightsTd.appendChild(span);
+                    });
+                } else {
+                    lightsTd.textContent = '-'; // Dark or no lights
+                }
+
+                tr.appendChild(lightsTd);
+                tbody.appendChild(tr);
+            }
+
+            table.appendChild(tbody);
+            aspectTableContainer.appendChild(table);
+        }
+
+        function updateAspectTableSelection(aspectName) {
+            const rows = aspectTableContainer.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                if (row.dataset.aspectName === aspectName) {
+                    row.classList.add('selected');
+                } else {
+                    row.classList.remove('selected');
+                }
+            });
         }
     </script>
 </body>
