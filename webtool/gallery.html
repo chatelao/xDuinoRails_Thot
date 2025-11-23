@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xDuinoRails - Signal Gallery</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffe6e6;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .nav-bar {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .button-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .button-link:hover {
+            background-color: #0056b3;
+        }
+
+        .country-section {
+            background: #eeeeee;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .country-title {
+            margin-top: 0;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #444;
+            text-transform: uppercase;
+        }
+
+        .signal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .signal-card {
+            background: white;
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+        }
+        .signal-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+        }
+
+        .signal-preview {
+            height: 150px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .signal-preview svg {
+            max-height: 100%;
+            max-width: 100%;
+            height: auto;
+            width: auto;
+        }
+
+        .signal-name {
+            font-weight: bold;
+            font-size: 0.9em;
+            word-wrap: break-word;
+            max-width: 100%;
+        }
+
+        .loading {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            padding: 20px;
+        }
+        .error {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>xDuinoRails - Signal Gallery</h1>
+
+    <div class="nav-bar">
+        <a href="index.html" class="button-link">Back to Viewer</a>
+    </div>
+
+    <div id="gallery-container">
+        <div class="loading">Loading signals...</div>
+    </div>
+
+    <script>
+        const galleryContainer = document.getElementById('gallery-container');
+        const countries = [
+            { code: 'at', name: 'Austria (AT)' },
+            { code: 'au', name: 'Australia (AU)' },
+            { code: 'ch', name: 'Switzerland (CH)' },
+            { code: 'de', name: 'Germany (DE)' },
+            { code: 'fr', name: 'France (FR)' },
+            { code: 'it', name: 'Italy (IT)' },
+            { code: 'pl', name: 'Poland (PL)' },
+            { code: 'uk', name: 'United Kingdom (UK)' },
+            { code: 'us', name: 'United States (US)' }
+        ];
+
+        async function initGallery() {
+            galleryContainer.innerHTML = '';
+
+            for (const country of countries) {
+                const section = document.createElement('div');
+                section.className = 'country-section';
+
+                const title = document.createElement('h2');
+                title.className = 'country-title';
+                title.textContent = country.name;
+                section.appendChild(title);
+
+                const grid = document.createElement('div');
+                grid.className = 'signal-grid';
+                grid.id = `grid-${country.code}`;
+                section.appendChild(grid);
+
+                galleryContainer.appendChild(section);
+
+                // Fetch and render concurrently-ish (per country)
+                try {
+                    await loadCountrySignals(country.code, grid);
+                } catch (e) {
+                    console.error(`Error loading ${country.code}:`, e);
+                    grid.innerHTML = `<div class="error">Failed to load definitions for ${country.name}</div>`;
+                }
+            }
+        }
+
+        async function loadCountrySignals(countryCode, gridElement) {
+            const response = await fetch(`../firmware/definitions/${countryCode}.xml`);
+            if (!response.ok) throw new Error(`Status ${response.status}`);
+
+            const text = await response.text();
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(text, "text/xml");
+
+            if (xmlDoc.querySelector('parsererror')) {
+                throw new Error('XML parsing error');
+            }
+
+            const signals = Array.from(xmlDoc.getElementsByTagName('signal'));
+
+            // Sort by name
+            signals.sort((a, b) => {
+                const nameA = a.getAttribute('name') || '';
+                const nameB = b.getAttribute('name') || '';
+                return nameA.localeCompare(nameB);
+            });
+
+            if (signals.length === 0) {
+                gridElement.innerHTML = '<div style="grid-column: 1/-1; text-align: center; font-style: italic;">No signals found.</div>';
+                return;
+            }
+
+            for (const signalNode of signals) {
+                const name = signalNode.getAttribute('name');
+                if (!name) continue;
+
+                const card = document.createElement('a');
+                card.className = 'signal-card';
+                card.href = `index.html#country=${countryCode}&signal=${encodeURIComponent(name)}`;
+
+                const preview = document.createElement('div');
+                preview.className = 'signal-preview';
+
+                const svg = generateSignalSVG(signalNode);
+                preview.appendChild(svg);
+
+                const nameDiv = document.createElement('div');
+                nameDiv.className = 'signal-name';
+                nameDiv.textContent = name;
+
+                card.appendChild(preview);
+                card.appendChild(nameDiv);
+
+                gridElement.appendChild(card);
+            }
+        }
+
+        // Adapted from index.html renderSignalSVG
+        function generateSignalSVG(signalNode) {
+            const outline = signalNode.getAttribute('outline');
+            const outlineColor = signalNode.getAttribute('outlineColor') || '#000000';
+            const borderColor = signalNode.getAttribute('borderColor') || 'none';
+            const borderWidth = signalNode.getAttribute('borderWidth') || '0';
+            const lightbulbs = signalNode.getElementsByTagName('lightbulb');
+
+            // Calculate ViewBox
+            let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+
+            // 1. Parse all coordinates from outline
+            if (outline) {
+                const coords = outline.match(/-?\d+(\.\d+)?/g);
+                if (coords) {
+                    const nums = coords.map(Number);
+                    for (let i = 0; i < nums.length; i += 2) {
+                        const x = nums[i];
+                        const y = nums[i+1];
+                        if (x < minX) minX = x;
+                        if (x > maxX) maxX = x;
+                        if (y < minY) minY = y;
+                        if (y > maxY) maxY = y;
+                    }
+                }
+            }
+
+            // 2. Account for lightbulbs
+            const defaultRadius = 100;
+            for (let i = 0; i < lightbulbs.length; i++) {
+                const x = parseFloat(lightbulbs[i].getAttribute('x') || 0);
+                const y = parseFloat(lightbulbs[i].getAttribute('y') || 0);
+
+                if (x - defaultRadius < minX) minX = x - defaultRadius;
+                if (x + defaultRadius > maxX) maxX = x + defaultRadius;
+                if (y - defaultRadius < minY) minY = y - defaultRadius;
+                if (y + defaultRadius > maxY) maxY = y + defaultRadius;
+            }
+
+            // Fallback
+            if (minX === Infinity) {
+                minX = -100; maxX = 100; minY = -100; maxY = 100;
+            }
+
+            // Pad
+            const padding = 50;
+
+            const vbMinX = minX - padding;
+            const vbWidth = (maxX - minX) + (2 * padding);
+
+            // Vertical flip logic
+            const vbMinY = (-maxY) - padding;
+            const vbHeight = (maxY - minY) + (2 * padding);
+
+            const svgNS = "http://www.w3.org/2000/svg";
+            const svg = document.createElementNS(svgNS, "svg");
+            svg.setAttribute("viewBox", `${vbMinX} ${vbMinY} ${vbWidth} ${vbHeight}`);
+
+            const group = document.createElementNS(svgNS, "g");
+            group.setAttribute("transform", "scale(1, -1)");
+            svg.appendChild(group);
+
+            // Draw outline
+            if (outline) {
+                const path = document.createElementNS(svgNS, "path");
+                path.setAttribute("d", outline);
+                path.setAttribute("fill", outlineColor);
+                path.setAttribute("stroke", borderColor);
+                path.setAttribute("stroke-width", borderWidth);
+                group.appendChild(path);
+            }
+
+            // Draw lightbulbs (all ON for gallery)
+            for (let i = 0; i < lightbulbs.length; i++) {
+                const bulb = lightbulbs[i];
+                const x = bulb.getAttribute('x') || 0;
+                const y = bulb.getAttribute('y') || 0;
+                const d = bulb.getAttribute('d');
+                const color = bulb.getAttribute('color');
+
+                const pathData = d || `m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0`;
+
+                const bulbPath = document.createElementNS(svgNS, "path");
+                bulbPath.setAttribute("d", pathData);
+                bulbPath.setAttribute("transform", `translate(${x}, ${y})`);
+                bulbPath.setAttribute("fill", color);
+
+                group.appendChild(bulbPath);
+            }
+
+            return svg;
+        }
+
+        window.addEventListener('DOMContentLoaded', initGallery);
+    </script>
+</body>
+</html>
