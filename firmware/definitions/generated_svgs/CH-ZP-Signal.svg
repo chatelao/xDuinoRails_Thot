@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-250.0 -650.0 500.0 1100.0">
+  <g transform="scale(1, -1)">
+    <path d="M -200,600 L 200,600 L 200,-400 L -200,-400 Z" fill="#000000" stroke="none" stroke-width="0" />
+    <path d="M -25,-150 L 25,-150 L 25,150 L -25,150 Z" transform="translate(0.0, 350.0)" fill="orange" />
+    <path d="m -50, 0 a 50,50 0 1,0 100,0 a 50,50 0 1,0 -100,0" transform="translate(0.0, -250.0)" fill="white" />
+    <path d="m -50, 0 a 50,50 0 1,0 100,0 a 50,50 0 1,0 -100,0" transform="translate(100.0, -100.0)" fill="white" />
+    <path d="m -50, 0 a 50,50 0 1,0 100,0 a 50,50 0 1,0 -100,0" transform="translate(-100.0, -100.0)" fill="white" />
+  </g>
+</svg>

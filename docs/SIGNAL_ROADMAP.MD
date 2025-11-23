@@ -42,6 +42,7 @@ This document outlines the steps to implement various German and Swiss signal ty
 - [ ] Implement basic signal aspects (Fahrt, Halt, Warnung)
 - [ ] Implement advanced signal aspects (e.g., with speed announcements)
 - [ ] Implement auxiliary signals
+- [x] Implement Zp/SMS signals (Abfahren, Bremsprobe)
 - [ ] Test against relevant specifications
 
 ### Phase 6: System N (mechanische Signale)

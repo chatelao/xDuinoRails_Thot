@@ -19,6 +19,12 @@ enum SwissLSignalAspect {
     L_ASPECT_SPEED_90,
     L_ASPECT_SHORT_PROCEED,
     L_ASPECT_PROCEED_CAUTION,
+
+    // Zp System (Zugpersonalsignale)
+    L_ASPECT_ZP_ABFAHREN, // Abfahrbefehl (SMS)
+    L_ASPECT_ZP_APPLY,    // Bremse anlegen
+    L_ASPECT_ZP_RELEASE,  // Bremse lösen
+    L_ASPECT_ZP_OK        // Bremse gut
 };
 
 class SwissLSignal : public LightSource {
