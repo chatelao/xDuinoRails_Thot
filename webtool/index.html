@@ -237,7 +237,11 @@
 
         <div class="control-group">
             <label for="aspect">Aspect</label>
-            <select id="aspect" disabled>
+            <div id="custom-aspect-select" class="custom-select disabled">
+                <div class="select-selected">Select Aspect</div>
+                <div class="select-items select-hide"></div>
+            </div>
+            <select id="aspect" style="display: none;">
                 <option value="">Select Aspect</option>
             </select>
         </div>
@@ -256,10 +260,15 @@
         const displayDiv = document.getElementById('display');
         const aspectTableContainer = document.getElementById('aspect-table-container');
 
-        // Custom Select Elements
-        const customSelectContainer = document.getElementById('custom-signal-select');
-        const customSelectSelected = customSelectContainer.querySelector('.select-selected');
-        const customSelectItems = customSelectContainer.querySelector('.select-items');
+        // Custom Select Elements (Signal)
+        const customSignalSelectContainer = document.getElementById('custom-signal-select');
+        const customSignalSelectSelected = customSignalSelectContainer.querySelector('.select-selected');
+        const customSignalSelectItems = customSignalSelectContainer.querySelector('.select-items');
+
+        // Custom Select Elements (Aspect)
+        const customAspectSelectContainer = document.getElementById('custom-aspect-select');
+        const customAspectSelectSelected = customAspectSelectContainer.querySelector('.select-selected');
+        const customAspectSelectItems = customAspectSelectContainer.querySelector('.select-items');
 
         // Map signal names to signal data objects
         let currentSignals = {};
@@ -316,14 +325,12 @@
                              if (aspectSelect.value !== aspect) {
                                  // Check if aspect is valid
                                  if (Array.from(aspectSelect.options).some(opt => opt.value === aspect)) {
-                                     aspectSelect.value = aspect;
-                                     onAspectChange(aspect);
+                                     updateAspectSelection(aspect);
                                  }
                              }
                         } else {
                             if (aspectSelect.value) {
-                                aspectSelect.value = "";
-                                onAspectChange("");
+                                updateAspectSelection("");
                             }
                         }
                     } else {
@@ -337,10 +344,10 @@
 
         function updateSignalSelection(signalName) {
             signalSelect.value = signalName;
-            customSelectSelected.textContent = signalName || "Select Signal";
+            customSignalSelectSelected.textContent = signalName || "Select Signal";
 
             // Update selected class in custom items
-            const items = customSelectItems.querySelectorAll('.select-item');
+            const items = customSignalSelectItems.querySelectorAll('.select-item');
             items.forEach(item => {
                 if (item.dataset.value === signalName) {
                     item.classList.add('same-as-selected');
@@ -352,6 +359,23 @@
             onSignalChange(signalName);
         }
 
+        function updateAspectSelection(aspectName) {
+            aspectSelect.value = aspectName;
+            customAspectSelectSelected.textContent = aspectName || "Select Aspect";
+
+            // Update selected class in custom items
+            const items = customAspectSelectItems.querySelectorAll('.select-item');
+            items.forEach(item => {
+                if (item.dataset.value === aspectName) {
+                    item.classList.add('same-as-selected');
+                } else {
+                    item.classList.remove('same-as-selected');
+                }
+            });
+
+            onAspectChange(aspectName);
+        }
+
         // --- Core Logic ---
 
         async function loadCountry(country) {
@@ -360,12 +384,18 @@
             // signalSelect.disabled = true; // No longer used directly by user
 
             // Reset custom select
-            customSelectItems.innerHTML = '';
-            customSelectSelected.textContent = 'Select Signal';
-            customSelectContainer.classList.add('disabled');
+            customSignalSelectItems.innerHTML = '';
+            customSignalSelectSelected.textContent = 'Select Signal';
+            customSignalSelectContainer.classList.add('disabled');
 
             aspectSelect.innerHTML = '<option value="">Select Aspect</option>';
-            aspectSelect.disabled = true;
+            // aspectSelect.disabled = true;
+
+            // Reset custom aspect select
+            customAspectSelectItems.innerHTML = '';
+            customAspectSelectSelected.textContent = 'Select Aspect';
+            customAspectSelectContainer.classList.add('disabled');
+
             displayDiv.innerHTML = '<p class="placeholder">Select a signal to view it.</p>';
             aspectTableContainer.innerHTML = '';
             currentSignals = {};
@@ -442,10 +472,10 @@
                         e.stopPropagation();
                     });
 
-                    customSelectItems.appendChild(item);
+                    customSignalSelectItems.appendChild(item);
                 });
 
-                customSelectContainer.classList.remove('disabled');
+                customSignalSelectContainer.classList.remove('disabled');
                 loadedCountry = country;
 
             } catch (e) {
@@ -457,7 +487,12 @@
         function onSignalChange(signalName) {
             // Reset Aspect dropdown
             aspectSelect.innerHTML = '<option value="">Select Aspect</option>';
-            aspectSelect.disabled = true;
+            // aspectSelect.disabled = true; // Managed by custom select
+
+            // Reset custom aspect select
+            customAspectSelectItems.innerHTML = '';
+            customAspectSelectSelected.textContent = 'Select Aspect';
+            customAspectSelectContainer.classList.add('disabled');
 
             if (!signalName) {
                 displayDiv.innerHTML = '<p class="placeholder">Select a signal to view it.</p>';
@@ -480,15 +515,43 @@
                 }
             }
 
-            aspectOptions.forEach(name => {
+            // Add "Select Aspect" option first (value "")
+            const allAspects = [""].concat(aspectOptions);
+
+            allAspects.forEach(name => {
+                // Native
                 const option = document.createElement('option');
                 option.value = name;
-                option.textContent = name;
+                option.textContent = name || "Select Aspect";
                 aspectSelect.appendChild(option);
+
+                // Custom
+                const item = document.createElement('div');
+                item.className = 'select-item';
+                item.dataset.value = name;
+
+                const textSpan = document.createElement('span');
+                textSpan.textContent = name || "Select Aspect";
+                item.appendChild(textSpan);
+
+                // Generate preview
+                const svgPreview = createSignalSVG(signalNode);
+                svgPreview.classList.add('signal-preview');
+                applyAspectToSVG(svgPreview, signalNode, name);
+                item.appendChild(svgPreview);
+
+                item.addEventListener('click', function(e) {
+                     closeAllSelect(item);
+                     updateAspectSelection(name);
+                     updateHash();
+                     e.stopPropagation();
+                });
+
+                customAspectSelectItems.appendChild(item);
             });
 
             if (aspectOptions.length > 0) {
-                aspectSelect.disabled = false;
+                customAspectSelectContainer.classList.remove('disabled');
             }
 
             renderSignalSVG(signalNode);
@@ -506,19 +569,34 @@
 
         // --- Event Listeners ---
 
-        // Custom Select Toggle
-        customSelectSelected.addEventListener('click', function(e) {
-            if (customSelectContainer.classList.contains('disabled')) return;
+        // Custom Select Toggle (Signal)
+        customSignalSelectSelected.addEventListener('click', function(e) {
+            if (customSignalSelectContainer.classList.contains('disabled')) return;
             e.stopPropagation();
             closeAllSelect(this);
-            customSelectItems.classList.toggle('select-hide');
-            customSelectSelected.classList.toggle('select-arrow-active');
+            customSignalSelectItems.classList.toggle('select-hide');
+            customSignalSelectSelected.classList.toggle('select-arrow-active');
+        });
+
+        // Custom Select Toggle (Aspect)
+        customAspectSelectSelected.addEventListener('click', function(e) {
+            if (customAspectSelectContainer.classList.contains('disabled')) return;
+            e.stopPropagation();
+            closeAllSelect(this);
+            customAspectSelectItems.classList.toggle('select-hide');
+            customAspectSelectSelected.classList.toggle('select-arrow-active');
         });
 
         function closeAllSelect(elmnt) {
-             if (elmnt !== customSelectSelected) {
-                customSelectItems.classList.add('select-hide');
-                customSelectSelected.classList.remove('select-arrow-active');
+             // Close Signal
+             if (elmnt !== customSignalSelectSelected) {
+                customSignalSelectItems.classList.add('select-hide');
+                customSignalSelectSelected.classList.remove('select-arrow-active');
+             }
+             // Close Aspect
+             if (elmnt !== customAspectSelectSelected) {
+                customAspectSelectItems.classList.add('select-hide');
+                customAspectSelectSelected.classList.remove('select-arrow-active');
              }
         }
 
@@ -532,7 +610,7 @@
         // signalSelect change is now handled by custom dropdown clicks calling updateSignalSelection
 
         aspectSelect.addEventListener('change', () => {
-            onAspectChange(aspectSelect.value);
+            updateAspectSelection(aspectSelect.value);
             updateHash();
         });
 
@@ -662,10 +740,7 @@
             displayDiv.appendChild(svg);
         }
 
-        function updateSignalAspect(signalNode, aspectName) {
-            const svg = displayDiv.querySelector('svg');
-            if (!svg) return;
-
+        function applyAspectToSVG(svg, signalNode, aspectName) {
             const bulbs = svg.querySelectorAll('[id^="bulb-"]');
 
             if (!aspectName) {
@@ -702,6 +777,12 @@
                     }
                 }
             }
+        }
+
+        function updateSignalAspect(signalNode, aspectName) {
+            const svg = displayDiv.querySelector('svg');
+            if (!svg) return;
+            applyAspectToSVG(svg, signalNode, aspectName);
         }
 
         function renderAspectTable(signalNode) {
@@ -741,8 +822,7 @@
                 tr.dataset.aspectName = name;
 
                 tr.addEventListener('click', () => {
-                    aspectSelect.value = name;
-                    onAspectChange(name);
+                    updateAspectSelection(name);
                     updateHash();
                 });
 
