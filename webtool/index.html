@@ -44,6 +44,77 @@
             border-radius: 4px;
             min-width: 200px;
         }
+        /* Custom Select Styles */
+        .custom-select {
+            position: relative;
+            font-size: 16px;
+            min-width: 250px;
+            user-select: none;
+        }
+        .select-selected {
+            background-color: #fff;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 40px; /* Adjust as needed */
+        }
+        .select-selected:after {
+            content: "";
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+            border-color: #333 transparent transparent transparent;
+            margin-left: 10px;
+        }
+        .select-selected.select-arrow-active:after {
+            border-color: transparent transparent #333 transparent;
+            top: 7px;
+        }
+        .select-items {
+            position: absolute;
+            background-color: #fff;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            max-height: 400px;
+            overflow-y: auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .select-hide {
+            display: none;
+        }
+        .select-item {
+            padding: 8px 12px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .select-item:hover, .same-as-selected {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        .signal-preview {
+            height: 40px;
+            width: 40px;
+            flex-shrink: 0;
+            margin-left: 10px;
+        }
+        .custom-select.disabled .select-selected {
+            background-color: #eee;
+            color: #aaa;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
         #display {
             background: #eeeeee;
             padding: 20px;
@@ -133,7 +204,12 @@
 
         <div class="control-group">
             <label for="signal">Signal</label>
-            <select id="signal" disabled>
+            <div id="custom-signal-select" class="custom-select disabled">
+                <div class="select-selected">Select Signal</div>
+                <div class="select-items select-hide"></div>
+            </div>
+            <!-- Hidden native select for compatibility -->
+            <select id="signal" style="display: none;">
                 <option value="">Select Signal</option>
             </select>
         </div>
@@ -158,6 +234,11 @@
         const aspectSelect = document.getElementById('aspect');
         const displayDiv = document.getElementById('display');
         const aspectTableContainer = document.getElementById('aspect-table-container');
+
+        // Custom Select Elements
+        const customSelectContainer = document.getElementById('custom-signal-select');
+        const customSelectSelected = customSelectContainer.querySelector('.select-selected');
+        const customSelectItems = customSelectContainer.querySelector('.select-items');
 
         // Map signal names to signal data objects
         let currentSignals = {};
@@ -207,8 +288,7 @@
 
                     if (signal && currentSignals[signal]) {
                         if (signalSelect.value !== signal) {
-                            signalSelect.value = signal;
-                            onSignalChange(signal);
+                            updateSignalSelection(signal);
                         }
 
                         if (aspect) {
@@ -227,12 +307,28 @@
                         }
                     } else {
                         if (signalSelect.value) {
-                            signalSelect.value = "";
-                            onSignalChange("");
+                            updateSignalSelection("");
                         }
                     }
                 }
             }
+        }
+
+        function updateSignalSelection(signalName) {
+            signalSelect.value = signalName;
+            customSelectSelected.textContent = signalName || "Select Signal";
+
+            // Update selected class in custom items
+            const items = customSelectItems.querySelectorAll('.select-item');
+            items.forEach(item => {
+                if (item.dataset.value === signalName) {
+                    item.classList.add('same-as-selected');
+                } else {
+                    item.classList.remove('same-as-selected');
+                }
+            });
+
+            onSignalChange(signalName);
         }
 
         // --- Core Logic ---
@@ -240,7 +336,13 @@
         async function loadCountry(country) {
             // Reset selection
             signalSelect.innerHTML = '<option value="">Select Signal</option>';
-            signalSelect.disabled = true;
+            // signalSelect.disabled = true; // No longer used directly by user
+
+            // Reset custom select
+            customSelectItems.innerHTML = '';
+            customSelectSelected.textContent = 'Select Signal';
+            customSelectContainer.classList.add('disabled');
+
             aspectSelect.innerHTML = '<option value="">Select Aspect</option>';
             aspectSelect.disabled = true;
             displayDiv.innerHTML = '<p class="placeholder">Select a signal to view it.</p>';
@@ -288,14 +390,41 @@
 
                 signalOptions.sort();
 
+                // Populate custom dropdown
                 signalOptions.forEach(name => {
+                    // Native (hidden)
                     const option = document.createElement('option');
                     option.value = name;
                     option.textContent = name;
                     signalSelect.appendChild(option);
+
+                    // Custom
+                    const item = document.createElement('div');
+                    item.className = 'select-item';
+                    item.dataset.value = name;
+
+                    const textSpan = document.createElement('span');
+                    textSpan.textContent = name;
+                    item.appendChild(textSpan);
+
+                    // Generate preview
+                    const svgPreview = createSignalSVG(currentSignals[name]);
+                    svgPreview.classList.add('signal-preview');
+                    item.appendChild(svgPreview);
+
+                    item.addEventListener('click', function(e) {
+                         // Close all select boxes
+                        closeAllSelect(item);
+
+                        updateSignalSelection(name);
+                        updateHash();
+                        e.stopPropagation();
+                    });
+
+                    customSelectItems.appendChild(item);
                 });
 
-                signalSelect.disabled = false;
+                customSelectContainer.classList.remove('disabled');
                 loadedCountry = country;
 
             } catch (e) {
@@ -356,15 +485,30 @@
 
         // --- Event Listeners ---
 
+        // Custom Select Toggle
+        customSelectSelected.addEventListener('click', function(e) {
+            if (customSelectContainer.classList.contains('disabled')) return;
+            e.stopPropagation();
+            closeAllSelect(this);
+            customSelectItems.classList.toggle('select-hide');
+            customSelectSelected.classList.toggle('select-arrow-active');
+        });
+
+        function closeAllSelect(elmnt) {
+             if (elmnt !== customSelectSelected) {
+                customSelectItems.classList.add('select-hide');
+                customSelectSelected.classList.remove('select-arrow-active');
+             }
+        }
+
+        document.addEventListener('click', closeAllSelect);
+
         countrySelect.addEventListener('change', async () => {
             await loadCountry(countrySelect.value);
             updateHash();
         });
 
-        signalSelect.addEventListener('change', () => {
-            onSignalChange(signalSelect.value);
-            updateHash();
-        });
+        // signalSelect change is now handled by custom dropdown clicks calling updateSignalSelection
 
         aspectSelect.addEventListener('change', () => {
             onAspectChange(aspectSelect.value);
@@ -377,7 +521,7 @@
         // Handle browser back/forward buttons
         window.addEventListener('hashchange', loadStateFromHash);
 
-        function renderSignalSVG(signalNode) {
+        function createSignalSVG(signalNode) {
             const outline = signalNode.getAttribute('outline');
             const outlineColor = signalNode.getAttribute('outlineColor') || '#000000';
             const borderColor = signalNode.getAttribute('borderColor') || 'none';
@@ -471,6 +615,11 @@
                 group.appendChild(bulbPath);
             }
 
+            return svg;
+        }
+
+        function renderSignalSVG(signalNode) {
+            const svg = createSignalSVG(signalNode);
             displayDiv.innerHTML = '';
             displayDiv.appendChild(svg);
         }
