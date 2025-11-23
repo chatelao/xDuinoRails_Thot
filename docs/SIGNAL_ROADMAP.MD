@@ -29,6 +29,13 @@ This document outlines the steps to implement various German and Swiss signal ty
 - [ ] Implement Zs 7 (Vorsichtsignal)
 - [ ] Test against RCN-213 specification
 
+### Phase 5: Zp-Signale (Zugpersonalsignale)
+- [x] Implement Zp 9 (Abfahren)
+- [x] Implement Zp 6 (Bremse anlegen)
+- [x] Implement Zp 7 (Bremse lösen)
+- [x] Implement Zp 8 (Bremse in Ordnung)
+- [x] Define XML structure and generate assets
+
 ## Swiss Signal Types
 
 ### Phase 5: System L (Lichtsignale)

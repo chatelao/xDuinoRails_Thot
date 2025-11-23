@@ -209,4 +209,35 @@
       </aspect>
     </aspects>
   </signal>
+
+  <!-- Zp System (Zugpersonalsignale) -->
+  <signal country="de" name="DE-ZP-Signal" svg="DE-ZP-Signal.svg" outline="M -200,500 L 200,500 L 200,-500 L -200,-500 Z" outlineColor="#000000">
+    <lightbulbs>
+      <!-- Zp 9: Green Ring (Top) -->
+      <!-- Ring shape: Outer r=100, Inner r=70 -->
+      <lightbulb id="L_Zp9" x="0" y="300" color="green" d="M -100,0 A 100,100 0 1,0 100,0 A 100,100 0 1,0 -100,0 M -70,0 A 70,70 0 1,1 70,0 A 70,70 0 1,1 -70,0"/>
+
+      <!-- Zp 6/7/8: Vertical White Lights -->
+      <lightbulb id="L_White_1" x="0" y="50" color="white" d="m -60, 0 a 60,60 0 1,0 120,0 a 60,60 0 1,0 -120,0"/>
+      <lightbulb id="L_White_2" x="0" y="-150" color="white" d="m -60, 0 a 60,60 0 1,0 120,0 a 60,60 0 1,0 -120,0"/>
+      <lightbulb id="L_White_3" x="0" y="-350" color="white" d="m -60, 0 a 60,60 0 1,0 120,0 a 60,60 0 1,0 -120,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Zp 9" short="Zp 9" long="Abfahren">
+        <light id="L_Zp9"/>
+      </aspect>
+      <aspect name="Zp 6" short="Zp 6" long="Bremse anlegen">
+        <light id="L_White_1"/>
+      </aspect>
+      <aspect name="Zp 7" short="Zp 7" long="Bremse lösen">
+        <light id="L_White_1"/>
+        <light id="L_White_2"/>
+      </aspect>
+      <aspect name="Zp 8" short="Zp 8" long="Bremse in Ordnung">
+        <light id="L_White_1"/>
+        <light id="L_White_2"/>
+        <light id="L_White_3"/>
+      </aspect>
+    </aspects>
+  </signal>
 </signalDefinitions>
