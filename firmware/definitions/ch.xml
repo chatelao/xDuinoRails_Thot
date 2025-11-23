@@ -173,26 +173,26 @@
     </aspects>
   </signal>
 
-  <signal country="ch" name="CH-Zwergsignal" svg="CH-Zwergsignal.svg" outline="M -150,150 L 150,150 L 0,-150 Z" outlineColor="#000000">
+  <signal country="ch" name="CH-Zwergsignal" svg="CH-Zwergsignal.svg" outline="M -150,150 L 150,150 L 150,-150 L -150,-150 Z" outlineColor="#000000">
     <lightbulbs>
-      <!-- Triangle arrangement (inverted): L1 Bottom, L2 Top Right, L3 Top Left -->
+      <!-- L-shaped arrangement on Square Backing: L1 Bottom Left, L2 Top Left, L3 Bottom Right -->
       <!-- Approximate dimensions in mm -->
-      <lightbulb id="L1" x="0" y="-100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
-      <lightbulb id="L2" x="100" y="100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
-      <lightbulb id="L3" x="-100" y="100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L1" x="-80" y="-80" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L2" x="-80" y="80" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L3" x="80" y="-80" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Halt" short="Halt" long="Halt"> <!-- Horizontal: L2 + L3 -->
-        <light id="L2"/>
+      <aspect name="Halt" short="Halt" long="Halt"> <!-- Horizontal: L1 + L3 -->
+        <light id="L1"/>
         <light id="L3"/>
       </aspect>
-      <aspect name="Fahrt" short="Fahrt" long="Fahrt"> <!-- Diagonal /: L2 + L1 -->
+      <aspect name="Fahrt" short="Fahrt" long="Fahrt"> <!-- Vertical: L1 + L2 -->
+        <light id="L1"/>
         <light id="L2"/>
-        <light id="L1"/>
       </aspect>
-      <aspect name="Fahrt mit Vorsicht" short="FahrtV" long="Fahrt mit Vorsicht"> <!-- Diagonal \: L3 + L1 -->
+      <aspect name="Fahrt mit Vorsicht" short="FahrtV" long="Fahrt mit Vorsicht"> <!-- Diagonal: L2 + L3 -->
+        <light id="L2"/>
         <light id="L3"/>
-        <light id="L1"/>
       </aspect>
     </aspects>
   </signal>
