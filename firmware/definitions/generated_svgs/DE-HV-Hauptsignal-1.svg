@@ -2,7 +2,8 @@
   <g transform="scale(1, -1)">
     <path d="M -350,750 L 350,750 L 350,-750 L -350,-750 Z" fill="#000000" stroke="none" stroke-width="0" />
     <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(0.0, 500.0)" fill="green" />
-    <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(0.0, 0.0)" fill="red" />
+    <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(-150.0, 0.0)" fill="red" />
+    <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(150.0, 0.0)" fill="red" />
     <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(0.0, -500.0)" fill="yellow" />
   </g>
 </svg>
