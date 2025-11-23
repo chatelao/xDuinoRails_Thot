@@ -90,15 +90,16 @@ void GermanSignal::setAspect(GermanSignalAspect aspect) {
 
   switch (_aspect) {
   // H/V
-  case DE_ASPECT_HP0: // Stop: Red (L2)
+  case DE_ASPECT_HP0: // Stop: Red (L2_Left) + Red (L2_Right)
     _strip.setPixelColor(1, _strip.Color(255, 0, 0));
+    _strip.setPixelColor(2, _strip.Color(255, 0, 0));
     break;
   case DE_ASPECT_HP1: // Clear: Green (L1)
     _strip.setPixelColor(0, _strip.Color(0, 255, 0));
     break;
   case DE_ASPECT_HP2: // Slow: Green (L1) + Yellow (L3)
     _strip.setPixelColor(0, _strip.Color(0, 255, 0));
-    _strip.setPixelColor(2, _strip.Color(255, 255, 0));
+    _strip.setPixelColor(3, _strip.Color(255, 255, 0));
     break;
 
   case DE_ASPECT_VR0: // Expect Stop: Yellow (L2) + Yellow (L4)
