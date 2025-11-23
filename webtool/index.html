@@ -91,6 +91,12 @@
         table.aspect-table tr:nth-child(even) {
             background-color: #f9f9f9;
         }
+        table.aspect-table tbody tr {
+            cursor: pointer;
+        }
+        table.aspect-table tbody tr:hover {
+            background-color: #e9ecef;
+        }
         table.aspect-table tr.selected {
             background-color: #fff3cd; /* Light yellow highlight */
             border-left: 4px solid #ffc107;
@@ -546,6 +552,12 @@
                 const name = aspect.getAttribute('name');
                 const tr = document.createElement('tr');
                 tr.dataset.aspectName = name;
+
+                tr.addEventListener('click', () => {
+                    aspectSelect.value = name;
+                    onAspectChange(name);
+                    updateHash();
+                });
 
                 // Name Cell
                 const nameTd = document.createElement('td');
