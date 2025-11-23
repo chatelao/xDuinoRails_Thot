@@ -52,6 +52,12 @@ jobs:
     - name: Generate Signal SVGs
       run: python firmware/scripts/generate_svgs.py
 
+    - name: Zip Signal SVGs
+      run: |
+        cd firmware/definitions
+        zip -r signal_svgs.zip generated_svgs
+        cd ../..
+
     - name: Archive Signal SVGs
       uses: actions/upload-artifact@v4
       with:
