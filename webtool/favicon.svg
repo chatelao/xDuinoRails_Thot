@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-550 -550 1100 1100">
+  <!-- Background Board (Octagon) -->
+  <path d="M -250,-500 L 250,-500 L 500,-250 L 500,250 L 250,500 L -250,500 L -500,250 L -500,-250 Z" fill="#000000" stroke="none"/>
+
+  <!-- Lights -->
+  <!-- L8 (Top Left) - Inactive -->
+  <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(-250, -250)" fill="#444"/>
+
+  <!-- L7 (Top Right) - Inactive -->
+  <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(250, -250)" fill="#444"/>
+
+  <!-- L9_L (Bottom Left) - Active Green -->
+  <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(-250, 250)" fill="#00C000"/>
+
+  <!-- L9_R (Right Middle) - Active Green -->
+  <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(250, 0)" fill="#00C000"/>
+
+  <!-- L11 (Bottom Right) - Inactive -->
+  <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(250, 250)" fill="#444"/>
+</svg>
