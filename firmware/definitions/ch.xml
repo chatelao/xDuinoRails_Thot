@@ -23,11 +23,12 @@
       </aspect>
     </aspects>
   </signal>
-  <signal country="ch" name="CH-N-Vorsignal-1" svg="CH-N-Vorsignal-1.svg" outline="M -250,350 L 250,350 L 350,250 L 350,-250 L 250,-350 L -250,-350 L -350,-250 L -350,250 Z" outlineColor="#6c6c6c">
+
+  <signal country="ch" name="CH-N-Vorsignal-1" svg="CH-N-Vorsignal-1.svg" outline="M -250,250 L 250,250 L 250,-250 L -250,-250 Z" outlineColor="#ffffff">
     <lightbulbs>
-      <!-- Triangular layout without Top Red -->
-      <lightbulb id="L1" x="200" y="-200" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L2" x="-200" y="-200" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <!-- Square layout: L2 (Orange) Left, L1 (Green) Right -->
+      <lightbulb id="L1" x="120" y="0" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="-120" y="0" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
       <aspect name="Freie Fahrt">
@@ -116,6 +117,58 @@
       <aspect name="Ankündigung 40"> <!-- Ankündigung 40: Orange (TL) + Green (RM) -->
         <light id="L8"/>
         <light id="L9_R"/>
+      </aspect>
+    </aspects>
+  </signal>
+
+  <signal country="ch" name="CH-L-Vorsignal-Kombi" svg="CH-L-Vorsignal-Kombi.svg" outline="M -250,500 L 250,500 L 500,250 L 500,-250 L 250,-500 L -250,-500 L -500,-250 L -500,250 Z" outlineColor="#000000">
+    <lightbulbs>
+      <!-- Layout based on Combined/Extended System L Vorsignal (chamfered square) with 8 lights -->
+      <!-- Mapping based on image: -->
+      <!-- L1: Top Left (Yellow) -->
+      <!-- L7: Top Middle (Green) -->
+      <!-- L3: Top Right (Yellow) -->
+      <!-- L6: Center (Red) -->
+      <!-- L2: Middle Right (Green) -->
+      <!-- L4: Bottom Left (Green) -->
+      <!-- L8: Bottom Middle (Green) -->
+      <!-- L5: Bottom Right (Yellow) -->
+      <lightbulb id="L1" x="-250" y="250" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L7" x="0" y="250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L3" x="250" y="250" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+
+      <lightbulb id="L6" x="0" y="0" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="250" y="0" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+
+      <lightbulb id="L4" x="-250" y="-250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L8" x="0" y="-250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L5" x="250" y="-250" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Halt" short="Halt" long="Halt">
+        <light id="L6"/>
+      </aspect>
+      <aspect name="Warnung" short="Warnung" long="Warnung">
+        <light id="L1"/>
+        <light id="L3"/>
+      </aspect>
+      <aspect name="Freie Fahrt" short="Fb1*" long="Ankündigung Freie Fahrt">
+        <light id="L4"/>
+        <light id="L2"/>
+      </aspect>
+      <aspect name="Ankündigung 40" short="Fb2*" long="Ankündigung 40 km/h">
+        <light id="L1"/>
+        <light id="L2"/>
+      </aspect>
+      <aspect name="Ankündigung 60" short="Fb3*" long="Ankündigung 60 km/h">
+        <light id="L1"/>
+        <light id="L3"/>
+        <light id="L4"/>
+      </aspect>
+      <aspect name="Ankündigung 90" short="Fb5*" long="Ankündigung 90 km/h">
+        <light id="L1"/>
+        <light id="L3"/>
+        <light id="L8"/>
       </aspect>
     </aspects>
   </signal>
