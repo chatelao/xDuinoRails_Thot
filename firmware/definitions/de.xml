@@ -76,7 +76,9 @@
       <lightbulb id="L1" x="0" y="500" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
       <lightbulb id="L2" x="0" y="0" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
       <lightbulb id="L3" x="0" y="-500" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L4" x="-150" y="-300" color="white" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <!-- Sh 1 / Kennlicht optics: Rising Diagonal between Red and Yellow gap -->
+      <lightbulb id="L4" x="-80" y="-330" color="white" d="m -60, 0 a 60,60 0 1,0 120,0 a 60,60 0 1,0 -120,0"/>
+      <lightbulb id="L5" x="80" y="-170" color="white" d="m -60, 0 a 60,60 0 1,0 120,0 a 60,60 0 1,0 -120,0"/>
     </lightbulbs>
     <aspects>
       <aspect name="Hp 0">
@@ -90,6 +92,7 @@
       </aspect>
        <aspect name="Sh 1">
         <light id="L4"/>
+        <light id="L5"/>
       </aspect>
     </aspects>
   </signal>
@@ -101,6 +104,9 @@
       <lightbulb id="L2" x="0" y="250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
       <lightbulb id="L3" x="0" y="-250" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
       <lightbulb id="L4" x="0" y="-750" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <!-- Light Strips for Speed Indication -->
+      <lightbulb id="L5" x="0" y="-900" color="green" d="M -150,-30 L 150,-30 L 150,30 L -150,30 Z"/>
+      <lightbulb id="L6" x="0" y="-900" color="yellow" d="M -150,-30 L 150,-30 L 150,30 L -150,30 Z"/>
     </lightbulbs>
     <aspects>
       <aspect name="Hl 13"> <!-- Stop -->
@@ -112,9 +118,21 @@
       <aspect name="Hl 10"> <!-- Expect Stop -->
         <light id="L1"/>
       </aspect>
+      <aspect name="Hl 9a"> <!-- 40 + Expect 40/60 -->
+        <light id="L1"/>
+        <light id="L6"/>
+      </aspect>
+      <aspect name="Hl 9b"> <!-- 60 + Expect 40/60 -->
+        <light id="L1"/>
+        <light id="L5"/>
+      </aspect>
       <aspect name="Hl 12a"> <!-- 40 + Expect Stop -->
         <light id="L1"/>
         <light id="L4"/>
+      </aspect>
+       <aspect name="Hl 12b"> <!-- 60 + Expect Stop -->
+        <light id="L1"/>
+        <light id="L5"/>
       </aspect>
     </aspects>
   </signal>

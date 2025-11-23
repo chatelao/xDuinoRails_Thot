@@ -4,6 +4,7 @@
     <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(0.0, 750.0)" fill="yellow" />
     <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(0.0, 250.0)" fill="green" />
     <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(0.0, -250.0)" fill="red" />
-    <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(0.0, -750.0)" fill="yellow" />
+    <path d="M -150,-30 L 150,-30 L 150,30 L -150,30 Z" transform="translate(0.0, -750.0)" fill="yellow" />
+    <path d="M -150,-30 L 150,-30 L 150,30 L -150,30 Z" transform="translate(0.0, -750.0)" fill="green" />
   </g>
 </svg>
