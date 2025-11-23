@@ -43,17 +43,17 @@
       <lightbulb id="L3" x="0" y="-500" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Halt">
+      <aspect name="Halt" short="Halt" long="Halt">
         <light id="L2"/>
       </aspect>
-      <aspect name="Freie Fahrt"> <!-- Fb 1 -->
+      <aspect name="Freie Fahrt" short="Fb1" long="Fahrbegriff 1"> <!-- Fb 1 -->
         <light id="L1"/>
       </aspect>
-      <aspect name="Ausführung 40"> <!-- Fb 2 -->
+      <aspect name="Ausführung 40" short="Fb2" long="Fahrbegriff 2"> <!-- Fb 2 -->
         <light id="L1"/>
         <light id="L3"/>
       </aspect>
-      <aspect name="Kurze Fahrt"> <!-- Fb 6 -->
+      <aspect name="Kurze Fahrt" short="Fb6" long="Fahrbegriff 6"> <!-- Fb 6 -->
         <light id="L1"/>
         <light id="L3"/>
       </aspect>
@@ -68,21 +68,21 @@
       <lightbulb id="L4" x="0" y="-600" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Halt">
+      <aspect name="Halt" short="Halt" long="Halt">
         <light id="L2"/>
       </aspect>
-      <aspect name="Freie Fahrt"> <!-- Fb 1 -->
+      <aspect name="Freie Fahrt" short="Fb1" long="Fahrbegriff 1"> <!-- Fb 1 -->
         <light id="L1"/>
       </aspect>
-      <aspect name="Ausführung 40"> <!-- Fb 2 -->
+      <aspect name="Ausführung 40" short="Fb2" long="Fahrbegriff 2"> <!-- Fb 2 -->
         <light id="L1"/>
         <light id="L3"/>
       </aspect>
-      <aspect name="Ausführung 60"> <!-- Fb 3 -->
+      <aspect name="Ausführung 60" short="Fb3" long="Fahrbegriff 3"> <!-- Fb 3 -->
         <light id="L1"/>
         <light id="L4"/>
       </aspect>
-      <aspect name="Kurze Fahrt"> <!-- Fb 6 -->
+      <aspect name="Kurze Fahrt" short="Fb6" long="Fahrbegriff 6"> <!-- Fb 6 -->
         <light id="L1"/>
         <light id="L3"/>
       </aspect>
@@ -125,15 +125,15 @@
       <lightbulb id="L3" x="-100" y="100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Halt"> <!-- Horizontal: L2 + L3 -->
+      <aspect name="Halt" short="Halt" long="Halt"> <!-- Horizontal: L2 + L3 -->
         <light id="L2"/>
         <light id="L3"/>
       </aspect>
-      <aspect name="Fahrt"> <!-- Diagonal /: L2 + L1 -->
+      <aspect name="Fahrt" short="Fahrt" long="Fahrt"> <!-- Diagonal /: L2 + L1 -->
         <light id="L2"/>
         <light id="L1"/>
       </aspect>
-      <aspect name="Fahrt mit Vorsicht"> <!-- Diagonal \: L3 + L1 -->
+      <aspect name="Fahrt mit Vorsicht" short="FahrtV" long="Fahrt mit Vorsicht"> <!-- Diagonal \: L3 + L1 -->
         <light id="L3"/>
         <light id="L1"/>
       </aspect>
