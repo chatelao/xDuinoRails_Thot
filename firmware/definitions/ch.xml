@@ -179,15 +179,9 @@
       <lightbulb id="L25" x="200" y="-200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Halt" short="Halt" long="Halt für Rangierbewegung">
-        <!-- No lights, relying on painted cross -->
-      </aspect>
       <aspect name="Zustimmung" short="Zustimmung" long="Zustimmung zur Rangierbewegung">
         <!-- Diagonal / -->
         <light id="L21"/> <light id="L17"/> <light id="L13"/> <light id="L9"/> <light id="L5"/>
-      </aspect>
-      <aspect name="Rangieren verboten">
-        <!-- No lights, relying on painted cross -->
       </aspect>
       <aspect name="Rangieren erlaubt">
         <!-- Diagonal / -->
