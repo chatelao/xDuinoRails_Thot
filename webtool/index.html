@@ -115,10 +115,82 @@
         // Map signal names to signal data objects
         let currentSignals = {};
         let currentXmlDoc = null;
+        let loadedCountry = null;
 
-        countrySelect.addEventListener('change', async () => {
-            const country = countrySelect.value;
+        // --- State Management ---
 
+        function updateHash() {
+            const params = new URLSearchParams();
+            if (countrySelect.value) params.set('country', countrySelect.value);
+            if (signalSelect.value) params.set('signal', signalSelect.value);
+            if (aspectSelect.value) params.set('aspect', aspectSelect.value);
+
+            // Update URL hash to reflect current state
+            window.location.hash = params.toString();
+        }
+
+        async function loadStateFromHash() {
+            // Remove leading '#'
+            const hash = window.location.hash.substring(1);
+            if (!hash) {
+                // If hash is empty but we have a loaded country, it means we navigated back to initial state
+                if (loadedCountry) {
+                    countrySelect.value = "";
+                    await loadCountry("");
+                }
+                return;
+            }
+
+            const params = new URLSearchParams(hash);
+            const country = params.get('country');
+            const signal = params.get('signal');
+            const aspect = params.get('aspect');
+
+            if (country) {
+                // If the country is present in the dropdown options
+                if (Array.from(countrySelect.options).some(opt => opt.value === country)) {
+
+                    if (country !== loadedCountry) {
+                        countrySelect.value = country;
+                        await loadCountry(country);
+                    } else {
+                        // Sync dropdown just in case
+                        countrySelect.value = country;
+                    }
+
+                    if (signal && currentSignals[signal]) {
+                        if (signalSelect.value !== signal) {
+                            signalSelect.value = signal;
+                            onSignalChange(signal);
+                        }
+
+                        if (aspect) {
+                             if (aspectSelect.value !== aspect) {
+                                 // Check if aspect is valid
+                                 if (Array.from(aspectSelect.options).some(opt => opt.value === aspect)) {
+                                     aspectSelect.value = aspect;
+                                     onAspectChange(aspect);
+                                 }
+                             }
+                        } else {
+                            if (aspectSelect.value) {
+                                aspectSelect.value = "";
+                                onAspectChange("");
+                            }
+                        }
+                    } else {
+                        if (signalSelect.value) {
+                            signalSelect.value = "";
+                            onSignalChange("");
+                        }
+                    }
+                }
+            }
+        }
+
+        // --- Core Logic ---
+
+        async function loadCountry(country) {
             // Reset selection
             signalSelect.innerHTML = '<option value="">Select Signal</option>';
             signalSelect.disabled = true;
@@ -127,6 +199,7 @@
             displayDiv.innerHTML = '<p class="placeholder">Select a signal to view it.</p>';
             currentSignals = {};
             currentXmlDoc = null;
+            loadedCountry = null;
 
             if (!country) {
                 displayDiv.innerHTML = '<p class="placeholder">Select a country and a signal to view it.</p>';
@@ -175,16 +248,15 @@
                 });
 
                 signalSelect.disabled = false;
+                loadedCountry = country;
 
             } catch (e) {
                 console.error(e);
                 displayDiv.innerHTML = `<p class="error">Error: ${e.message}.<br>Ensure you are viewing this via a web server that serves the entire repository.</p>`;
             }
-        });
+        }
 
-        signalSelect.addEventListener('change', () => {
-            const signalName = signalSelect.value;
-
+        function onSignalChange(signalName) {
             // Reset Aspect dropdown
             aspectSelect.innerHTML = '<option value="">Select Aspect</option>';
             aspectSelect.disabled = true;
@@ -222,17 +294,38 @@
             }
 
             renderSignalSVG(signalNode);
-        });
+        }
 
-        aspectSelect.addEventListener('change', () => {
+        function onAspectChange(aspectName) {
             const signalName = signalSelect.value;
-            const aspectName = aspectSelect.value;
-
             if (!signalName) return;
 
             const signalNode = currentSignals[signalName];
             updateSignalAspect(signalNode, aspectName);
+        }
+
+        // --- Event Listeners ---
+
+        countrySelect.addEventListener('change', async () => {
+            await loadCountry(countrySelect.value);
+            updateHash();
         });
+
+        signalSelect.addEventListener('change', () => {
+            onSignalChange(signalSelect.value);
+            updateHash();
+        });
+
+        aspectSelect.addEventListener('change', () => {
+            onAspectChange(aspectSelect.value);
+            updateHash();
+        });
+
+        // Initialize state from URL hash
+        window.addEventListener('DOMContentLoaded', loadStateFromHash);
+
+        // Handle browser back/forward buttons
+        window.addEventListener('hashchange', loadStateFromHash);
 
         function renderSignalSVG(signalNode) {
             const outline = signalNode.getAttribute('outline');
