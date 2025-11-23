@@ -89,25 +89,29 @@
     </aspects>
   </signal>
 
-  <signal country="ch" name="CH-L-Vorsignal-Standard" svg="CH-L-Vorsignal-Standard.svg" outline="M -400,400 L 400,400 L 400,-400 L -400,-400 Z" outlineColor="#000000">
+  <signal country="ch" name="CH-L-Vorsignal-Standard" svg="CH-L-Vorsignal-Standard.svg" outline="M -250,500 L 250,500 L 500,250 L 500,-250 L 250,-500 L -250,-500 L -500,-250 L -500,250 Z" outlineColor="#000000">
     <lightbulbs>
-      <lightbulb id="L1" x="-250" y="250" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L2" x="250" y="250" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L3" x="-250" y="-250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L4" x="250" y="250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <!-- Layout based on standard Swiss System L Vorsignal (chamfered square) -->
+      <!-- Left Column: L8 (Top), L9_L (Bottom) -->
+      <!-- Right Column: L7 (Top), L9_R (Middle), L11 (Bottom) -->
+      <lightbulb id="L8" x="-250" y="250" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L7" x="250" y="250" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L9_L" x="-250" y="-250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L9_R" x="250" y="0" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L11" x="250" y="-250" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Warnung"> <!-- Warnung: Two Yellows Horizontal -->
-        <light id="L1"/>
-        <light id="L2"/>
+      <aspect name="Warnung"> <!-- Warnung: Two Oranges Horizontal (Top) -->
+        <light id="L8"/>
+        <light id="L7"/>
       </aspect>
-      <aspect name="Freie Fahrt"> <!-- Freie Fahrt: Two Greens Diagonal -->
-        <light id="L3"/>
-        <light id="L4"/>
+      <aspect name="Freie Fahrt"> <!-- Freie Fahrt: Two Greens Diagonal (BL to RM) -->
+        <light id="L9_L"/>
+        <light id="L9_R"/>
       </aspect>
-      <aspect name="Ankündigung 40"> <!-- Ankündigung 40: Yellow + Green -->
-        <light id="L1"/>
-        <light id="L4"/>
+      <aspect name="Ankündigung 40"> <!-- Ankündigung 40: Orange (TL) + Green (RM) -->
+        <light id="L8"/>
+        <light id="L9_R"/>
       </aspect>
     </aspects>
   </signal>

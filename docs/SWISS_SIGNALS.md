@@ -43,7 +43,7 @@ The signal definitions in `firmware/definitions/ch.xml` have been updated to sup
 ### Defined Signals
 - **`CH-L-Hauptsignal-3L`**: Standard 3-lamp System L main signal (Green, Red, Yellow). Supports Halt, Fb 1, Fb 2, Fb 6.
 - **`CH-L-Hauptsignal-4L`**: 4-lamp System L main signal (Green, Red, Yellow, Green). Supports Halt, Fb 1, Fb 2, Fb 3, Fb 6.
-- **`CH-L-Vorsignal-Standard`**: 4-lamp System L distant signal. Supports Warnung (YY), Freie Fahrt (GG), Ankündigung 40 (YG).
+- **`CH-L-Vorsignal-Standard`**: Standard System L distant signal. Supports Warnung (YY), Freie Fahrt (GG), Ankündigung 40 (YG).
 - **`CH-N-Hauptsignal-1`**: System N main signal.
 - **`CH-N-Vorsignal-1`**: System N distant signal.
 - **`CH-Zwergsignal`**: Standard dwarf signal. Supports Halt (Horizontal), Fahrt (Diagonal /), and Fahrt mit Vorsicht (Diagonal \).
