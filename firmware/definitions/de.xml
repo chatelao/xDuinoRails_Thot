@@ -76,7 +76,9 @@
       <lightbulb id="L1" x="0" y="500" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
       <lightbulb id="L2" x="0" y="0" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
       <lightbulb id="L3" x="0" y="-500" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L4" x="-150" y="-300" color="white" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <!-- Sh 1 / Kennlicht optics: Rising Diagonal between Red and Yellow gap -->
+      <lightbulb id="L4" x="-80" y="-330" color="white" d="m -60, 0 a 60,60 0 1,0 120,0 a 60,60 0 1,0 -120,0"/>
+      <lightbulb id="L5" x="80" y="-170" color="white" d="m -60, 0 a 60,60 0 1,0 120,0 a 60,60 0 1,0 -120,0"/>
     </lightbulbs>
     <aspects>
       <aspect name="Hp 0">
@@ -90,6 +92,7 @@
       </aspect>
        <aspect name="Sh 1">
         <light id="L4"/>
+        <light id="L5"/>
       </aspect>
     </aspects>
   </signal>
@@ -101,6 +104,9 @@
       <lightbulb id="L2" x="0" y="250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
       <lightbulb id="L3" x="0" y="-250" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
       <lightbulb id="L4" x="0" y="-750" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <!-- Light Strips for Speed Indication. Green=100km/h, Yellow=60km/h -->
+      <lightbulb id="L5" x="0" y="-900" color="green" d="M -150,-30 L 150,-30 L 150,30 L -150,30 Z"/>
+      <lightbulb id="L6" x="0" y="-900" color="yellow" d="M -150,-30 L 150,-30 L 150,30 L -150,30 Z"/>
     </lightbulbs>
     <aspects>
       <aspect name="Hl 13"> <!-- Stop -->
@@ -112,9 +118,94 @@
       <aspect name="Hl 10"> <!-- Expect Stop -->
         <light id="L1"/>
       </aspect>
+      <aspect name="Hl 9a"> <!-- 40 + Expect 40/60 -->
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Hl 9b"> <!-- 60 + Expect 40/60 -->
+        <light id="L1"/>
+        <light id="L6"/>
+      </aspect>
       <aspect name="Hl 12a"> <!-- 40 + Expect Stop -->
         <light id="L1"/>
         <light id="L4"/>
+      </aspect>
+       <aspect name="Hl 12b"> <!-- 60 + Expect Stop -->
+        <light id="L1"/>
+        <light id="L6"/>
+      </aspect>
+    </aspects>
+  </signal>
+
+  <!-- Sv System (Hamburg/Berlin S-Bahn) -->
+  <signal country="de" name="DE-SV-Signal" svg="DE-SV-Signal.svg" outline="M -250,150 L 250,150 L 250,-150 L -250,-150 Z" outlineColor="#000000">
+    <lightbulbs>
+      <!-- Left Position -->
+      <lightbulb id="L_Left_R" x="-150" y="0" color="red" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <lightbulb id="L_Left_G" x="-150" y="0" color="green" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <lightbulb id="L_Left_Y" x="-150" y="0" color="yellow" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+
+      <!-- Right Position -->
+      <lightbulb id="L_Right_R" x="150" y="0" color="red" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <lightbulb id="L_Right_G" x="150" y="0" color="green" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <lightbulb id="L_Right_Y" x="150" y="0" color="yellow" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Sv 0"> <!-- Stop: Red + Red -->
+        <light id="L_Left_R"/>
+        <light id="L_Right_R"/>
+      </aspect>
+      <aspect name="Sv 1"> <!-- Go: Green + Green -->
+        <light id="L_Left_G"/>
+        <light id="L_Right_G"/>
+      </aspect>
+      <aspect name="Sv 2"> <!-- Go, Expect Stop: Green + Yellow -->
+        <light id="L_Left_G"/>
+        <light id="L_Right_Y"/>
+      </aspect>
+    </aspects>
+  </signal>
+
+  <!-- Bü Signals (Level Crossing) -->
+  <signal country="de" name="DE-BUE-Signal" svg="DE-BUE-Signal.svg" outline="M -250,300 L 250,300 L 250,-100 L -250,-100 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L1_Yellow" x="-150" y="0" color="yellow" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <lightbulb id="L2_Yellow" x="150" y="0" color="yellow" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <lightbulb id="L3_White" x="0" y="200" color="white" d="m -60, 0 a 60,60 0 1,0 120,0 a 60,60 0 1,0 -120,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Bü 0"> <!-- Stop (Light Variant: 2 Horizontal Yellows) -->
+        <light id="L1_Yellow"/>
+        <light id="L2_Yellow"/>
+      </aspect>
+      <aspect name="Bü 1"> <!-- Go (Flashing White usually) -->
+        <light id="L3_White"/>
+      </aspect>
+    </aspects>
+  </signal>
+
+  <!-- Zs Signals (Additional) -->
+  <signal country="de" name="DE-ZS-Signal" svg="DE-ZS-Signal.svg" outline="M -200,200 L 200,200 L 200,-200 L -200,-200 Z" outlineColor="#000000">
+    <lightbulbs>
+      <!-- Zs 1 (White A) -->
+      <lightbulb id="L_Zs1_Top" x="0" y="100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L_Zs1_BL" x="-80" y="-80" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L_Zs1_BR" x="80" y="-80" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+
+      <!-- Zs 7 (Yellow V) -->
+      <lightbulb id="L_Zs7_TL" x="-80" y="80" color="yellow" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L_Zs7_TR" x="80" y="80" color="yellow" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L_Zs7_Bot" x="0" y="-100" color="yellow" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Zs 1">
+        <light id="L_Zs1_Top"/>
+        <light id="L_Zs1_BL"/>
+        <light id="L_Zs1_BR"/>
+      </aspect>
+      <aspect name="Zs 7">
+        <light id="L_Zs7_TL"/>
+        <light id="L_Zs7_TR"/>
+        <light id="L_Zs7_Bot"/>
       </aspect>
     </aspects>
   </signal>
