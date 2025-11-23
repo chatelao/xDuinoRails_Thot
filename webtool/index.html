@@ -545,6 +545,8 @@
         function createSignalSVG(signalNode) {
             const outline = signalNode.getAttribute('outline');
             const outlineColor = signalNode.getAttribute('outlineColor') || '#000000';
+            const borderColor = signalNode.getAttribute('borderColor') || 'none';
+            const borderWidth = signalNode.getAttribute('borderWidth') || '0';
             const decorations = signalNode.getElementsByTagName('decoration');
             const lightbulbs = signalNode.getElementsByTagName('lightbulb');
 
