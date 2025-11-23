@@ -396,6 +396,26 @@
                 group.appendChild(path);
             }
 
+            // Draw decorations
+            const decorations = signalNode.getElementsByTagName('decorations');
+            if (decorations.length > 0) {
+                 const paths = decorations[0].getElementsByTagName('path');
+                 for(let i=0; i<paths.length; i++) {
+                     const p = paths[i];
+                     const d = p.getAttribute('d');
+                     const stroke = p.getAttribute('stroke');
+                     const strokeWidth = p.getAttribute('stroke-width');
+                     const fill = p.getAttribute('fill');
+
+                     const pathEl = document.createElementNS(svgNS, "path");
+                     pathEl.setAttribute("d", d);
+                     if (fill) pathEl.setAttribute("fill", fill);
+                     if (stroke) pathEl.setAttribute("stroke", stroke);
+                     if (strokeWidth) pathEl.setAttribute("stroke-width", strokeWidth);
+                     group.appendChild(pathEl);
+                 }
+            }
+
             // Draw lightbulbs
             for (let i = 0; i < lightbulbs.length; i++) {
                 const bulb = lightbulbs[i];

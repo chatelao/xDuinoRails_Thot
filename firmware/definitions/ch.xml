@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
   <!-- System N Signals -->
-  <signal country="ch" name="CH-N-Hauptsignal-1" svg="CH-N-Hauptsignal-1.svg" outline="M -250,350 L 250,350 L 350,250 L 350,-250 L 250,-350 L -250,-350 L -350,-250 L -350,250 Z" outlineColor="#6c6c6c">
+  <signal country="ch" name="CH-N-Hauptsignal-1" svg="CH-N-Hauptsignal-1.svg" outline="M -450,450 L 450,450 L 450,-450 L -450,-450 Z" outlineColor="#000000">
+    <decorations>
+      <!-- White Ring -->
+      <path d="M 410,0 A 410,410 0 1,0 -410,0 A 410,410 0 1,0 410,0" stroke="white" stroke-width="30" fill="none"/>
+    </decorations>
     <lightbulbs>
       <!-- Triangular layout: L3 (Red) Top, L2 (Orange) Left, L1 (Green) Right -->
-      <lightbulb id="L1" x="200" y="-200" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L2" x="-200" y="-200" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L1" x="173" y="-100" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="-173" y="-100" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
       <lightbulb id="L3" x="0" y="200" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
@@ -120,7 +124,7 @@
     </aspects>
   </signal>
 
-  <signal country="ch" name="CH-Zwergsignal" svg="CH-Zwergsignal.svg" outline="M -150,150 L 150,150 L 0,-150 Z" outlineColor="#000000">
+  <signal country="ch" name="CH-Zwergsignal" svg="CH-Zwergsignal.svg" outline="M -140,180 L 140,180 A 40,40 0 0 0 180,140 L 100,-100 Q 0,-220 -100,-100 L -180,140 A 40,40 0 0 0 -140,180 Z" outlineColor="#000000">
     <lightbulbs>
       <!-- Triangle arrangement (inverted): L1 Bottom, L2 Top Right, L3 Top Left -->
       <!-- Approximate dimensions in mm -->
