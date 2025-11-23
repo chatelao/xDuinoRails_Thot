@@ -14,6 +14,7 @@ Welcome to the repository for xDuinoRails_Thot, a revolutionary, multi-protocol 
 ## Signal Viewer
 
 Explore the supported signals and their aspects using our online [Signal Viewer](https://chatelao.github.io/xDuinoRails_Thot/webtool/).
+You can also share specific signal configurations by copying the URL, as the viewer now supports permanent links.
 
 ## Repository Structure
 
