@@ -59,7 +59,7 @@
         .custom-select {
             position: relative;
             font-size: 16px;
-            min-width: 250px;
+            min-width: 400px;
             user-select: none;
         }
         .select-selected {
@@ -217,22 +217,15 @@
 
             <div class="control-group">
                 <label for="signal">Signal</label>
-                <select id="signal" disabled>
+                <div id="custom-signal-select" class="custom-select disabled">
+                    <div class="select-selected">Select Signal</div>
+                    <div class="select-items select-hide"></div>
+                </div>
+                <!-- Hidden native select for compatibility -->
+                <select id="signal" style="display: none;">
                     <option value="">Select Signal</option>
                 </select>
             </div>
-        </div>
-
-        <div class="control-group">
-            <label for="signal">Signal</label>
-            <div id="custom-signal-select" class="custom-select disabled">
-                <div class="select-selected">Select Signal</div>
-                <div class="select-items select-hide"></div>
-            </div>
-            <!-- Hidden native select for compatibility -->
-            <select id="signal" style="display: none;">
-                <option value="">Select Signal</option>
-            </select>
         </div>
 
         <div class="control-group">
