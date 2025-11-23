@@ -19,6 +19,16 @@ def generate_svg(xml_file, output_dir):
             outline = signal.get('outline')
             outline_color = signal.get('outlineColor', '#000000')
 
+            decorations = []
+            decorations_el = signal.find('decorations')
+            if decorations_el is not None:
+                for dec in decorations_el.findall('decoration'):
+                    d = dec.get('d', '')
+                    color = dec.get('color', 'white')
+                    stroke = dec.get('stroke', 'none')
+                    stroke_width = dec.get('strokeWidth', '0')
+                    decorations.append({'d': d, 'color': color, 'stroke': stroke, 'strokeWidth': stroke_width})
+
             bulbs = []
             lightbulbs_el = signal.find('lightbulbs')
             if lightbulbs_el is not None:
@@ -82,6 +92,10 @@ def generate_svg(xml_file, output_dir):
 
             if outline:
                 svg_lines.append(f'    <path d="{outline}" fill="{outline_color}" stroke="none" />')
+
+            for dec in decorations:
+                stroke_attr = f'stroke="{dec["stroke"]}" stroke-width="{dec["strokeWidth"]}"' if dec["stroke"] != "none" else 'stroke="none"'
+                svg_lines.append(f'    <path d="{dec["d"]}" fill="{dec["color"]}" {stroke_attr} />')
 
             for b in bulbs:
                 # Ensure color is valid or mapped if needed. SVG supports names.

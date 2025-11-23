@@ -331,6 +331,7 @@
         function renderSignalSVG(signalNode) {
             const outline = signalNode.getAttribute('outline');
             const outlineColor = signalNode.getAttribute('outlineColor') || '#000000';
+            const decorations = signalNode.getElementsByTagName('decoration');
             const lightbulbs = signalNode.getElementsByTagName('lightbulb');
 
             // Calculate ViewBox
@@ -393,6 +394,22 @@
                 path.setAttribute("d", outline);
                 path.setAttribute("fill", outlineColor);
                 path.setAttribute("stroke", "none");
+                group.appendChild(path);
+            }
+
+            // Draw decorations
+            for (let i = 0; i < decorations.length; i++) {
+                const dec = decorations[i];
+                const d = dec.getAttribute('d');
+                const color = dec.getAttribute('color') || 'white';
+                const stroke = dec.getAttribute('stroke') || 'none';
+                const strokeWidth = dec.getAttribute('strokeWidth') || '0';
+
+                const path = document.createElementNS(svgNS, "path");
+                path.setAttribute("d", d);
+                path.setAttribute("fill", color);
+                path.setAttribute("stroke", stroke);
+                path.setAttribute("stroke-width", strokeWidth);
                 group.appendChild(path);
             }
 

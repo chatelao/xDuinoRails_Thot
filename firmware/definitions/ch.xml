@@ -24,58 +24,174 @@
     </aspects>
   </signal>
 
-  <signal country="ch" name="CH-Rangierhaltsignal" svg="CH-Rangierhaltsignal.svg" outline="M -300,300 L 300,300 L 300,-300 L -300,-300 Z" outlineColor="#000000">
+  <signal country="ch" name="CH-Rangierhaltsignal" svg="CH-Rangierhaltsignal.svg" outline="M -260,260 L 260,260 L 260,-260 L -260,-260 Z" outlineColor="#000000">
     <lightbulbs>
-      <lightbulb id="L1" x="-200" y="200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
-      <lightbulb id="L2" x="0" y="200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
-      <lightbulb id="L3" x="200" y="200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
-      <lightbulb id="L4" x="-200" y="0" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
-      <lightbulb id="L5" x="0" y="0" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
-      <lightbulb id="L6" x="200" y="0" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
-      <lightbulb id="L7" x="-200" y="-200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
-      <lightbulb id="L8" x="0" y="-200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
-      <lightbulb id="L9" x="200" y="-200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <!-- Row 1 -->
+      <lightbulb id="L1" x="-200" y="200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- L2 removed -->
+      <lightbulb id="L3" x="0" y="200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- L4 removed -->
+      <lightbulb id="L5" x="200" y="200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- Row 2 -->
+      <!-- L6 removed -->
+      <lightbulb id="L7" x="-100" y="100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L8" x="0" y="100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L9" x="100" y="100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- L10 removed -->
+      <!-- Row 3 -->
+      <lightbulb id="L11" x="-200" y="0" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L12" x="-100" y="0" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L13" x="0" y="0" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L14" x="100" y="0" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L15" x="200" y="0" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- Row 4 -->
+      <!-- L16 removed -->
+      <lightbulb id="L17" x="-100" y="-100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L18" x="0" y="-100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L19" x="100" y="-100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- L20 removed -->
+      <!-- Row 5 -->
+      <lightbulb id="L21" x="-200" y="-200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- L22 removed -->
+      <lightbulb id="L23" x="0" y="-200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- L24 removed -->
+      <lightbulb id="L25" x="200" y="-200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
     </lightbulbs>
     <aspects>
       <aspect name="Halt" short="Halt" long="Halt für Rangierbewegung">
-        <light id="L2"/>
-        <light id="L4"/>
-        <light id="L5"/>
-        <light id="L6"/>
-        <light id="L8"/>
+        <!-- Vertical -->
+        <light id="L3"/> <light id="L8"/> <light id="L13"/> <light id="L18"/> <light id="L23"/>
+        <!-- Horizontal -->
+        <light id="L11"/> <light id="L12"/> <light id="L14"/> <light id="L15"/>
       </aspect>
       <aspect name="Zustimmung" short="Zustimmung" long="Zustimmung zur Rangierbewegung">
-        <light id="L7"/>
-        <light id="L5"/>
-        <light id="L3"/>
+        <!-- Diagonal / -->
+        <light id="L21"/> <light id="L17"/> <light id="L13"/> <light id="L9"/> <light id="L5"/>
+      </aspect>
+      <aspect name="Rangieren verboten">
+        <!-- Vertical -->
+        <light id="L3"/> <light id="L8"/> <light id="L13"/> <light id="L18"/> <light id="L23"/>
+        <!-- Horizontal -->
+        <light id="L11"/> <light id="L12"/> <light id="L14"/> <light id="L15"/>
+      </aspect>
+      <aspect name="Rangieren erlaubt">
+        <!-- Diagonal / -->
+        <light id="L21"/> <light id="L17"/> <light id="L13"/> <light id="L9"/> <light id="L5"/>
       </aspect>
     </aspects>
   </signal>
 
-  <signal country="ch" name="CH-Raeumungssignal" svg="CH-Raeumungssignal.svg" outline="M -300,300 L 300,300 L 300,-300 L -300,-300 Z" outlineColor="#000000">
+  <signal country="ch" name="CH-Raeumungssignal" svg="CH-Raeumungssignal.svg" outline="M -260,260 L 260,260 L 260,-260 L -260,-260 Z" outlineColor="#000000">
     <lightbulbs>
-      <lightbulb id="L1" x="-200" y="200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
-      <lightbulb id="L2" x="0" y="200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
-      <lightbulb id="L3" x="200" y="200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
-      <lightbulb id="L4" x="-200" y="0" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
-      <lightbulb id="L5" x="0" y="0" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
-      <lightbulb id="L6" x="200" y="0" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
-      <lightbulb id="L7" x="-200" y="-200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
-      <lightbulb id="L8" x="0" y="-200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
-      <lightbulb id="L9" x="200" y="-200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <!-- Row 1 -->
+      <lightbulb id="L1" x="-200" y="200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- L2 removed -->
+      <lightbulb id="L3" x="0" y="200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- L4 removed -->
+      <lightbulb id="L5" x="200" y="200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- Row 2 -->
+      <!-- L6 removed -->
+      <lightbulb id="L7" x="-100" y="100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L8" x="0" y="100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L9" x="100" y="100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- L10 removed -->
+      <!-- Row 3 -->
+      <lightbulb id="L11" x="-200" y="0" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L12" x="-100" y="0" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L13" x="0" y="0" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L14" x="100" y="0" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L15" x="200" y="0" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- Row 4 -->
+      <!-- L16 removed -->
+      <lightbulb id="L17" x="-100" y="-100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L18" x="0" y="-100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L19" x="100" y="-100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- L20 removed -->
+      <!-- Row 5 -->
+      <lightbulb id="L21" x="-200" y="-200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- L22 removed -->
+      <lightbulb id="L23" x="0" y="-200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- L24 removed -->
+      <lightbulb id="L25" x="200" y="-200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
     </lightbulbs>
     <aspects>
       <aspect name="Rangieren verboten" short="Verboten" long="Rangieren verboten">
-        <light id="L1"/>
-        <light id="L3"/>
-        <light id="L5"/>
-        <light id="L7"/>
-        <light id="L9"/>
+        <!-- Diagonal \ -->
+        <light id="L1"/> <light id="L7"/> <light id="L13"/> <light id="L19"/> <light id="L25"/>
+        <!-- Diagonal / -->
+        <light id="L21"/> <light id="L17"/> <light id="L9"/> <light id="L5"/>
       </aspect>
       <aspect name="Rangieren gestattet" short="Gestattet" long="Rangieren gestattet">
-        <light id="L2"/>
-        <light id="L5"/>
-        <light id="L8"/>
+        <!-- Vertical -->
+        <light id="L3"/> <light id="L8"/> <light id="L13"/> <light id="L18"/> <light id="L23"/>
+      </aspect>
+      <aspect name="Rangieren erlaubt">
+        <!-- Vertical -->
+        <light id="L3"/> <light id="L8"/> <light id="L13"/> <light id="L18"/> <light id="L23"/>
+      </aspect>
+    </aspects>
+  </signal>
+
+  <signal country="ch" name="CH-Rangierhaltsignal-V2" svg="CH-Rangierhaltsignal-V2.svg" outline="M -260,260 L 260,260 L 260,-260 L -260,-260 Z" outlineColor="#000000">
+    <decorations>
+      <decoration d="M -260,-40 L 260,-40 L 260,40 L -260,40 Z" color="white" />
+      <decoration d="M -40,-260 L 40,-260 L 40,260 L -40,260 Z" color="white" />
+    </decorations>
+    <lightbulbs>
+      <!-- Reduced set based on variant: Diagonal lights + Corners/Mid-corners -->
+      <!-- Center: L13 -->
+      <!-- Diagonal: L21, L17, L13, L9, L5 -->
+      <!-- Remaining corners/inner corners: L1, L7, L19, L25 -->
+
+      <!-- Row 1 -->
+      <lightbulb id="L1" x="-200" y="200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- L2 removed -->
+      <!-- L3 removed (vertical arm) -->
+      <!-- L4 removed -->
+      <lightbulb id="L5" x="200" y="200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+
+      <!-- Row 2 -->
+      <!-- L6 removed -->
+      <lightbulb id="L7" x="-100" y="100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- L8 removed (vertical arm) -->
+      <lightbulb id="L9" x="100" y="100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- L10 removed -->
+
+      <!-- Row 3 -->
+      <!-- L11 removed (horizontal arm) -->
+      <!-- L12 removed (horizontal arm) -->
+      <lightbulb id="L13" x="0" y="0" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- L14 removed (horizontal arm) -->
+      <!-- L15 removed (horizontal arm) -->
+
+      <!-- Row 4 -->
+      <!-- L16 removed -->
+      <lightbulb id="L17" x="-100" y="-100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- L18 removed (vertical arm) -->
+      <lightbulb id="L19" x="100" y="-100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- L20 removed -->
+
+      <!-- Row 5 -->
+      <lightbulb id="L21" x="-200" y="-200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <!-- L22 removed -->
+      <!-- L23 removed (vertical arm) -->
+      <!-- L24 removed -->
+      <lightbulb id="L25" x="200" y="-200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Halt" short="Halt" long="Halt für Rangierbewegung">
+        <!-- No lights, relying on painted cross -->
+      </aspect>
+      <aspect name="Zustimmung" short="Zustimmung" long="Zustimmung zur Rangierbewegung">
+        <!-- Diagonal / -->
+        <light id="L21"/> <light id="L17"/> <light id="L13"/> <light id="L9"/> <light id="L5"/>
+      </aspect>
+      <aspect name="Rangieren verboten">
+        <!-- No lights, relying on painted cross -->
+      </aspect>
+      <aspect name="Rangieren erlaubt">
+        <!-- Diagonal / -->
+        <light id="L21"/> <light id="L17"/> <light id="L13"/> <light id="L9"/> <light id="L5"/>
       </aspect>
     </aspects>
   </signal>
