@@ -274,7 +274,7 @@
 
             // Populate Aspect dropdown
             const aspects = signalNode.getElementsByTagName('aspect');
-            const aspectOptions = [];
+            const aspectOptions = ['Dark'];
             for (let i = 0; i < aspects.length; i++) {
                 const name = aspects[i].getAttribute('name');
                 if (name) {
@@ -410,8 +410,8 @@
                 const bulbPath = document.createElementNS(svgNS, "path");
                 bulbPath.setAttribute("d", pathData);
                 bulbPath.setAttribute("transform", `translate(${x}, ${y})`);
-                // Initial state: off (dark grey)
-                bulbPath.setAttribute("fill", "#444");
+                // Initial state: all on (Select Aspect default)
+                bulbPath.setAttribute("fill", color);
                 bulbPath.setAttribute("id", `bulb-${id}`);
                 bulbPath.dataset.onColor = color;
 
@@ -426,13 +426,22 @@
             const svg = displayDiv.querySelector('svg');
             if (!svg) return;
 
-            // Turn all off first
             const bulbs = svg.querySelectorAll('[id^="bulb-"]');
+
+            if (!aspectName) {
+                // Select Aspect: Show all lights
+                bulbs.forEach(b => {
+                    b.setAttribute("fill", b.dataset.onColor);
+                });
+                return;
+            }
+
+            // Turn all off first
             bulbs.forEach(b => {
                 b.setAttribute("fill", "#444");
             });
 
-            if (!aspectName) return;
+            if (aspectName === 'Dark') return;
 
             const aspects = signalNode.getElementsByTagName('aspect');
             let selectedAspect = null;
