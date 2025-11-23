@@ -44,6 +44,77 @@
             border-radius: 4px;
             min-width: 200px;
         }
+        /* Custom Select Styles */
+        .custom-select {
+            position: relative;
+            font-size: 16px;
+            min-width: 250px;
+            user-select: none;
+        }
+        .select-selected {
+            background-color: #fff;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 40px; /* Adjust as needed */
+        }
+        .select-selected:after {
+            content: "";
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+            border-color: #333 transparent transparent transparent;
+            margin-left: 10px;
+        }
+        .select-selected.select-arrow-active:after {
+            border-color: transparent transparent #333 transparent;
+            top: 7px;
+        }
+        .select-items {
+            position: absolute;
+            background-color: #fff;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            max-height: 400px;
+            overflow-y: auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .select-hide {
+            display: none;
+        }
+        .select-item {
+            padding: 8px 12px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .select-item:hover, .same-as-selected {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        .signal-preview {
+            height: 40px;
+            width: 40px;
+            flex-shrink: 0;
+            margin-left: 10px;
+        }
+        .custom-select.disabled .select-selected {
+            background-color: #eee;
+            color: #aaa;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
         #display {
             background: #eeeeee;
             padding: 20px;
@@ -67,6 +138,49 @@
             color: #d32f2f;
             font-weight: bold;
         }
+        /* Aspect Table Styles */
+        #aspect-table-container {
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+        table.aspect-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        table.aspect-table th, table.aspect-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        table.aspect-table th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            color: #333;
+        }
+        table.aspect-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        table.aspect-table tbody tr {
+            cursor: pointer;
+        }
+        table.aspect-table tbody tr:hover {
+            background-color: #e9ecef;
+        }
+        table.aspect-table tr.selected {
+            background-color: #fff3cd; /* Light yellow highlight */
+            border-left: 4px solid #ffc107;
+        }
+        .light-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            margin: 2px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            background-color: #eee;
+            border: 1px solid #ccc;
+        }
     </style>
 </head>
 <body>
@@ -83,14 +197,24 @@
                 <option value="de">Germany (DE)</option>
                 <option value="fr">France (FR)</option>
                 <option value="it">Italy (IT)</option>
+                <option value="pl">Poland (PL)</option>
                 <option value="uk">United Kingdom (UK)</option>
                 <option value="us">United States (US)</option>
             </select>
         </div>
 
+        <div class="control-group" style="align-self: flex-end;">
+            <a href="gallery.html" class="button-link">View All Signals (Gallery)</a>
+        </div>
+
         <div class="control-group">
             <label for="signal">Signal</label>
-            <select id="signal" disabled>
+            <div id="custom-signal-select" class="custom-select disabled">
+                <div class="select-selected">Select Signal</div>
+                <div class="select-items select-hide"></div>
+            </div>
+            <!-- Hidden native select for compatibility -->
+            <select id="signal" style="display: none;">
                 <option value="">Select Signal</option>
             </select>
         </div>
@@ -107,11 +231,19 @@
         <p class="placeholder">Select a country and a signal to view it.</p>
     </div>
 
+    <div id="aspect-table-container"></div>
+
     <script>
         const countrySelect = document.getElementById('country');
         const signalSelect = document.getElementById('signal');
         const aspectSelect = document.getElementById('aspect');
         const displayDiv = document.getElementById('display');
+        const aspectTableContainer = document.getElementById('aspect-table-container');
+
+        // Custom Select Elements
+        const customSelectContainer = document.getElementById('custom-signal-select');
+        const customSelectSelected = customSelectContainer.querySelector('.select-selected');
+        const customSelectItems = customSelectContainer.querySelector('.select-items');
 
         // Map signal names to signal data objects
         let currentSignals = {};
@@ -161,8 +293,7 @@
 
                     if (signal && currentSignals[signal]) {
                         if (signalSelect.value !== signal) {
-                            signalSelect.value = signal;
-                            onSignalChange(signal);
+                            updateSignalSelection(signal);
                         }
 
                         if (aspect) {
@@ -181,12 +312,28 @@
                         }
                     } else {
                         if (signalSelect.value) {
-                            signalSelect.value = "";
-                            onSignalChange("");
+                            updateSignalSelection("");
                         }
                     }
                 }
             }
+        }
+
+        function updateSignalSelection(signalName) {
+            signalSelect.value = signalName;
+            customSelectSelected.textContent = signalName || "Select Signal";
+
+            // Update selected class in custom items
+            const items = customSelectItems.querySelectorAll('.select-item');
+            items.forEach(item => {
+                if (item.dataset.value === signalName) {
+                    item.classList.add('same-as-selected');
+                } else {
+                    item.classList.remove('same-as-selected');
+                }
+            });
+
+            onSignalChange(signalName);
         }
 
         // --- Core Logic ---
@@ -194,10 +341,17 @@
         async function loadCountry(country) {
             // Reset selection
             signalSelect.innerHTML = '<option value="">Select Signal</option>';
-            signalSelect.disabled = true;
+            // signalSelect.disabled = true; // No longer used directly by user
+
+            // Reset custom select
+            customSelectItems.innerHTML = '';
+            customSelectSelected.textContent = 'Select Signal';
+            customSelectContainer.classList.add('disabled');
+
             aspectSelect.innerHTML = '<option value="">Select Aspect</option>';
             aspectSelect.disabled = true;
             displayDiv.innerHTML = '<p class="placeholder">Select a signal to view it.</p>';
+            aspectTableContainer.innerHTML = '';
             currentSignals = {};
             currentXmlDoc = null;
             loadedCountry = null;
@@ -241,14 +395,41 @@
 
                 signalOptions.sort();
 
+                // Populate custom dropdown
                 signalOptions.forEach(name => {
+                    // Native (hidden)
                     const option = document.createElement('option');
                     option.value = name;
                     option.textContent = name;
                     signalSelect.appendChild(option);
+
+                    // Custom
+                    const item = document.createElement('div');
+                    item.className = 'select-item';
+                    item.dataset.value = name;
+
+                    const textSpan = document.createElement('span');
+                    textSpan.textContent = name;
+                    item.appendChild(textSpan);
+
+                    // Generate preview
+                    const svgPreview = createSignalSVG(currentSignals[name]);
+                    svgPreview.classList.add('signal-preview');
+                    item.appendChild(svgPreview);
+
+                    item.addEventListener('click', function(e) {
+                         // Close all select boxes
+                        closeAllSelect(item);
+
+                        updateSignalSelection(name);
+                        updateHash();
+                        e.stopPropagation();
+                    });
+
+                    customSelectItems.appendChild(item);
                 });
 
-                signalSelect.disabled = false;
+                customSelectContainer.classList.remove('disabled');
                 loadedCountry = country;
 
             } catch (e) {
@@ -295,6 +476,7 @@
             }
 
             renderSignalSVG(signalNode);
+            renderAspectTable(signalNode);
         }
 
         function onAspectChange(aspectName) {
@@ -303,19 +485,35 @@
 
             const signalNode = currentSignals[signalName];
             updateSignalAspect(signalNode, aspectName);
+            updateAspectTableSelection(aspectName);
         }
 
         // --- Event Listeners ---
+
+        // Custom Select Toggle
+        customSelectSelected.addEventListener('click', function(e) {
+            if (customSelectContainer.classList.contains('disabled')) return;
+            e.stopPropagation();
+            closeAllSelect(this);
+            customSelectItems.classList.toggle('select-hide');
+            customSelectSelected.classList.toggle('select-arrow-active');
+        });
+
+        function closeAllSelect(elmnt) {
+             if (elmnt !== customSelectSelected) {
+                customSelectItems.classList.add('select-hide');
+                customSelectSelected.classList.remove('select-arrow-active');
+             }
+        }
+
+        document.addEventListener('click', closeAllSelect);
 
         countrySelect.addEventListener('change', async () => {
             await loadCountry(countrySelect.value);
             updateHash();
         });
 
-        signalSelect.addEventListener('change', () => {
-            onSignalChange(signalSelect.value);
-            updateHash();
-        });
+        // signalSelect change is now handled by custom dropdown clicks calling updateSignalSelection
 
         aspectSelect.addEventListener('change', () => {
             onAspectChange(aspectSelect.value);
@@ -328,7 +526,7 @@
         // Handle browser back/forward buttons
         window.addEventListener('hashchange', loadStateFromHash);
 
-        function renderSignalSVG(signalNode) {
+        function createSignalSVG(signalNode) {
             const outline = signalNode.getAttribute('outline');
             const outlineColor = signalNode.getAttribute('outlineColor') || '#000000';
             const decorations = signalNode.getElementsByTagName('decoration');
@@ -393,7 +591,8 @@
                 const path = document.createElementNS(svgNS, "path");
                 path.setAttribute("d", outline);
                 path.setAttribute("fill", outlineColor);
-                path.setAttribute("stroke", "none");
+                path.setAttribute("stroke", borderColor);
+                path.setAttribute("stroke-width", borderWidth);
                 group.appendChild(path);
             }
 
@@ -436,6 +635,11 @@
                 group.appendChild(bulbPath);
             }
 
+            return svg;
+        }
+
+        function renderSignalSVG(signalNode) {
+            const svg = createSignalSVG(signalNode);
             displayDiv.innerHTML = '';
             displayDiv.appendChild(svg);
         }
@@ -480,6 +684,102 @@
                     }
                 }
             }
+        }
+
+        function renderAspectTable(signalNode) {
+            aspectTableContainer.innerHTML = '';
+
+            const table = document.createElement('table');
+            table.className = 'aspect-table';
+
+            // Header
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            ['Aspect Name', 'Active Lights'].forEach(text => {
+                const th = document.createElement('th');
+                th.textContent = text;
+                headerRow.appendChild(th);
+            });
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            // Body
+            const tbody = document.createElement('tbody');
+
+            // Map light IDs to colors/info
+            const lightInfo = {};
+            const lightbulbs = signalNode.getElementsByTagName('lightbulb');
+            for(let i=0; i<lightbulbs.length; i++) {
+                const id = lightbulbs[i].getAttribute('id');
+                const color = lightbulbs[i].getAttribute('color');
+                lightInfo[id] = color;
+            }
+
+            const aspects = signalNode.getElementsByTagName('aspect');
+            for (let i = 0; i < aspects.length; i++) {
+                const aspect = aspects[i];
+                const name = aspect.getAttribute('name');
+                const tr = document.createElement('tr');
+                tr.dataset.aspectName = name;
+
+                tr.addEventListener('click', () => {
+                    aspectSelect.value = name;
+                    onAspectChange(name);
+                    updateHash();
+                });
+
+                // Name Cell
+                const nameTd = document.createElement('td');
+                nameTd.textContent = name;
+                tr.appendChild(nameTd);
+
+                // Lights Cell
+                const lightsTd = document.createElement('td');
+                const lights = aspect.getElementsByTagName('light');
+                const activeLights = [];
+
+                for(let j=0; j<lights.length; j++) {
+                    const lid = lights[j].getAttribute('id');
+                    const blink = lights[j].getAttribute('blink') === 'true';
+                    let info = lid;
+                    if (lightInfo[lid]) {
+                        info += ` (${lightInfo[lid]})`;
+                    }
+                    if (blink) {
+                        info += ' [Blink]';
+                    }
+                    activeLights.push(info);
+                }
+
+                // Create badges for lights
+                if (activeLights.length > 0) {
+                    activeLights.forEach(info => {
+                        const span = document.createElement('span');
+                        span.className = 'light-badge';
+                        span.textContent = info;
+                        lightsTd.appendChild(span);
+                    });
+                } else {
+                    lightsTd.textContent = '-'; // Dark or no lights
+                }
+
+                tr.appendChild(lightsTd);
+                tbody.appendChild(tr);
+            }
+
+            table.appendChild(tbody);
+            aspectTableContainer.appendChild(table);
+        }
+
+        function updateAspectTableSelection(aspectName) {
+            const rows = aspectTableContainer.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                if (row.dataset.aspectName === aspectName) {
+                    row.classList.add('selected');
+                } else {
+                    row.classList.remove('selected');
+                }
+            });
         }
     </script>
 </body>

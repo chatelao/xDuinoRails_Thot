@@ -62,6 +62,8 @@
             <xs:attribute name="svg" type="xs:string" use="required"/>
             <xs:attribute name="outline" type="xs:string" use="optional"/>
             <xs:attribute name="outlineColor" type="xs:string" use="optional"/>
+            <xs:attribute name="borderColor" type="xs:string" use="optional"/>
+            <xs:attribute name="borderWidth" type="xs:decimal" use="optional"/>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
