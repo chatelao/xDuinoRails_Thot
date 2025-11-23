@@ -24,6 +24,130 @@
     </aspects>
   </signal>
 
+  <signal country="ch" name="CH-L-Hauptsignal-5L" svg="CH-L-Hauptsignal-5L.svg" outline="M -100,1050 L 100,1050 L 200,950 L 200,-950 L 100,-1050 L -100,-1050 L -200,-950 L -200,950 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="800" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="0" y="400" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L3" x="0" y="0" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L4" x="0" y="-400" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L5" x="0" y="-800" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Halt" short="Halt" long="Halt">
+        <light id="L2"/>
+      </aspect>
+      <aspect name="Freie Fahrt" short="Fb1" long="Fahrbegriff 1">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Ausführung 40" short="Fb2" long="Fahrbegriff 2">
+        <light id="L1"/>
+        <light id="L3"/>
+      </aspect>
+      <aspect name="Ausführung 60" short="Fb3" long="Fahrbegriff 3">
+        <light id="L1"/>
+        <light id="L4"/>
+      </aspect>
+      <aspect name="Ausführung 90" short="Fb5" long="Fahrbegriff 5">
+        <light id="L1"/>
+        <light id="L4"/>
+        <light id="L5"/>
+      </aspect>
+      <aspect name="Kurze Fahrt" short="Fb6" long="Fahrbegriff 6">
+        <light id="L1"/>
+        <light id="L3"/>
+      </aspect>
+    </aspects>
+  </signal>
+
+  <signal country="ch" name="CH-N-Hauptsignal-2L" svg="CH-N-Hauptsignal-2L.svg" outline="M -150,210 L 150,210 L 150,-210 L -150,-210 Z" outlineColor="#6c6c6c">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="110" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="0" y="-110" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Halt">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Freie Fahrt">
+        <light id="L2"/>
+      </aspect>
+      <aspect name="Hilfssignal">
+        <light id="L1" blink="true"/>
+      </aspect>
+    </aspects>
+  </signal>
+
+  <signal country="ch" name="CH-N-Hauptsignal-3L" svg="CH-N-Hauptsignal-3L.svg" outline="M -150,320 L 150,320 L 150,-320 L -150,-320 Z" outlineColor="#6c6c6c">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="220" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="0" y="0" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L3" x="0" y="-220" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Halt">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Freie Fahrt">
+        <light id="L3"/>
+      </aspect>
+      <aspect name="Warnung">
+        <light id="L2"/>
+      </aspect>
+      <aspect name="Hilfssignal">
+        <light id="L1" blink="true"/>
+      </aspect>
+    </aspects>
+  </signal>
+
+  <signal country="ch" name="CH-N-Hauptsignal-4L" svg="CH-N-Hauptsignal-4L.svg" outline="M -150,430 L 150,430 L 150,-430 L -150,-430 Z" outlineColor="#6c6c6c">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="330" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="0" y="110" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L3" x="0" y="-110" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L4" x="0" y="-330" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Halt">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Freie Fahrt">
+        <light id="L3"/>
+      </aspect>
+      <aspect name="Warnung">
+        <light id="L2"/>
+        <light id="L4"/>
+      </aspect>
+      <aspect name="Hilfssignal">
+        <light id="L1" blink="true"/>
+      </aspect>
+    </aspects>
+  </signal>
+
+  <signal country="ch" name="CH-N-Hauptsignal-5L" svg="CH-N-Hauptsignal-5L.svg" outline="M -150,540 L 150,540 L 150,-540 L -150,-540 Z" outlineColor="#6c6c6c">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="440" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="0" y="220" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L3" x="0" y="0" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L4" x="0" y="-220" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L5" x="0" y="-440" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Halt">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Freie Fahrt">
+        <light id="L3"/>
+      </aspect>
+      <aspect name="Warnung">
+        <light id="L2"/>
+        <light id="L4"/>
+      </aspect>
+      <aspect name="Hilfssignal">
+        <light id="L1" blink="true"/>
+      </aspect>
+    </aspects>
+  </signal>
+
   <signal country="ch" name="CH-Rangierhaltsignal" svg="CH-Rangierhaltsignal.svg" outline="M -260,260 L 260,260 L 260,-260 L -260,-260 Z" outlineColor="#000000">
     <lightbulbs>
       <!-- Row 1 -->
@@ -212,6 +336,21 @@
   </signal>
 
   <!-- System L Signals -->
+  <signal country="ch" name="CH-L-Hauptsignal-2L" svg="CH-L-Hauptsignal-2L.svg" outline="M -100,500 L 100,500 L 200,400 L 200,-400 L 100,-500 L -100,-500 L -200,-400 L -200,400 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="0" y="-250" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Halt" short="Halt" long="Halt">
+        <light id="L2"/>
+      </aspect>
+      <aspect name="Freie Fahrt" short="Fb1" long="Fahrbegriff 1">
+        <light id="L1"/>
+      </aspect>
+    </aspects>
+  </signal>
+
   <signal country="ch" name="CH-L-Hauptsignal-3L" svg="CH-L-Hauptsignal-3L.svg" outline="M -100,750 L 100,750 L 200,650 L 200,-650 L 100,-750 L -100,-750 L -200,-650 L -200,650 Z" outlineColor="#000000">
     <lightbulbs>
       <lightbulb id="L1" x="0" y="500" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
