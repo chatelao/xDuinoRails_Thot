@@ -27,7 +27,7 @@
     </aspects>
   </signal>
 
-  <signal country="ch" name="CH-L-Hauptsignal-5L" svg="CH-L-Hauptsignal-5L.svg" outline="M -100,1050 L 100,1050 L 200,950 L 200,-950 L 100,-1050 L -100,-1050 L -200,-950 L -200,950 Z" outlineColor="#000000">
+  <signal country="ch" name="CH-L-Hauptsignal-5L" svg="CH-L-Hauptsignal-5L.svg" outline="M -100,1050 L 100,1050 L 200,950 L 200,-950 L 100,-1050 L -100,-1050 L -200,-950 L -200,950 Z" outlineColor="#000000" borderColor="#ffffff" borderWidth="40">
     <lightbulbs>
       <lightbulb id="L1" x="0" y="800" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
       <lightbulb id="L2" x="0" y="400" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
@@ -333,7 +333,7 @@
   </signal>
 
   <!-- System L Signals -->
-  <signal country="ch" name="CH-L-Hauptsignal-2L" svg="CH-L-Hauptsignal-2L.svg" outline="M -100,500 L 100,500 L 200,400 L 200,-400 L 100,-500 L -100,-500 L -200,-400 L -200,400 Z" outlineColor="#000000">
+  <signal country="ch" name="CH-L-Hauptsignal-2L" svg="CH-L-Hauptsignal-2L.svg" outline="M -100,500 L 100,500 L 200,400 L 200,-400 L 100,-500 L -100,-500 L -200,-400 L -200,400 Z" outlineColor="#000000" borderColor="#ffffff" borderWidth="40">
     <lightbulbs>
       <lightbulb id="L1" x="0" y="250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
       <lightbulb id="L2" x="0" y="-250" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
@@ -348,7 +348,7 @@
     </aspects>
   </signal>
 
-  <signal country="ch" name="CH-L-Hauptsignal-3L" svg="CH-L-Hauptsignal-3L.svg" outline="M -100,750 L 100,750 L 200,650 L 200,-650 L 100,-750 L -100,-750 L -200,-650 L -200,650 Z" outlineColor="#000000">
+  <signal country="ch" name="CH-L-Hauptsignal-3L" svg="CH-L-Hauptsignal-3L.svg" outline="M -100,750 L 100,750 L 200,650 L 200,-650 L 100,-750 L -100,-750 L -200,-650 L -200,650 Z" outlineColor="#000000" borderColor="#ffffff" borderWidth="40">
     <lightbulbs>
       <lightbulb id="L1" x="0" y="500" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
       <lightbulb id="L2" x="0" y="0" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
@@ -480,7 +480,7 @@
     </aspects>
   </signal>
 
-  <signal country="ch" name="CH-L-Hauptsignal-7L" svg="CH-L-Hauptsignal-7L.svg" outline="M -120,550 L 120,550 L 220,450 L 220,-450 L 120,-550 L -120,-550 L -220,-450 L -220,450 Z" outlineColor="#000000">
+  <signal country="ch" name="CH-L-Hauptsignal-7L" svg="CH-L-Hauptsignal-7L.svg" outline="M -120,550 L 120,550 L 220,450 L 220,-450 L 120,-550 L -120,-550 L -220,-450 L -220,450 Z" outlineColor="#000000" borderColor="#ffffff" borderWidth="40">
     <lightbulbs>
       <!-- Left Column -->
       <lightbulb id="L2" x="-120" y="375" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
