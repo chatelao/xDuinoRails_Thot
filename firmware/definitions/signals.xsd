@@ -30,6 +30,7 @@
                           <xs:element name="light" maxOccurs="unbounded">
                             <xs:complexType>
                               <xs:attribute name="id" type="xs:string" use="required"/>
+                              <xs:attribute name="blink" type="xs:boolean" use="optional"/>
                             </xs:complexType>
                           </xs:element>
                         </xs:sequence>
