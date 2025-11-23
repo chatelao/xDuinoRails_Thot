@@ -24,6 +24,62 @@
     </aspects>
   </signal>
 
+  <signal country="ch" name="CH-Rangierhaltsignal" svg="CH-Rangierhaltsignal.svg" outline="M -300,300 L 300,300 L 300,-300 L -300,-300 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L1" x="-200" y="200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <lightbulb id="L2" x="0" y="200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <lightbulb id="L3" x="200" y="200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <lightbulb id="L4" x="-200" y="0" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <lightbulb id="L5" x="0" y="0" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <lightbulb id="L6" x="200" y="0" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <lightbulb id="L7" x="-200" y="-200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <lightbulb id="L8" x="0" y="-200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <lightbulb id="L9" x="200" y="-200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Halt" short="Halt" long="Halt für Rangierbewegung">
+        <light id="L2"/>
+        <light id="L4"/>
+        <light id="L5"/>
+        <light id="L6"/>
+        <light id="L8"/>
+      </aspect>
+      <aspect name="Zustimmung" short="Zustimmung" long="Zustimmung zur Rangierbewegung">
+        <light id="L7"/>
+        <light id="L5"/>
+        <light id="L3"/>
+      </aspect>
+    </aspects>
+  </signal>
+
+  <signal country="ch" name="CH-Raeumungssignal" svg="CH-Raeumungssignal.svg" outline="M -300,300 L 300,300 L 300,-300 L -300,-300 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L1" x="-200" y="200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <lightbulb id="L2" x="0" y="200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <lightbulb id="L3" x="200" y="200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <lightbulb id="L4" x="-200" y="0" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <lightbulb id="L5" x="0" y="0" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <lightbulb id="L6" x="200" y="0" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <lightbulb id="L7" x="-200" y="-200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <lightbulb id="L8" x="0" y="-200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <lightbulb id="L9" x="200" y="-200" color="white" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Rangieren verboten" short="Verboten" long="Rangieren verboten">
+        <light id="L1"/>
+        <light id="L3"/>
+        <light id="L5"/>
+        <light id="L7"/>
+        <light id="L9"/>
+      </aspect>
+      <aspect name="Rangieren gestattet" short="Gestattet" long="Rangieren gestattet">
+        <light id="L2"/>
+        <light id="L5"/>
+        <light id="L8"/>
+      </aspect>
+    </aspects>
+  </signal>
+
   <signal country="ch" name="CH-N-Vorsignal-1" svg="CH-N-Vorsignal-1.svg" outline="M -250,250 L 250,250 L 250,-250 L -250,-250 Z" outlineColor="#ffffff">
     <lightbulbs>
       <!-- Square layout: L2 (Orange) Left, L1 (Green) Right -->

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-350.0 -350.0 700.0 700.0">
+  <g transform="scale(1, -1)">
+    <path d="M -300,300 L 300,300 L 300,-300 L -300,-300 Z" fill="#000000" stroke="none" />
+    <path d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0" transform="translate(-200.0, 200.0)" fill="white" />
+    <path d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0" transform="translate(0.0, 200.0)" fill="white" />
+    <path d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0" transform="translate(200.0, 200.0)" fill="white" />
+    <path d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0" transform="translate(-200.0, 0.0)" fill="white" />
+    <path d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0" transform="translate(0.0, 0.0)" fill="white" />
+    <path d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0" transform="translate(200.0, 0.0)" fill="white" />
+    <path d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0" transform="translate(-200.0, -200.0)" fill="white" />
+    <path d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0" transform="translate(0.0, -200.0)" fill="white" />
+    <path d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0" transform="translate(200.0, -200.0)" fill="white" />
+  </g>
+</svg>
