@@ -1,7 +1,6 @@
 import os
 import glob
 import re
-import zipfile
 import xml.etree.ElementTree as ET
 import cairosvg
 
@@ -118,10 +117,3 @@ if __name__ == "__main__":
     for xml_file in glob.glob(os.path.join(def_dir, "*.xml")):
         print(f"Generating SVGs for {xml_file}")
         generate_svg(xml_file, output_dir)
-
-    # Create Zip
-    zip_filename = os.path.join(def_dir, "signal_svgs.zip")
-    with zipfile.ZipFile(zip_filename, 'w') as zf:
-        for f in glob.glob(os.path.join(output_dir, "*.svg")):
-            zf.write(f, os.path.basename(f))
-    print(f"Created {zip_filename}")
