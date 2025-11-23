@@ -23,6 +23,8 @@
 #include "LightSources/UsaSignal.h"
 #elif defined(SIGNAL_TYPE_GERMAN)
 #include "LightSources/GermanSignal.h"
+#elif defined(SIGNAL_TYPE_POLISH)
+#include "LightSources/PolishSignal.h"
 #endif
 
 #include <memory>
@@ -54,6 +56,8 @@ public:
     signal = new xDuinoRails::UsaSignal(NEOPIXEL_PIN, NUM_PIXELS);
 #elif defined(SIGNAL_TYPE_GERMAN)
     signal = new xDuinoRails::GermanSignal(NEOPIXEL_PIN, NUM_PIXELS, seven_segment_pins);
+#elif defined(SIGNAL_TYPE_POLISH)
+    signal = new xDuinoRails::PolishSignal(NEOPIXEL_PIN, NUM_PIXELS);
 #endif
     signal->begin();
   }
@@ -94,6 +98,10 @@ public:
   void setAspect(xDuinoRails::GermanSignalAspect aspect) {
     signal->setAspect(aspect);
   }
+#elif defined(SIGNAL_TYPE_POLISH)
+  void setAspect(xDuinoRails::PolishSignalAspect aspect) {
+    signal->setAspect(aspect);
+  }
 #endif
 
   /**
@@ -120,5 +128,7 @@ private:
   xDuinoRails::UsaSignal* signal;
 #elif defined(SIGNAL_TYPE_GERMAN)
   xDuinoRails::GermanSignal* signal;
+#elif defined(SIGNAL_TYPE_POLISH)
+  xDuinoRails::PolishSignal* signal;
 #endif
 };
