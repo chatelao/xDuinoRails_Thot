@@ -24,7 +24,7 @@
     </aspects>
   </signal>
 
-  <signal country="ch" name="CH-N-Vorsignal-1" svg="CH-N-Vorsignal-1.svg" outline="M -250,250 L 250,250 L 250,-250 L -250,-250 Z" outlineColor="#ffffff">
+  <signal country="ch" name="CH-N-Vorsignal-1" svg="CH-N-Vorsignal-1.svg" outline="M -250,250 L 250,250 L 250,-250 L -250,-250 Z" outlineColor="#000000" borderColor="#ffffff" borderWidth="20">
     <lightbulbs>
       <!-- Square layout: L2 (Orange) Left, L1 (Green) Right -->
       <lightbulb id="L1" x="120" y="0" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-400.0 -1050.0 800.0 2100.0">
   <g transform="scale(1, -1)">
-    <path d="M -350,1000 L 350,1000 L 350,-1000 L -350,-1000 Z" fill="#000000" stroke="none" />
+    <path d="M -350,1000 L 350,1000 L 350,-1000 L -350,-1000 Z" fill="#000000" stroke="none" stroke-width="0" />
     <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(0.0, 750.0)" fill="yellow" />
     <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(0.0, 250.0)" fill="green" />
     <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(0.0, -250.0)" fill="red" />
