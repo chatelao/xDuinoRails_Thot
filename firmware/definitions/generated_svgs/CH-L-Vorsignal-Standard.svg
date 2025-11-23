@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-400.0 -450.0 800.0 900.0">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-550.0 -550.0 1100.0 1100.0">
   <g transform="scale(1, -1)">
-    <path d="M -350,400 L 350,400 A 50,50 0 0 0 400,350 L 400,-350 A 50,50 0 0 0 350,-400 L -350,-400 A 50,50 0 0 0 -400,-350 L -400,350 A 50,50 0 0 0 -350,400 Z" fill="#000000" stroke="none" />
+    <path d="M -250,500 L 250,500 L 500,250 L 500,-250 L 250,-500 L -250,-500 L -500,-250 L -500,250 Z" fill="#000000" stroke="none" />
     <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(-250.0, 250.0)" fill="orange" />
     <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(250.0, 250.0)" fill="orange" />
     <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(-250.0, -250.0)" fill="green" />
-    <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(250.0, 250.0)" fill="green" />
+    <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(250.0, 0.0)" fill="green" />
     <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(250.0, -250.0)" fill="orange" />
   </g>
 </svg>
