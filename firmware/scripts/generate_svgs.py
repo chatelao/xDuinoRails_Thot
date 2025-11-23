@@ -18,6 +18,8 @@ def generate_svg(xml_file, output_dir):
             filename = signal.get('svg', f"{name}.svg")
             outline = signal.get('outline')
             outline_color = signal.get('outlineColor', '#000000')
+            border_color = signal.get('borderColor')
+            border_width = signal.get('borderWidth')
 
             bulbs = []
             lightbulbs_el = signal.find('lightbulbs')
@@ -81,7 +83,8 @@ def generate_svg(xml_file, output_dir):
             svg_lines.append(f'  <g transform="scale(1, -1)">')
 
             if outline:
-                svg_lines.append(f'    <path d="{outline}" fill="{outline_color}" stroke="none" />')
+                stroke_attr = f'stroke="{border_color}" stroke-width="{border_width}"' if border_color and border_width else 'stroke="none"'
+                svg_lines.append(f'    <path d="{outline}" fill="{outline_color}" {stroke_attr} />')
 
             for b in bulbs:
                 # Ensure color is valid or mapped if needed. SVG supports names.
