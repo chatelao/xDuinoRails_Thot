@@ -17,7 +17,7 @@ The traditional light signal system used since the 1940s.
   - **Fb 2 (Ausführung 40 km/h):** Green over Yellow.
   - **Fb 3 (Ausführung 60 km/h):** Green over Green.
   - **Fb 5 (Ausführung 90 km/h):** Green over Green over Green.
-  - **Fb 6 (Kurze Fahrt / Short Drive):** Green over Yellow (same appearance as Fb 2, but indicates short distance to next stop).
+  - **Fb 6 (Kurze Fahrt / Short Drive):** Green over Yellow (same appearance as Fb 2, but indicates short distance to next stop). On 7L signals, this is displayed as Yellow over Yellow.
 
 - **Distant Signal Aspects:**
   - **Warnung (Expect Stop):** Two Yellows (horizontal).
@@ -43,6 +43,7 @@ The signal definitions in `firmware/definitions/ch.xml` have been updated to sup
 ### Defined Signals
 - **`CH-L-Hauptsignal-3L`**: Standard 3-lamp System L main signal (Green, Red, Yellow). Supports Halt, Fb 1, Fb 2, Fb 6.
 - **`CH-L-Hauptsignal-4L`**: 4-lamp System L main signal (Green, Red, Yellow, Green). Supports Halt, Fb 1, Fb 2, Fb 3, Fb 6.
+- **`CH-L-Hauptsignal-7L`**: 7-lamp System L main signal (Two columns). Supports Halt, Fb 1, Fb 2, Fb 3, Fb 5, Fb 6.
 - **`CH-L-Vorsignal-Standard`**: Standard System L distant signal. Supports Warnung (YY), Freie Fahrt (GG), Ankündigung 40 (YG).
 - **`CH-N-Hauptsignal-1`**: System N main signal.
 - **`CH-N-Vorsignal-1`**: System N distant signal.

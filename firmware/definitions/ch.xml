@@ -480,6 +480,45 @@
     </aspects>
   </signal>
 
+  <signal country="ch" name="CH-L-Hauptsignal-7L" svg="CH-L-Hauptsignal-7L.svg" outline="M -120,550 L 120,550 L 220,450 L 220,-450 L 120,-550 L -120,-550 L -220,-450 L -220,450 Z" outlineColor="#000000">
+    <lightbulbs>
+      <!-- Left Column -->
+      <lightbulb id="L2" x="-120" y="375" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L6" x="-120" y="125" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L4" x="-120" y="-125" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L5" x="-120" y="-375" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <!-- Right Column -->
+      <lightbulb id="L1" x="120" y="250" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L7" x="120" y="0" color="#808080" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L3" x="120" y="-250" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Halt" short="Halt" long="Halt">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Freie Fahrt" short="Fb1" long="Fahrbegriff 1">
+        <light id="L2"/>
+      </aspect>
+      <aspect name="Ausführung 40" short="Fb2" long="Fahrbegriff 2">
+        <light id="L2"/>
+        <light id="L3"/>
+      </aspect>
+      <aspect name="Ausführung 60" short="Fb3" long="Fahrbegriff 3">
+        <light id="L2"/>
+        <light id="L4"/>
+      </aspect>
+      <aspect name="Ausführung 90" short="Fb5" long="Fahrbegriff 5">
+        <light id="L2"/>
+        <light id="L4"/>
+        <light id="L5"/>
+      </aspect>
+      <aspect name="Kurze Fahrt" short="Fb6" long="Fahrbegriff 6">
+        <light id="L3"/>
+        <light id="L6"/>
+      </aspect>
+    </aspects>
+  </signal>
+
   <signal country="ch" name="CH-Zwergsignal" svg="CH-Zwergsignal.svg" outline="M -150,150 L 0,150 L 150,0 L 150,-150 L -150,-150 Z" outlineColor="#000000">
     <lightbulbs>
       <!-- L-shaped arrangement on Chamfered Square Backing: L1 Bottom Left, L2 Top Left, L3 Bottom Right -->
