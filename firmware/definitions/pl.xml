@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <!-- Polish Signals -->
+
+  <!-- 5-Chamber Main Signal -->
+  <signal country="pl" name="PL-Hauptsignal-5L" svg="PL-Hauptsignal-5L.svg" outline="M -200,600 L 200,600 L 200,-600 L -200,-600 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="400" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="0" y="200" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L3" x="0" y="0" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L4" x="0" y="-200" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L5" x="0" y="-400" color="white" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="S1 Stój">
+        <light id="L3"/>
+      </aspect>
+      <aspect name="S2 Jazda z największą dozwoloną prędkością">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="S3 Jazda z największą dozwoloną prędkością (następny 100)">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="S4 Jazda z największą dozwoloną prędkością (następny 60/40)">
+        <light id="L2"/>
+      </aspect>
+      <aspect name="S5 Jazda z największą dozwoloną prędkością (następny Stój)">
+        <light id="L2"/>
+      </aspect>
+      <aspect name="S10 Jazda 40 (następny Vmax)">
+        <light id="L1"/>
+        <light id="L4"/>
+      </aspect>
+      <aspect name="S11 Jazda 40 (następny 100)">
+        <light id="L1"/>
+        <light id="L4"/>
+      </aspect>
+      <aspect name="S12 Jazda 40 (następny 60/40)">
+        <light id="L2"/>
+        <light id="L4"/>
+      </aspect>
+      <aspect name="S13 Jazda 40 (następny Stój)">
+        <light id="L2"/>
+        <light id="L4"/>
+      </aspect>
+      <aspect name="Sz Sygnał Zastępczy">
+        <light id="L3"/>
+        <light id="L5"/>
+      </aspect>
+    </aspects>
+  </signal>
+
+  <!-- Shunting Signal (Tarcza Manewrowa) -->
+  <signal country="pl" name="PL-Manewrowa" svg="PL-Manewrowa.svg" outline="M -150,300 L 150,300 L 150,-300 L -150,-300 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="150" color="blue" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <lightbulb id="L2" x="0" y="-150" color="white" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Ms1 Jazda manewrowa zabroniona">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Ms2 Jazda manewrowa dozwolona">
+        <light id="L2"/>
+      </aspect>
+    </aspects>
+  </signal>
+
+  <!-- Distant Signal (Vorsignal) -->
+  <signal country="pl" name="PL-Vorsignal" svg="PL-Vorsignal.svg" outline="M -200,300 L 200,300 L 200,-300 L -200,-300 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="150" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="0" y="-150" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Os1 Następny Stój">
+        <light id="L2"/>
+      </aspect>
+      <aspect name="Os2 Następny Vmax">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Os3 Następny 100">
+        <light id="L1"/>
+      </aspect>
+      <aspect name="Os4 Następny 60/40">
+        <light id="L2"/>
+      </aspect>
+    </aspects>
+  </signal>
+
+</signalDefinitions>
