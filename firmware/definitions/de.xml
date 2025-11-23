@@ -4,12 +4,14 @@
   <signal country="de" name="DE-HV-Hauptsignal-1" svg="DE-HV-Hauptsignal-1.svg" outline="M -350,750 L 350,750 L 350,-750 L -350,-750 Z" outlineColor="#000000">
     <lightbulbs>
       <lightbulb id="L1" x="0" y="500" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L2" x="0" y="0" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2_Left" x="-150" y="0" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2_Right" x="150" y="0" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
       <lightbulb id="L3" x="0" y="-500" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
       <aspect name="Hp 0">
-        <light id="L2"/>
+        <light id="L2_Left"/>
+        <light id="L2_Right"/>
       </aspect>
       <aspect name="Hp 1">
         <light id="L1"/>

@@ -1,8 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-400.0 -400.0 800.0 800.0">
   <g transform="scale(1, -1)">
-    <path d="M -250,350 L 250,350 L 350,250 L 350,-250 L 250,-350 L -250,-350 L -350,-250 L -350,250 Z" fill="#6c6c6c" stroke="none" stroke-width="0" />
-    <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(200.0, -200.0)" fill="green" />
-    <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(-200.0, -200.0)" fill="orange" />
-    <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(0.0, 200.0)" fill="red" />
+    <path d="M -350,350 L 350,350 L 350,-350 L -350,-350 Z" fill="#000000" stroke="none" stroke-width="0" />
+    <path d="M 0,0 m -340,0 a 340,340 0 1,0 680,0 a 340,340 0 1,0 -680,0 M 0,0 m -310,0 a 310,310 0 1,1 620,0 a 310,310 0 1,1 -620,0" fill="white" stroke="none" />
+    <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(139.0, -80.0)" fill="green" />
+    <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(-139.0, -80.0)" fill="orange" />
+    <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(0.0, 160.0)" fill="red" />
   </g>
 </svg>
