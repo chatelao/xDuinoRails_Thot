@@ -45,12 +45,12 @@
   <signal country="de" name="DE-HV-Vorsignal-1" svg="DE-HV-Vorsignal-1.svg" outline="M -400,-400 L -400,0 L 0,400 L 400,400 L 400,0 L 0,-400 Z" outlineColor="#000000">
     <lightbulbs>
       <!-- Top Right Position: Can show Yellow or Green -->
-      <lightbulb id="L_TR_Y" x="250" y="250" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L_TR_G" x="250" y="250" color="green" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <lightbulb id="L_TR_Y" x="27" y="250" color="yellow" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <lightbulb id="L_TR_G" x="240" y="250" color="green" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
 
       <!-- Bottom Left Position: Can show Yellow or Green -->
-      <lightbulb id="L_BL_Y" x="-250" y="-250" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L_BL_G" x="-250" y="-250" color="green" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <lightbulb id="L_BL_Y" x="-27" y="-250" color="yellow" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <lightbulb id="L_BL_G" x="-240" y="-250" color="green" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
     </lightbulbs>
     <aspects>
       <aspect name="Vr 0" short="Vr0" long="Halt erwarten">
