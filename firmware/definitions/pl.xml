@@ -12,38 +12,38 @@
       <lightbulb id="L5" x="0" y="-400" color="white" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="S1 Stój">
+      <aspect name="S1 Stój" short="S1" long="Stój">
         <light id="L3"/>
       </aspect>
-      <aspect name="S2 Jazda z największą dozwoloną prędkością">
+      <aspect name="S2 Vmax" short="S2" long="Jazda z największą dozwoloną prędkością">
         <light id="L1"/>
       </aspect>
-      <aspect name="S3 Jazda z największą dozwoloną prędkością (następny 100)">
+      <aspect name="S3 Vmax (n. 100)" short="S3" long="Jazda Vmax, następnie 100 km/h">
         <light id="L1"/>
       </aspect>
-      <aspect name="S4 Jazda z największą dozwoloną prędkością (następny 60/40)">
+      <aspect name="S4 Vmax (n. 40/60)" short="S4" long="Jazda Vmax, następnie 40/60 km/h">
         <light id="L2"/>
       </aspect>
-      <aspect name="S5 Jazda z największą dozwoloną prędkością (następny Stój)">
+      <aspect name="S5 Vmax (n. Stój)" short="S5" long="Jazda Vmax, następnie Stój">
         <light id="L2"/>
       </aspect>
-      <aspect name="S10 Jazda 40 (następny Vmax)">
-        <light id="L1"/>
-        <light id="L4"/>
-      </aspect>
-      <aspect name="S11 Jazda 40 (następny 100)">
+      <aspect name="S10 40 (n. Vmax)" short="S10" long="Jazda 40 km/h, następnie Vmax">
         <light id="L1"/>
         <light id="L4"/>
       </aspect>
-      <aspect name="S12 Jazda 40 (następny 60/40)">
+      <aspect name="S11 40 (n. 100)" short="S11" long="Jazda 40 km/h, następnie 100 km/h">
+        <light id="L1"/>
+        <light id="L4"/>
+      </aspect>
+      <aspect name="S12 40 (n. 40/60)" short="S12" long="Jazda 40 km/h, następnie 40/60 km/h">
         <light id="L2"/>
         <light id="L4"/>
       </aspect>
-      <aspect name="S13 Jazda 40 (następny Stój)">
+      <aspect name="S13 40 (n. Stój)" short="S13" long="Jazda 40 km/h, następnie Stój">
         <light id="L2"/>
         <light id="L4"/>
       </aspect>
-      <aspect name="Sz Sygnał Zastępczy">
+      <aspect name="Sz Sygnał Zastępczy" short="Sz" long="Sygnał Zastępczy">
         <light id="L3"/>
         <light id="L5"/>
       </aspect>
@@ -57,10 +57,10 @@
       <lightbulb id="L2" x="0" y="-150" color="white" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Ms1 Jazda manewrowa zabroniona">
+      <aspect name="Ms1 Zabroniona" short="Ms1" long="Jazda manewrowa zabroniona">
         <light id="L1"/>
       </aspect>
-      <aspect name="Ms2 Jazda manewrowa dozwolona">
+      <aspect name="Ms2 Dozwolona" short="Ms2" long="Jazda manewrowa dozwolona">
         <light id="L2"/>
       </aspect>
     </aspects>
@@ -73,16 +73,16 @@
       <lightbulb id="L2" x="0" y="-150" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Os1 Następny Stój">
+      <aspect name="Os1 n. Stój" short="Os1" long="Następny sygnał Stój">
         <light id="L2"/>
       </aspect>
-      <aspect name="Os2 Następny Vmax">
+      <aspect name="Os2 n. Vmax" short="Os2" long="Następny sygnał Vmax">
         <light id="L1"/>
       </aspect>
-      <aspect name="Os3 Następny 100">
+      <aspect name="Os3 n. 100" short="Os3" long="Następny sygnał 100 km/h">
         <light id="L1"/>
       </aspect>
-      <aspect name="Os4 Następny 60/40">
+      <aspect name="Os4 n. 40/60" short="Os4" long="Następny sygnał 40/60 km/h">
         <light id="L2"/>
       </aspect>
     </aspects>

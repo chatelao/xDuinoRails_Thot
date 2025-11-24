@@ -8,17 +8,17 @@
       <lightbulb id="L4" x="0" y="-20" color="red"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Carré">
+      <aspect name="Carré" short="C" long="Carré">
         <light id="L3"/>
         <light id="L4"/>
       </aspect>
-      <aspect name="Sémaphore">
+      <aspect name="Sémaphore" short="S" long="Sémaphore">
         <light id="L3"/>
       </aspect>
-      <aspect name="Avertissement">
+      <aspect name="Avertissement" short="A" long="Avertissement">
         <light id="L2"/>
       </aspect>
-      <aspect name="Voie libre">
+      <aspect name="Voie libre" short="VL" long="Voie libre">
         <light id="L1"/>
       </aspect>
     </aspects>
@@ -29,10 +29,10 @@
       <lightbulb id="L2" x="0" y="-50" color="white"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Carré violet">
+      <aspect name="Carré violet" short="Cv" long="Carré violet">
         <light id="L1"/>
       </aspect>
-      <aspect name="Manoeuvre">
+      <aspect name="Manoeuvre" short="M" long="Manoeuvre">
         <light id="L2"/>
       </aspect>
     </aspects>

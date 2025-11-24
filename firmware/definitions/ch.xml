@@ -12,16 +12,16 @@
       <lightbulb id="L3" x="0" y="160" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Halt">
+      <aspect name="Halt" short="Halt" long="Halt">
         <light id="L3"/>
       </aspect>
-      <aspect name="Freie Fahrt">
+      <aspect name="Freie Fahrt" short="Fb1" long="Fahrbegriff 1">
         <light id="L1"/>
       </aspect>
-      <aspect name="Warnung">
+      <aspect name="Warnung" short="Fb2" long="Fahrbegriff 2">
         <light id="L2"/>
       </aspect>
-      <aspect name="Hilfssignal">
+      <aspect name="Hilfssignal" short="Hilfssignal" long="Hilfssignal">
         <light id="L3" blink="true"/>
       </aspect>
     </aspects>
@@ -61,7 +61,6 @@
       </aspect>
     </aspects>
   </signal>
-
 
   <signal country="ch" name="CH-Rangierhaltsignal" svg="CH-Rangierhaltsignal.svg" outline="M -260,260 L 260,260 L 260,-260 L -260,-260 Z" outlineColor="#000000">
     <lightbulbs>
@@ -107,13 +106,13 @@
         <!-- Diagonal / -->
         <light id="L21"/> <light id="L17"/> <light id="L13"/> <light id="L9"/> <light id="L5"/>
       </aspect>
-      <aspect name="Rangieren verboten">
+      <aspect name="Rangieren verboten" short="Verboten" long="Rangieren verboten">
         <!-- Vertical -->
         <light id="L3"/> <light id="L8"/> <light id="L13"/> <light id="L18"/> <light id="L23"/>
         <!-- Horizontal -->
         <light id="L11"/> <light id="L12"/> <light id="L14"/> <light id="L15"/>
       </aspect>
-      <aspect name="Rangieren erlaubt">
+      <aspect name="Rangieren erlaubt" short="Erlaubt" long="Rangieren erlaubt">
         <!-- Diagonal / -->
         <light id="L21"/> <light id="L17"/> <light id="L13"/> <light id="L9"/> <light id="L5"/>
       </aspect>
@@ -164,7 +163,7 @@
         <!-- Vertical -->
         <light id="L3"/> <light id="L8"/> <light id="L13"/> <light id="L18"/> <light id="L23"/>
       </aspect>
-      <aspect name="Rangieren erlaubt">
+      <aspect name="Rangieren erlaubt" short="Erlaubt" long="Rangieren erlaubt">
         <!-- Vertical -->
         <light id="L3"/> <light id="L8"/> <light id="L13"/> <light id="L18"/> <light id="L23"/>
       </aspect>
@@ -222,7 +221,7 @@
         <!-- Diagonal / -->
         <light id="L21"/> <light id="L17"/> <light id="L13"/> <light id="L9"/> <light id="L5"/>
       </aspect>
-      <aspect name="Rangieren erlaubt">
+      <aspect name="Rangieren erlaubt" short="Erlaubt" long="Rangieren erlaubt">
         <!-- Diagonal / -->
         <light id="L21"/> <light id="L17"/> <light id="L13"/> <light id="L9"/> <light id="L5"/>
       </aspect>
@@ -235,10 +234,10 @@
       <lightbulb id="L2" x="-120" y="0" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Freie Fahrt">
+      <aspect name="Freie Fahrt" short="Fb1*" long="Ankündigung Freie Fahrt">
         <light id="L1"/>
       </aspect>
-      <aspect name="Warnung">
+      <aspect name="Warnung" short="Warnung" long="Warnung">
         <light id="L2"/>
       </aspect>
     </aspects>
@@ -325,15 +324,15 @@
       <lightbulb id="L11" x="250" y="-250" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Warnung"> <!-- Warnung: Two Oranges Horizontal (Top) -->
+      <aspect name="Warnung" short="Warnung" long="Warnung"> <!-- Warnung: Two Oranges Horizontal (Top) -->
         <light id="L8"/>
         <light id="L7"/>
       </aspect>
-      <aspect name="Freie Fahrt"> <!-- Freie Fahrt: Two Greens Diagonal (BL to RM) -->
+      <aspect name="Freie Fahrt" short="Fb1*" long="Ankündigung Freie Fahrt"> <!-- Freie Fahrt: Two Greens Diagonal (BL to RM) -->
         <light id="L9_L"/>
         <light id="L9_R"/>
       </aspect>
-      <aspect name="Ankündigung 40"> <!-- Ankündigung 40: Orange (TL) + Green (RM) -->
+      <aspect name="Ankündigung 40" short="Fb2*" long="Ankündigung 40 km/h"> <!-- Ankündigung 40: Orange (TL) + Green (RM) -->
         <light id="L8"/>
         <light id="L9_R"/>
       </aspect>

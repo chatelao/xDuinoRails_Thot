@@ -7,13 +7,13 @@
       <lightbulb id="L3" x="0" y="-10" color="yellow"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Stop">
+      <aspect name="Stop" short="R" long="Via impedita">
         <light id="L2"/>
       </aspect>
-      <aspect name="Proceed">
+      <aspect name="Proceed" short="V" long="Via libera">
         <light id="L1"/>
       </aspect>
-      <aspect name="Proceed at reduced speed">
+      <aspect name="Proceed at reduced speed" short="G" long="Via libera con avviso di ridotta velocità">
         <light id="L1"/>
         <light id="L3"/>
       </aspect>
@@ -27,11 +27,11 @@
       <lightbulb id="L4" x="0" y="-50" color="white"/> <!-- Bottom -->
     </lightbulbs>
     <aspects>
-      <aspect name="Stop"> <!-- Via impedita -->
+      <aspect name="Stop" short="Stop" long="Via impedita"> <!-- Via impedita -->
         <light id="L1"/>
         <light id="L2"/>
       </aspect>
-      <aspect name="Proceed"> <!-- Via libera -->
+      <aspect name="Proceed" short="Via" long="Via libera"> <!-- Via libera -->
         <light id="L3"/>
         <light id="L4"/>
       </aspect>

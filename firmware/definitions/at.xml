@@ -8,17 +8,17 @@
       <lightbulb id="L4" x="-250" y="0" color="green"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Halt">
+      <aspect name="Halt" short="Halt" long="Halt">
         <light id="L2"/>
       </aspect>
-      <aspect name="Frei">
+      <aspect name="Frei" short="Frei" long="Frei">
         <light id="L1"/>
       </aspect>
-      <aspect name="Frei mit 60 km/h">
+      <aspect name="Frei mit 60 km/h" short="Frei 60" long="Frei mit 60 km/h">
         <light id="L1"/>
         <light id="L4"/>
       </aspect>
-      <aspect name="Frei mit 40 km/h">
+      <aspect name="Frei mit 40 km/h" short="Frei 40" long="Frei mit 40 km/h">
         <light id="L1"/>
         <light id="L3"/>
       </aspect>
@@ -32,11 +32,11 @@
       <lightbulb id="L4" x="100" y="0" color="white"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Halt">
+      <aspect name="Halt" short="Halt" long="Halt">
         <light id="L3"/>
         <light id="L4"/>
       </aspect>
-      <aspect name="Fahrt">
+      <aspect name="Fahrt" short="Fahrt" long="Fahrt">
         <light id="L1"/>
         <light id="L2"/>
       </aspect>

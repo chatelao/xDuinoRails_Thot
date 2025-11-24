@@ -8,17 +8,17 @@
       <lightbulb id="L4" x="0" y="0" color="red"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Clear">
+      <aspect name="Clear" short="G" long="Clear">
         <light id="L2"/>
       </aspect>
-      <aspect name="Preliminary caution">
+      <aspect name="Preliminary caution" short="YY" long="Preliminary caution">
         <light id="L1"/>
         <light id="L3"/>
       </aspect>
-      <aspect name="Caution">
+      <aspect name="Caution" short="Y" long="Caution">
         <light id="L3"/>
       </aspect>
-      <aspect name="Danger">
+      <aspect name="Danger" short="R" long="Danger">
         <light id="L4"/>
       </aspect>
     </aspects>
@@ -31,11 +31,11 @@
       <lightbulb id="L4" x="50" y="100" color="white"/> <!-- Top Right White -->
     </lightbulbs>
     <aspects>
-      <aspect name="Danger">
+      <aspect name="Danger" short="Stop" long="Danger">
         <light id="L1"/>
         <light id="L2"/>
       </aspect>
-      <aspect name="Proceed">
+      <aspect name="Proceed" short="Go" long="Proceed">
         <light id="L3"/>
         <light id="L4"/>
       </aspect>

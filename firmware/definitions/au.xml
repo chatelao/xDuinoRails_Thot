@@ -8,13 +8,13 @@
       <lightbulb id="L4" x="0" y="-1000" color="red"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Clear">
+      <aspect name="Clear" short="Clear" long="Clear">
         <light id="L1"/>
       </aspect>
-      <aspect name="Caution">
+      <aspect name="Caution" short="Caution" long="Caution">
         <light id="L2"/>
       </aspect>
-      <aspect name="Stop">
+      <aspect name="Stop" short="Stop" long="Stop">
         <light id="L3"/>
         <light id="L4"/>
       </aspect>
@@ -27,17 +27,17 @@
       <lightbulb id="L3" x="0" y="-500" color="yellow"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Clear">
+      <aspect name="Clear" short="Clear" long="Clear">
         <light id="L1"/>
       </aspect>
-      <aspect name="Caution">
+      <aspect name="Caution" short="Caution" long="Caution">
         <light id="L3"/>
       </aspect>
-      <aspect name="Medium">
+      <aspect name="Medium" short="Medium" long="Medium">
         <light id="L1"/>
         <light id="L3"/>
       </aspect>
-      <aspect name="Stop">
+      <aspect name="Stop" short="Stop" long="Stop">
         <light id="L2"/>
       </aspect>
     </aspects>
@@ -48,10 +48,10 @@
       <lightbulb id="L2" x="0" y="0" color="red"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Stop">
+      <aspect name="Stop" short="Stop" long="Stop">
         <light id="L2"/>
       </aspect>
-      <aspect name="Proceed">
+      <aspect name="Proceed" short="Proceed" long="Proceed">
         <light id="L1"/>
       </aspect>
     </aspects>
