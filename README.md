@@ -49,3 +49,10 @@ Our vision is to create the most powerful and flexible signal decoder on the mar
 *   Seamless integration with popular computer control software like JMRI and Rocrail.
 *   An intuitive, network-based configuration interface for easy setup.
 *   Full RailCom support for bidirectional communication and on-the-main programming.
+
+## Sources
+
+| Region | URL |
+|--- |--- |
+| European | [https://railroadsignals.us](https://gleis3a.de/) |
+| USA | [https://railroadsignals.us](https://railroadsignals.us) |

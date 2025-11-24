@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="nl" name="NL-Hoofdsein" svg="NL-Hoofdsein.svg" outline="M -250,600 L 250,600 L 250,-1200 L -250,-1200 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L_Green" x="0" y="400" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L_Yellow" x="0" y="0" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L_Red" x="0" y="-400" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+
+      <!-- Matrix numbers (approx y=-800) -->
+      <!-- 13: "1" centered at x=-70, "3" centered at x=70 -->
+      <!-- Digit 1: Block from x=-80 to -60, y=-80 to 80 -->
+      <!-- Digit 3: Blocky 3 -->
+      <lightbulb id="M_13" x="0" y="-800" color="yellow" d="M -80,-80 L -80,80 L -60,80 L -60,-80 Z M 40,80 L 100,80 L 100,60 L 60,60 L 60,10 L 90,10 L 90,-10 L 60,-10 L 60,-60 L 100,-60 L 100,-80 L 40,-80 L 40,-60 L 80,-60 L 80,-10 L 60,-10 L 60,10 L 80,10 L 80,60 L 40,60 Z"/>
+
+      <!-- 8 -->
+      <lightbulb id="M_8" x="0" y="-800" color="yellow" d="M -50,80 L 50,80 L 50,-80 L -50,-80 Z M -30,60 L -30,10 L 30,10 L 30,60 Z M -30,-10 L -30,-60 L 30,-60 L 30,-10 Z"/>
+
+      <!-- 6 -->
+      <lightbulb id="M_6" x="0" y="-800" color="yellow" d="M -50,80 L 50,80 L 50,60 L -30,60 L -30,10 L 50,10 L 50,-80 L -50,-80 Z M -30,-10 L -30,-60 L 30,-60 L 30,-10 Z"/>
+
+    </lightbulbs>
+    <aspects>
+      <aspect name="Groen" short="Groen" long="Groen">
+        <light id="L_Green"/>
+      </aspect>
+      <aspect name="Groen + 13" short="Groen13" long="Groen met 130 km/h">
+        <light id="L_Green"/>
+        <light id="M_13"/>
+      </aspect>
+      <aspect name="Groen knipper" short="GroenK" long="Groen knipper">
+        <light id="L_Green" blink="true"/>
+      </aspect>
+      <aspect name="Geel + 8 knipper" short="Geel8K" long="Geel met 80 km/h knipper">
+        <light id="L_Yellow"/>
+        <light id="M_8" blink="true"/>
+      </aspect>
+       <aspect name="Geel + 6" short="Geel6" long="Geel met 60 km/h">
+        <light id="L_Yellow"/>
+        <light id="M_6"/>
+      </aspect>
+      <aspect name="Geel" short="Geel" long="Geel">
+        <light id="L_Yellow"/>
+      </aspect>
+      <aspect name="Geel knipper" short="GeelK" long="Geel knipper">
+        <light id="L_Yellow" blink="true"/>
+      </aspect>
+      <aspect name="Rood" short="Rood" long="Rood">
+        <light id="L_Red"/>
+      </aspect>
+      <aspect name="Rood knipper" short="RoodK" long="Rood knipper">
+        <light id="L_Red" blink="true"/>
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>
