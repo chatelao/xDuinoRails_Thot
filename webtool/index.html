@@ -842,7 +842,12 @@
 
                 // Name Cell
                 const nameTd = document.createElement('td');
-                nameTd.textContent = name;
+                const shortName = aspect.getAttribute('short');
+                let displayText = name;
+                if (shortName && shortName !== name) {
+                    displayText += ` (${shortName})`;
+                }
+                nameTd.textContent = displayText;
                 tr.appendChild(nameTd);
 
                 // Lights Cell
