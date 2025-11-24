@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
   <!-- H/V System -->
-  <signal country="de" name="DE-HV-Hauptsignal-1" svg="DE-HV-Hauptsignal-1.svg" outline="M -350,750 L 350,750 L 350,-750 L -350,-750 Z" outlineColor="#000000">
+  <signal country="de" name="DE-HV-Hauptsignal-1" svg="DE-HV-Hauptsignal-1.svg" outline="M -350,400 L -250,500 L 250,500 L 350,400 L 350,-1100 L -350,-1100 Z" outlineColor="#000000">
     <lightbulbs>
-      <lightbulb id="L1" x="0" y="500" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L2_Left" x="-150" y="0" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L2_Right" x="150" y="0" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L3" x="0" y="-500" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L1" x="0" y="230" color="green" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <lightbulb id="L2_Left" x="-120" y="0" color="red" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <lightbulb id="L2_Right" x="120" y="0" color="red" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
+      <lightbulb id="L3" x="0" y="-810" color="yellow" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0"/>
     </lightbulbs>
     <aspects>
       <aspect name="Hp 0" short="Hp0" long="Halt">
