@@ -312,7 +312,7 @@
     </aspects>
   </signal>
 
-  <signal country="ch" name="CH-L-Vorsignal-Standard" svg="CH-L-Vorsignal-Standard.svg" outline="M -250,500 L 250,500 L 500,250 L 500,-250 L 250,-500 L -250,-500 L -500,-250 L -500,250 Z" outlineColor="#000000" borderColor="#ffffff" borderWidth="40">
+  <signal country="ch" name="CH-L-Vorsignal-Standard" svg="CH-L-Vorsignal-Standard.svg" outline="M -440,500 L 440,500 L 500,440 L 500,-440 L 440,-500 L -440,-500 L -500,-440 L -500,440 Z" outlineColor="#000000" borderColor="#ffffff" borderWidth="14">
     <lightbulbs>
       <!-- Layout based on standard Swiss System L Vorsignal (chamfered square) -->
       <!-- Left Column: L8 (Top), L9_L (Bottom) -->
@@ -339,7 +339,7 @@
     </aspects>
   </signal>
 
-  <signal country="ch" name="CH-L-Vorsignal-Kombi" svg="CH-L-Vorsignal-Kombi.svg" outline="M -250,500 L 250,500 L 500,250 L 500,-250 L 250,-500 L -250,-500 L -500,-250 L -500,250 Z" outlineColor="#000000" borderColor="#ffffff" borderWidth="40">
+  <signal country="ch" name="CH-L-Vorsignal-Kombi" svg="CH-L-Vorsignal-Kombi.svg" outline="M -440,500 L 440,500 L 500,440 L 500,-440 L 440,-500 L -440,-500 L -500,-440 L -500,440 Z" outlineColor="#000000" borderColor="#ffffff" borderWidth="14">
     <lightbulbs>
       <!-- Layout based on Combined/Extended System L Vorsignal (chamfered square) with 8 lights -->
       <!-- Mapping based on image: -->
