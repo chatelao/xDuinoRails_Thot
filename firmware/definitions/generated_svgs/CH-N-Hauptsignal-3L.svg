@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-200.0 -370.0 400.0 740.0">
-  <g transform="scale(1, -1)">
-    <path d="M -150,320 L 150,320 L 150,-320 L -150,-320 Z" fill="#6c6c6c" stroke="none" stroke-width="0" />
-    <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(0.0, 220.0)" fill="red" />
-    <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(0.0, 0.0)" fill="orange" />
-    <path d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" transform="translate(0.0, -220.0)" fill="green" />
-  </g>
-</svg>
