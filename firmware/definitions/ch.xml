@@ -394,14 +394,14 @@
   <signal country="ch" name="CH-L-Hauptsignal-7L" svg="CH-L-Hauptsignal-7L.svg" outline="M -120,550 L 120,550 L 220,450 L 220,-450 L 120,-550 L -120,-550 L -220,-450 L -220,450 Z" outlineColor="#000000" borderColor="#ffffff" borderWidth="40">
     <lightbulbs>
       <!-- Left Column -->
-      <lightbulb id="L2" x="-120" y="375" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L6" x="-120" y="125" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L4" x="-120" y="-125" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L5" x="-120" y="-375" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L2" x="-120" y="375" color="green" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <lightbulb id="L6" x="-120" y="125" color="yellow" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <lightbulb id="L4" x="-120" y="-125" color="green" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <lightbulb id="L5" x="-120" y="-375" color="green" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
       <!-- Right Column -->
-      <lightbulb id="L1" x="120" y="250" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L7" x="120" y="0" color="#808080" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
-      <lightbulb id="L3" x="120" y="-250" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
+      <lightbulb id="L1" x="120" y="250" color="red" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <lightbulb id="L7" x="120" y="0" color="#808080" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
+      <lightbulb id="L3" x="120" y="-250" color="yellow" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
     </lightbulbs>
     <aspects>
       <aspect name="Halt" short="Halt" long="Halt">
