@@ -9,14 +9,14 @@
       <lightbulb id="L3" x="0" y="-500" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Hp 0">
+      <aspect name="Hp 0" short="Hp0" long="Halt">
         <light id="L2_Left"/>
         <light id="L2_Right"/>
       </aspect>
-      <aspect name="Hp 1">
+      <aspect name="Hp 1" short="Hp1" long="Fahrt">
         <light id="L1"/>
       </aspect>
-      <aspect name="Hp 2">
+      <aspect name="Hp 2" short="Hp2" long="Langsamfahrt">
         <light id="L1"/>
         <light id="L3"/>
       </aspect>
@@ -31,11 +31,11 @@
       <lightbulb id="L4_WHITE" x="100" y="100" color="white" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Sh 0">
+      <aspect name="Sh 0" short="Sh0" long="Halt / Fahrverbot">
         <light id="L1_RED"/>
         <light id="L2_RED"/>
       </aspect>
-      <aspect name="Sh 1">
+      <aspect name="Sh 1" short="Sh1" long="Fahrverbot aufgehoben">
         <light id="L3_WHITE"/>
         <light id="L4_WHITE"/>
       </aspect>
@@ -53,17 +53,17 @@
       <lightbulb id="L_BL_G" x="-250" y="-250" color="green" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Vr 0">
+      <aspect name="Vr 0" short="Vr0" long="Halt erwarten">
         <!-- Two Yellows rising diagonal (/) -->
         <light id="L_BL_Y"/>
         <light id="L_TR_Y"/>
       </aspect>
-      <aspect name="Vr 1">
+      <aspect name="Vr 1" short="Vr1" long="Fahrt erwarten">
         <!-- Two Greens rising diagonal (/) -->
         <light id="L_BL_G"/>
         <light id="L_TR_G"/>
       </aspect>
-      <aspect name="Vr 2">
+      <aspect name="Vr 2" short="Vr2" long="Langsamfahrt erwarten">
         <!-- Green/Yellow rising diagonal (/) -->
         <!-- Usually Yellow (Bottom Left) + Green (Top Right) -->
         <light id="L_BL_Y"/>
@@ -83,16 +83,16 @@
       <lightbulb id="L5" x="80" y="-170" color="white" d="m -60, 0 a 60,60 0 1,0 120,0 a 60,60 0 1,0 -120,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Hp 0">
+      <aspect name="Hp 0" short="Hp0" long="Halt">
         <light id="L2"/>
       </aspect>
-      <aspect name="Ks 1">
+      <aspect name="Ks 1" short="Ks1" long="Fahrt / Fahrt erwarten">
         <light id="L1"/>
       </aspect>
-      <aspect name="Ks 2">
+      <aspect name="Ks 2" short="Ks2" long="Halt erwarten">
         <light id="L3"/>
       </aspect>
-       <aspect name="Sh 1">
+       <aspect name="Sh 1" short="Sh1" long="Fahrverbot aufgehoben">
         <light id="L4"/>
         <light id="L5"/>
       </aspect>
@@ -111,27 +111,27 @@
       <lightbulb id="L6" x="0" y="-900" color="yellow" d="M -150,-30 L 150,-30 L 150,30 L -150,30 Z"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Hl 13"> <!-- Stop -->
+      <aspect name="Hl 13" short="Hl13" long="Halt"> <!-- Stop -->
         <light id="L3"/>
       </aspect>
-      <aspect name="Hl 1"> <!-- Clear -->
+      <aspect name="Hl 1" short="Hl1" long="Fahrt"> <!-- Clear -->
         <light id="L2"/>
       </aspect>
-      <aspect name="Hl 10"> <!-- Expect Stop -->
+      <aspect name="Hl 10" short="Hl10" long="Halt erwarten"> <!-- Expect Stop -->
         <light id="L1"/>
       </aspect>
-      <aspect name="Hl 9a"> <!-- 40 + Expect 40/60 -->
+      <aspect name="Hl 9a" short="Hl9a" long="Fahrt 40 km/h"> <!-- 40 + Expect 40/60 -->
         <light id="L1"/>
       </aspect>
-      <aspect name="Hl 9b"> <!-- 60 + Expect 40/60 -->
+      <aspect name="Hl 9b" short="Hl9b" long="Fahrt 60 km/h"> <!-- 60 + Expect 40/60 -->
         <light id="L1"/>
         <light id="L6"/>
       </aspect>
-      <aspect name="Hl 12a"> <!-- 40 + Expect Stop -->
+      <aspect name="Hl 12a" short="Hl12a" long="Fahrt 40 km/h, Halt erwarten"> <!-- 40 + Expect Stop -->
         <light id="L1"/>
         <light id="L4"/>
       </aspect>
-       <aspect name="Hl 12b"> <!-- 60 + Expect Stop -->
+       <aspect name="Hl 12b" short="Hl12b" long="Fahrt 60 km/h, Halt erwarten"> <!-- 60 + Expect Stop -->
         <light id="L1"/>
         <light id="L6"/>
       </aspect>
@@ -152,15 +152,15 @@
       <lightbulb id="L_Right_Y" x="150" y="0" color="yellow" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Sv 0"> <!-- Stop: Red + Red -->
+      <aspect name="Sv 0" short="Sv0" long="Halt"> <!-- Stop: Red + Red -->
         <light id="L_Left_R"/>
         <light id="L_Right_R"/>
       </aspect>
-      <aspect name="Sv 1"> <!-- Go: Green + Green -->
+      <aspect name="Sv 1" short="Sv1" long="Fahrt"> <!-- Go: Green + Green -->
         <light id="L_Left_G"/>
         <light id="L_Right_G"/>
       </aspect>
-      <aspect name="Sv 2"> <!-- Go, Expect Stop: Green + Yellow -->
+      <aspect name="Sv 2" short="Sv2" long="Fahrt, Halt erwarten"> <!-- Go, Expect Stop: Green + Yellow -->
         <light id="L_Left_G"/>
         <light id="L_Right_Y"/>
       </aspect>
@@ -175,11 +175,11 @@
       <lightbulb id="L3_White" x="0" y="200" color="white" d="m -60, 0 a 60,60 0 1,0 120,0 a 60,60 0 1,0 -120,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Bü 0"> <!-- Stop (Light Variant: 2 Horizontal Yellows) -->
+      <aspect name="Bü 0" short="Bue0" long="Halt vor dem Bahnübergang"> <!-- Stop (Light Variant: 2 Horizontal Yellows) -->
         <light id="L1_Yellow"/>
         <light id="L2_Yellow"/>
       </aspect>
-      <aspect name="Bü 1"> <!-- Go (Flashing White usually) -->
+      <aspect name="Bü 1" short="Bue1" long="Bahnübergang befahrbar"> <!-- Go (Flashing White usually) -->
         <light id="L3_White"/>
       </aspect>
     </aspects>
@@ -199,12 +199,12 @@
       <lightbulb id="L_Zs7_Bot" x="0" y="-100" color="yellow" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
     </lightbulbs>
     <aspects>
-      <aspect name="Zs 1">
+      <aspect name="Zs 1" short="Zs1" long="Ersatzsignal">
         <light id="L_Zs1_Top"/>
         <light id="L_Zs1_BL"/>
         <light id="L_Zs1_BR"/>
       </aspect>
-      <aspect name="Zs 7">
+      <aspect name="Zs 7" short="Zs7" long="Gegengleisfahrt-Ersatzsignal">
         <light id="L_Zs7_TL"/>
         <light id="L_Zs7_TR"/>
         <light id="L_Zs7_Bot"/>
