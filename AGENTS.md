@@ -24,6 +24,10 @@ Add a comment to each testcase
 - Summarizing the steps executed in 1-2 lines with longer sentences.
 - List the references the underlying specification / documentation to each test case.
 
+## Verification Techniques
+- When verifying visual components (like signal dimensions), use Playwright to take screenshots of the generated output in the webtool.
+- Compare these screenshots or the generated SVG/PNG assets against reference images provided (e.g., using image analysis scripts or side-by-side comparison).
+
 # Add the following GitHub actions:
 - Build and test the software after every push on every branch
 - Provide all firmware examples with every release as assets
