@@ -1,6 +1,7 @@
 #include "Effect.h"
 #include <Arduino.h>
 #include <math.h>
+#include <algorithm>
 
 namespace xDuinoRails {
 
@@ -45,7 +46,7 @@ void EffectFlicker::update(uint32_t delta_ms, const std::vector<PhysicalOutput*>
     float noise_val = (sin(_noise_position) + 1.0f) / 2.0f;
     int flicker_amount = (int)(noise_val * _flicker_depth);
     int val = _base_brightness - (_flicker_depth / 2) + flicker_amount;
-    uint8_t value = max(0, min(255, val));
+    uint8_t value = std::max(0, std::min(255, val));
     for (auto* output : outputs) {
         output->setValue(value);
     }
@@ -55,7 +56,7 @@ EffectStrobe::EffectStrobe(uint16_t strobe_frequency_hz, uint8_t duty_cycle_perc
     : _brightness(brightness), _timer(0) {
     if (strobe_frequency_hz == 0) strobe_frequency_hz = 1;
     _strobe_period_ms = 1000 / strobe_frequency_hz;
-    _on_time_ms = (_strobe_period_ms * constrain(duty_cycle_percent, 0, 100)) / 100;
+    _on_time_ms = (_strobe_period_ms * std::max(0, std::min((int)duty_cycle_percent, 100))) / 100;
 }
 
 void EffectStrobe::setActive(bool active) {

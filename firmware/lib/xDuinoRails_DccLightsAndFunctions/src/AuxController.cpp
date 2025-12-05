@@ -141,6 +141,10 @@ void AuxController::reset() {
 }
 
 void AuxController::evaluateMapping() {
+    for (auto* func : _logical_functions) {
+        func->setActive(false);
+    }
+
     _cv_states.clear();
     for (const auto& cv : _condition_variables) {
         _cv_states[cv.id] = cv.evaluate(*this);
@@ -161,7 +165,9 @@ void AuxController::evaluateMapping() {
 }
 
 PhysicalOutput* AuxController::getOutputById(uint8_t id) {
-    return (id < _outputs.size()) ? &_outputs[id] : nullptr;
+    if (id == 0) return nullptr;
+    uint8_t index = id - 1;
+    return (index < _outputs.size()) ? &_outputs[index] : nullptr;
 }
 
 void AuxController::parseRcn225(ICVAccess& cvAccess) {
@@ -241,6 +247,7 @@ void AuxController::parseRcn227PerOutputV3(ICVAccess& cvAccess) {
 
         if (!activating_cv_ids.empty()) {
             lf = new LogicalFunction(createEffectFromCVs(cvAccess, output_num + 1));
+            cvAccess.writeCV(CV_INDEXED_CV_LOW_BYTE, 43);
             lf->addOutput(getOutputById(output_num + 1));
             addLogicalFunction(lf);
             uint8_t lf_idx = _logical_functions.size() - 1;
@@ -289,6 +296,7 @@ void AuxController::parseRcn227PerFunction(ICVAccess& cvAccess) {
                 if ((output_mask >> output_bit) & 1) {
                     uint8_t physical_output_id = output_bit + 1;
                     LogicalFunction* lf = new LogicalFunction(createEffectFromCVs(cvAccess, physical_output_id));
+                    cvAccess.writeCV(CV_INDEXED_CV_LOW_BYTE, 40);
                     lf->addOutput(getOutputById(physical_output_id));
                     addLogicalFunction(lf);
                     uint8_t lf_idx = _logical_functions.size() - 1;
@@ -322,6 +330,7 @@ void AuxController::parseRcn227PerOutputV1(ICVAccess& cvAccess) {
 
             if (lf == nullptr) {
                 lf = new LogicalFunction(createEffectFromCVs(cvAccess, output_num + 1));
+                cvAccess.writeCV(CV_INDEXED_CV_LOW_BYTE, 41);
                 lf->addOutput(getOutputById(output_num + 1));
                 addLogicalFunction(lf);
             }
@@ -411,6 +420,7 @@ void AuxController::parseRcn227PerOutputV2(ICVAccess& cvAccess) {
                 if (funcs[i] != 255) {
                     if (lf == nullptr) {
                         lf = new LogicalFunction(createEffectFromCVs(cvAccess, output_num + 1));
+                        cvAccess.writeCV(CV_INDEXED_CV_LOW_BYTE, 42);
                         lf->addOutput(getOutputById(output_num + 1));
                         addLogicalFunction(lf);
                     }

@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include "SwissCombinedSignalDiscrete.h"
 
 namespace xDuinoRails {
