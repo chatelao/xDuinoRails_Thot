@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include "SwissNSignal.h"
 
 namespace xDuinoRails {

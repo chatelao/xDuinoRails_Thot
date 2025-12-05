@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include "GermanSignal.h"
 
 namespace xDuinoRails {

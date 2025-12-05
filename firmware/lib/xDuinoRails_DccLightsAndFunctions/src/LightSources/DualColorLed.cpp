@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include "DualColorLed.h"
 
 namespace xDuinoRails {
