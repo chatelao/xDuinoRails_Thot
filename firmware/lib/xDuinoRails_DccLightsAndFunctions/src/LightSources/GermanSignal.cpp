@@ -167,6 +167,23 @@ void GermanSignal::setAspect(GermanSignalAspect aspect) {
     _strip.setPixelColor(0, _strip.Color(255, 255, 0));
     _strip.setPixelColor(3, _strip.Color(255, 255, 0));
     break;
+
+  // Zp
+  case DE_ASPECT_ZP9:
+    _strip.setPixelColor(0, _strip.Color(0, 255, 0)); // Green Ring
+    break;
+  case DE_ASPECT_ZP6:
+    _strip.setPixelColor(1, _strip.Color(255, 255, 255)); // White Top
+    break;
+  case DE_ASPECT_ZP7:
+    _strip.setPixelColor(1, _strip.Color(255, 255, 255)); // White Top
+    _strip.setPixelColor(2, _strip.Color(255, 255, 255)); // White Mid
+    break;
+  case DE_ASPECT_ZP8:
+    _strip.setPixelColor(1, _strip.Color(255, 255, 255)); // White Top
+    _strip.setPixelColor(2, _strip.Color(255, 255, 255)); // White Mid
+    _strip.setPixelColor(3, _strip.Color(255, 255, 255)); // White Bot
+    break;
   }
 
   _strip.show();

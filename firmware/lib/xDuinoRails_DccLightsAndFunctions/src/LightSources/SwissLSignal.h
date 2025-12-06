@@ -19,6 +19,8 @@ enum SwissLSignalAspect {
     L_ASPECT_SPEED_90,
     L_ASPECT_SHORT_PROCEED,
     L_ASPECT_PROCEED_CAUTION,
+    L_ASPECT_ZP_DEPARTURE,
+    L_ASPECT_ZP_BRAKE_TEST
 };
 
 class SwissLSignal : public LightSource {
