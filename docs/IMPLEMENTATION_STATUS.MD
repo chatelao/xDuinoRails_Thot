@@ -60,14 +60,13 @@ This document outlines the current implementation status of the features describ
     - `CVLoader` parses RCN-225 CVs (33-46).
 - [x] **Phase 2: RCN-227 - System per Function**
     - `parseRcn227PerFunction` implemented including blocking logic.
-- [ ] **Phase 3: RCN-227 - System per Output (Versions 1 & 2)**
-    - *Status: Unstable*
-    - Code exists and tests pass, but `ConditionVariable` ID generation overflows `uint8_t`, causing collisions.
-    - Needs `uint16_t` ID upgrade.
-- [ ] **Phase 4: RCN-227 - System per Output (Version 3)**
-    - *Status: Broken / Not Implemented*
-    - Skeleton exists but is non-functional.
-    - `Condition` parameters need upgrade from `uint8_t` to support values up to 32767.
+- [x] **Phase 3: RCN-227 - System per Output (Versions 1 & 2)**
+    - *Status: Stable*
+    - `ConditionVariable` ID generation upgraded to `uint16_t` to prevent overflows and collisions.
+- [x] **Phase 4: RCN-227 - System per Output (Version 3)**
+    - *Status: Implemented*
+    - `Condition` parameters upgraded to `uint16_t` to support values up to 32767.
+    - Skeleton implementation verified and updated.
 - [ ] **Phase 5: Tooling & Documentation**
     - JMRI definition missing.
     - `webtool/editor.html` is a placeholder.

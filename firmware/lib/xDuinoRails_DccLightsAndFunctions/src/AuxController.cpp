@@ -101,7 +101,7 @@ uint16_t AuxController::getSpeed() const {
     return _speed;
 }
 
-bool AuxController::getConditionVariableState(uint8_t cv_id) const {
+bool AuxController::getConditionVariableState(uint16_t cv_id) const {
     auto it = _cv_states.find(cv_id);
     return (it != _cv_states.end()) ? it->second : false;
 }
@@ -214,7 +214,7 @@ void AuxController::parseRcn227PerOutputV3(ICVAccess& cvAccess) {
     for (int output_num = 0; output_num < num_outputs; ++output_num) {
         LogicalFunction* lf = nullptr;
         uint16_t base_cv = 257 + (output_num * 8);
-        std::vector<uint8_t> activating_cv_ids, blocking_cv_ids;
+        std::vector<uint16_t> activating_cv_ids, blocking_cv_ids;
 
         for (int i = 0; i < 4; ++i) {
             uint8_t cv_value = cvAccess.readCV(base_cv + i);
@@ -239,8 +239,8 @@ void AuxController::parseRcn227PerOutputV3(ICVAccess& cvAccess) {
             uint16_t value = ((cv_high & 0x7F) << 8) | cv_low;
             ConditionVariable cv;
             cv.id = 700 + (output_num * 8) + 4 + i;
-            if (value <= 68) cv.conditions.push_back({TriggerSource::FUNC_KEY, TriggerComparator::IS_TRUE, (uint8_t)value});
-            else cv.conditions.push_back({TriggerSource::BINARY_STATE, TriggerComparator::IS_TRUE, (uint8_t)(value - 69)});
+            if (value <= 68) cv.conditions.push_back({TriggerSource::FUNC_KEY, TriggerComparator::IS_TRUE, (uint16_t)value});
+            else cv.conditions.push_back({TriggerSource::BINARY_STATE, TriggerComparator::IS_TRUE, (uint16_t)(value - 69)});
             addConditionVariable(cv);
             (is_blocking ? blocking_cv_ids : activating_cv_ids).push_back(cv.id);
         }
@@ -251,7 +251,7 @@ void AuxController::parseRcn227PerOutputV3(ICVAccess& cvAccess) {
             lf->addOutput(getOutputById(output_num + 1));
             addLogicalFunction(lf);
             uint8_t lf_idx = _logical_functions.size() - 1;
-            for (uint8_t activating_id : activating_cv_ids) {
+            for (uint16_t activating_id : activating_cv_ids) {
                 MappingRule rule;
                 rule.target_logical_function_id = lf_idx;
                 rule.positive_conditions.push_back(activating_id);
@@ -279,15 +279,15 @@ void AuxController::parseRcn227PerFunction(ICVAccess& cvAccess) {
 
             ConditionVariable cv;
             cv.id = (func_num * 2) + dir + 1;
-            cv.conditions.push_back({TriggerSource::FUNC_KEY, TriggerComparator::IS_TRUE, (uint8_t)func_num});
-            cv.conditions.push_back({TriggerSource::DIRECTION, TriggerComparator::EQ, (uint8_t)((dir == 0) ? DECODER_DIRECTION_FORWARD : DECODER_DIRECTION_REVERSE)});
+            cv.conditions.push_back({TriggerSource::FUNC_KEY, TriggerComparator::IS_TRUE, (uint16_t)func_num});
+            cv.conditions.push_back({TriggerSource::DIRECTION, TriggerComparator::EQ, (uint16_t)((dir == 0) ? DECODER_DIRECTION_FORWARD : DECODER_DIRECTION_REVERSE)});
             addConditionVariable(cv);
 
-            uint8_t blocking_cv_id = 0;
+            uint16_t blocking_cv_id = 0;
             if (blocking_func_num != 255) {
                 ConditionVariable blocking_cv;
                 blocking_cv.id = 100 + blocking_func_num;
-                blocking_cv.conditions.push_back({TriggerSource::FUNC_KEY, TriggerComparator::IS_TRUE, blocking_func_num});
+                blocking_cv.conditions.push_back({TriggerSource::FUNC_KEY, TriggerComparator::IS_TRUE, (uint16_t)blocking_func_num});
                 addConditionVariable(blocking_cv);
                 blocking_cv_id = blocking_cv.id;
             }
@@ -403,14 +403,14 @@ void AuxController::parseRcn227PerOutputV2(ICVAccess& cvAccess) {
             };
             uint8_t blocking_func = cvAccess.readCV(base_cv + 3);
 
-            uint8_t blocking_cv_id = 0;
+            uint16_t blocking_cv_id = 0;
             if (blocking_func != 255) {
                 ConditionVariable blocking_cv;
                 blocking_cv.id = 400 + blocking_func; // Unique ID
                 if (blocking_func > 28) {
                     blocking_cv.conditions.push_back({TriggerSource::BINARY_STATE, TriggerComparator::IS_TRUE, (uint16_t)(blocking_func)});
                 } else {
-                    blocking_cv.conditions.push_back({TriggerSource::FUNC_KEY, TriggerComparator::IS_TRUE, blocking_func});
+                    blocking_cv.conditions.push_back({TriggerSource::FUNC_KEY, TriggerComparator::IS_TRUE, (uint16_t)blocking_func});
                 }
                 addConditionVariable(blocking_cv);
                 blocking_cv_id = blocking_cv.id;
