@@ -6,77 +6,70 @@ This document outlines the current implementation status of the features describ
 
 ### 2.1. Physical Outputs
 
-- **Status**: Partially Implemented
-
-- **Details**:
-    - The `PhysicalOutput` class exists and supports `PWM` and `SERVO` types.
-    - The more specific output types (`PWM_HIGH_SIDE`, `PWM_LOW_SIDE`, `ON_OFF`) are **not implemented**.
-    - Configurable `PWM Frequency` is **not implemented**.
-    - Configurable brightness/speed `Curve` is **not implemented**.
+- [x] **`PhysicalOutput` Class**: Supports basic types.
+- [x] **`PWM` Output Type**
+- [x] **`SERVO` Output Type**
+- [ ] **`PWM_HIGH_SIDE` Output Type**
+- [ ] **`PWM_LOW_SIDE` Output Type**
+- [ ] **`ON_OFF` Output Type**
+- [ ] **Configurable PWM Frequency**
+- [ ] **Configurable Brightness/Speed Curve**
 
 ### 2.2. Logical Functions
 
-- **Status**: Implemented
-
-- **Details**:
-    - The `LogicalFunction` class is implemented as described in the concept.
-    - It successfully decouples the logical feature from the physical outputs by holding a collection of `PhysicalOutput` pointers and an `Effect` pointer.
-    - The core logic for activating, deactivating, and updating the function is in place.
+- [x] **`LogicalFunction` Class**: Implemented as described.
+- [x] **Decoupling**: Successfully separates logical features from physical outputs.
+- [x] **Core Logic**: Activation, deactivation, and updates are fully functional.
 
 ## 3. Advanced Lighting Effects
 
-- **Steady**: Implemented (`EffectSteady`)
-- **Dimming**: Implemented (`EffectDimming`)
-- **Flicker/Firebox Glow**: Implemented (`EffectFlicker`). The proposed advanced variant using Perlin noise is implemented.
-- **Strobe / Beacon**: Implemented (`EffectStrobe`)
-- **Neon Tube Simulation**: **Not Implemented**
-- **Mars Light / Gyralite**: Implemented (`EffectMarsLight`)
-- **Soft Start/Stop**: Implemented (`EffectSoftStartStop`)
+- [x] **Steady** (`EffectSteady`)
+- [x] **Dimming** (`EffectDimming`)
+- [x] **Flicker/Firebox Glow** (`EffectFlicker` with Perlin noise)
+- [x] **Strobe / Beacon** (`EffectStrobe`)
+- [x] **Mars Light / Gyralite** (`EffectMarsLight`)
+- [x] **Soft Start/Stop** (`EffectSoftStartStop`)
+- [ ] **Neon Tube Simulation**
 
 ## 4. Auxiliary Functions
 
 ### 4.1. Servo Control
 
-- **Status**: Partially Implemented
-
-- **Details**:
-    - A basic servo control effect (`EffectServo`) is implemented.
-    - The proposed `MOMENTARY` and `LATCHING` modes are **not implemented**. The current implementation defaults to a latching-style behavior.
+- [x] **Basic Servo Control** (`EffectServo`)
+- [ ] **Momentary Mode**
+- [ ] **Latching Mode** (Current implementation defaults to latching-style)
 
 ### 4.2. Smoke Generator Control
 
-- **Status**: Partially Implemented
-
-- **Details**:
-    - The basic `SMOKE_GENERATOR` effect (`EffectSmokeGenerator`) is implemented.
-    - It supports on/off control of the heater and a static fan speed (`Variant A`).
-    - The advanced `SPEED_SYNC` mode (`Variant B`) is **not implemented**.
+- [x] **Basic Smoke Generator** (`EffectSmokeGenerator`)
+- [x] **Heater On/Off**
+- [x] **Static Fan Speed** (Variant A)
+- [ ] **Speed Synchronized Fan** (Variant B)
 
 ## 5. Function Mapping System
 
 ### 5.1. Internal Architecture: Multi-Level Table Logic
 
-- **Status**: Implemented
-
-- **Details**:
-    - The core data structures (`Condition`, `ConditionVariable`, `MappingRule`) and enums (`TriggerSource`, `TriggerComparator`, `MappingAction`) for the advanced logic engine are fully implemented in `FunctionMapping.h`.
-    - The `FunctionManager` is capable of processing these rules.
+- [x] **Core Data Structures**: `Condition`, `ConditionVariable`, `MappingRule`.
+- [x] **Enums**: `TriggerSource`, `TriggerComparator`, `MappingAction`.
+- [x] **Logic Engine**: `FunctionManager` processes rules correctly.
 
 ### 5.2. RCN-227 Implementation Roadmap
 
-- **Phase 1: Core Infrastructure & RCN-225**: Implemented. The `CVLoader` can parse RCN-225 CVs (33-46) and create the corresponding mapping rules.
-- **Phase 2: RCN-227 - System per Function**: Implemented. The `CVLoader` has a dedicated function (`parseRcn227PerFunction`) to parse the indexed CVs for this system, including the blocking function logic.
-- **Phase 3: RCN-227 - System per Output (Versions 1 & 2)**: **Unstable**.
-    - The code is present and tests pass, but the implementation is fundamentally flawed due to data type overflow.
-    - `ConditionVariable` IDs are generated using `uint8_t` math (e.g. `200 + ...`), causing collisions when the ID exceeds 255.
-    - This must be fixed by upgrading IDs to `uint16_t` before this phase can be considered stable.
-- **Phase 4: RCN-227 - System per Output (Version 3)**: **Not Implemented / Broken**.
-    - A skeleton implementation exists (`parseRcn227PerOutputV3`), but it is non-functional.
-    - The `Condition` struct uses `uint8_t` for parameters, but V3 requires handling values up to 32767.
-    - `ConditionVariable` IDs would also overflow `uint8_t`.
-    - Requires a refactor of `FunctionMapping.h` data structures to support larger types.
-- **Phase 5: Tooling & Documentation**: **Not Implemented**.
-    - No JMRI definition file.
+- [x] **Phase 1: Core Infrastructure & RCN-225**
+    - `CVLoader` parses RCN-225 CVs (33-46).
+- [x] **Phase 2: RCN-227 - System per Function**
+    - `parseRcn227PerFunction` implemented including blocking logic.
+- [ ] **Phase 3: RCN-227 - System per Output (Versions 1 & 2)**
+    - *Status: Unstable*
+    - Code exists and tests pass, but `ConditionVariable` ID generation overflows `uint8_t`, causing collisions.
+    - Needs `uint16_t` ID upgrade.
+- [ ] **Phase 4: RCN-227 - System per Output (Version 3)**
+    - *Status: Broken / Not Implemented*
+    - Skeleton exists but is non-functional.
+    - `Condition` parameters need upgrade from `uint8_t` to support values up to 32767.
+- [ ] **Phase 5: Tooling & Documentation**
+    - JMRI definition missing.
     - `webtool/editor.html` is a placeholder.
 
 ## 6. Summary
