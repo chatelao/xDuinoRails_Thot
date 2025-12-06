@@ -66,9 +66,18 @@ This document outlines the current implementation status of the features describ
 
 - **Phase 1: Core Infrastructure & RCN-225**: Implemented. The `CVLoader` can parse RCN-225 CVs (33-46) and create the corresponding mapping rules.
 - **Phase 2: RCN-227 - System per Function**: Implemented. The `CVLoader` has a dedicated function (`parseRcn227PerFunction`) to parse the indexed CVs for this system, including the blocking function logic.
-- **Phase 3: RCN-227 - System per Output (Versions 1 & 2)**: Implemented and Verified. The `AuxController` contains parsing logic for both the V1 (Matrix) and V2 (Function Number) systems. Unit tests are passing in the native environment.
-- **Phase 4: RCN-227 - System per Output (Version 3)**: **Not Implemented**.
-- **Phase 5: Tooling & Documentation**: **Not Implemented**. No JMRI definition file or specific user manual for RCN-227 has been created.
+- **Phase 3: RCN-227 - System per Output (Versions 1 & 2)**: **Unstable**.
+    - The code is present and tests pass, but the implementation is fundamentally flawed due to data type overflow.
+    - `ConditionVariable` IDs are generated using `uint8_t` math (e.g. `200 + ...`), causing collisions when the ID exceeds 255.
+    - This must be fixed by upgrading IDs to `uint16_t` before this phase can be considered stable.
+- **Phase 4: RCN-227 - System per Output (Version 3)**: **Not Implemented / Broken**.
+    - A skeleton implementation exists (`parseRcn227PerOutputV3`), but it is non-functional.
+    - The `Condition` struct uses `uint8_t` for parameters, but V3 requires handling values up to 32767.
+    - `ConditionVariable` IDs would also overflow `uint8_t`.
+    - Requires a refactor of `FunctionMapping.h` data structures to support larger types.
+- **Phase 5: Tooling & Documentation**: **Not Implemented**.
+    - No JMRI definition file.
+    - `webtool/editor.html` is a placeholder.
 
 ## 6. Summary
 
