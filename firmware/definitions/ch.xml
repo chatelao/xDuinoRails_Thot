@@ -430,6 +430,28 @@
     </aspects>
   </signal>
 
+  <signal country="ch" name="CH-ZP-Signal" svg="CH-ZP-Signal.svg" outline="M -150,150 L 0,150 L 150,0 L 150,-150 L -150,-150 Z" outlineColor="#000000">
+    <lightbulbs>
+      <!-- L_SMS (Orange Vertical Stripe) -->
+      <lightbulb id="L_SMS" x="0" y="0" color="orange" d="M -20,-100 L 20,-100 L 20,100 L -20,100 Z"/>
+
+      <!-- Brake Test Lights (Triangular, White) -->
+      <lightbulb id="L1" x="-80" y="-80" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L2" x="-80" y="80" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+      <lightbulb id="L3" x="80" y="-80" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"/>
+    </lightbulbs>
+    <aspects>
+      <aspect name="Abfahren" short="Zp9" long="Abfahren">
+        <light id="L_SMS"/>
+      </aspect>
+      <aspect name="Bremse" short="Bremse" long="Bremsprobe">
+        <light id="L1"/>
+        <light id="L2"/>
+        <light id="L3"/>
+      </aspect>
+    </aspects>
+  </signal>
+
   <signal country="ch" name="CH-Zwergsignal" svg="CH-Zwergsignal.svg" outline="M -150,150 L 0,150 L 150,0 L 150,-150 L -150,-150 Z" outlineColor="#000000">
     <lightbulbs>
       <!-- L-shaped arrangement on Chamfered Square Backing: L1 Bottom Left, L2 Top Left, L3 Bottom Right -->

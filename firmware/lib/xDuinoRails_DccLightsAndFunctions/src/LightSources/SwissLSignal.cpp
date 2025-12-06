@@ -66,6 +66,14 @@ void SwissLSignal::setAspect(SwissLSignalAspect aspect) {
     _strip.setPixelColor(0, _strip.Color(255, 255, 0)); // Yellow
     _isBlinking = true;
     break;
+  case L_ASPECT_ZP_DEPARTURE:
+    _strip.setPixelColor(0, _strip.Color(255, 165, 0)); // Orange
+    break;
+  case L_ASPECT_ZP_BRAKE_TEST:
+    _strip.setPixelColor(1, _strip.Color(255, 255, 255));
+    _strip.setPixelColor(2, _strip.Color(255, 255, 255));
+    _strip.setPixelColor(3, _strip.Color(255, 255, 255));
+    break;
   }
 
   _strip.show();

@@ -35,7 +35,13 @@ enum GermanSignalAspect {
     DE_ASPECT_HL1,   // Clear (Green)
     DE_ASPECT_HL13,  // Stop (Red)
     DE_ASPECT_HL10,  // Expect Stop (Yellow)
-    DE_ASPECT_HL12A  // 40km/h + Expect Stop (Yellow + Yellow)
+    DE_ASPECT_HL12A, // 40km/h + Expect Stop (Yellow + Yellow)
+
+    // Zp System
+    DE_ASPECT_ZP9, // Departure (Green Ring)
+    DE_ASPECT_ZP6, // Brake Apply (1 White)
+    DE_ASPECT_ZP7, // Brake Release (2 White)
+    DE_ASPECT_ZP8  // Brake OK (3 White)
 };
 
 class GermanSignal : public LightSource {
