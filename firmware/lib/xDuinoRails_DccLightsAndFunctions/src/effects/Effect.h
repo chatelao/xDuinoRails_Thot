@@ -96,6 +96,22 @@ private:
     uint8_t _fan_speed;
 };
 
+class EffectNeonFlicker : public Effect {
+public:
+    EffectNeonFlicker(uint16_t ignition_time_ms, uint8_t brightness);
+    void update(uint32_t delta_ms, const std::vector<PhysicalOutput*>& outputs) override;
+    void setActive(bool active) override;
+private:
+    uint16_t _ignition_time_ms;
+    uint8_t _brightness;
+    uint32_t _timer;
+    enum State { OFF, IGNITING, STEADY };
+    State _state;
+    uint32_t _flicker_timer;
+    uint32_t _next_toggle_ms;
+    bool _current_on;
+};
+
 }
 
 #endif // EFFECT_H

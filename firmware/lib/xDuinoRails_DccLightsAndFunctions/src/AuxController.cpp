@@ -379,6 +379,8 @@ Effect* AuxController::createEffectFromCVs(ICVAccess& cvAccess, uint8_t output_n
             return new EffectSoftStartStop(p1, p2, p3 & 0xFF);
         case EFFECT_TYPE_SMOKE_GENERATOR:
             return new EffectSmokeGenerator((p1 & 0xFF) > 0, p2 & 0xFF);
+        case EFFECT_TYPE_NEON_FLICKER:
+            return new EffectNeonFlicker(p1, p2 & 0xFF);
         case EFFECT_TYPE_NONE:
         default:
             return new EffectSteady(255);

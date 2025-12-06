@@ -29,7 +29,7 @@ This document outlines the current implementation status of the features describ
 - [x] **Strobe / Beacon** (`EffectStrobe`)
 - [x] **Mars Light / Gyralite** (`EffectMarsLight`)
 - [x] **Soft Start/Stop** (`EffectSoftStartStop`)
-- [ ] **Neon Tube Simulation**
+- [x] **Neon Tube Simulation** (`EffectNeonFlicker`)
 
 ## 4. Auxiliary Functions
 
@@ -77,4 +77,4 @@ The project has a strong foundation that aligns well with the core architectural
 
 - **Strengths**: A significant number of the advanced lighting effects have been implemented. The RCN-225 and the first stage of RCN-227 function mapping are complete, providing a solid, standards-compliant base.
 
-- **Areas for Development**: The main areas for future work are the completion of the RCN-227 standard (Phases 3 and 4), the implementation of the more advanced features for auxiliary functions (servo modes and smoke sync), and the enhancement of the `PhysicalOutput` class to support more detailed hardware configurations. The `Neon Tube Simulation` effect is the only lighting effect not yet implemented.
+- **Areas for Development**: The main areas for future work are the completion of the RCN-227 standard (Phases 3 and 4), the implementation of the more advanced features for auxiliary functions (servo modes and smoke sync), and the enhancement of the `PhysicalOutput` class to support more detailed hardware configurations.
