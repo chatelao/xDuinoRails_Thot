@@ -140,4 +140,54 @@ void EffectSmokeGenerator::update(uint32_t delta_ms, const std::vector<PhysicalO
     if (outputs.size() > 1) outputs[1]->setValue(fan_value);
 }
 
+EffectNeonFlicker::EffectNeonFlicker(uint16_t ignition_time_ms, uint8_t brightness)
+    : _ignition_time_ms(ignition_time_ms), _brightness(brightness), _state(OFF), _timer(0), _flicker_timer(0), _next_toggle_ms(0), _current_on(false) {}
+
+void EffectNeonFlicker::setActive(bool active) {
+    bool was_active = _is_active;
+    Effect::setActive(active);
+    if (active && !was_active) {
+        _state = IGNITING;
+        _timer = 0;
+        _flicker_timer = 0;
+        _next_toggle_ms = 0;
+        _current_on = false;
+    } else if (!active) {
+        _state = OFF;
+    }
+}
+
+void EffectNeonFlicker::update(uint32_t delta_ms, const std::vector<PhysicalOutput*>& outputs) {
+    if (!_is_active) {
+         for (auto* output : outputs) output->setValue(0);
+         return;
+    }
+
+    if (_state == IGNITING) {
+        _timer += delta_ms;
+        if (_timer >= _ignition_time_ms) {
+            _state = STEADY;
+        } else {
+             _flicker_timer += delta_ms;
+             if (_flicker_timer >= _next_toggle_ms) {
+                 _flicker_timer = 0;
+                 _current_on = !_current_on;
+                 // Randomize next toggle
+                 _next_toggle_ms = random(20, 150);
+             }
+        }
+    }
+
+    uint8_t value = 0;
+    if (_state == STEADY) {
+        value = _brightness;
+    } else if (_state == IGNITING) {
+        value = _current_on ? _brightness : 0;
+    }
+
+    for (auto* output : outputs) {
+        output->setValue(value);
+    }
+}
+
 }

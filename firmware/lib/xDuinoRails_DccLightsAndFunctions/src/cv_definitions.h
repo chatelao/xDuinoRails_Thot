@@ -123,6 +123,7 @@
 #define EFFECT_TYPE_SOFT_START_STOP   5 // Soft start/stop fade effect
 #define EFFECT_TYPE_SERVO             6 // Servo control
 #define EFFECT_TYPE_SMOKE_GENERATOR   7 // Smoke generator control
+#define EFFECT_TYPE_NEON_FLICKER      8 // Neon tube startup flicker
 
 /*
 Parameter Mapping for each Effect Type:
@@ -163,6 +164,10 @@ EFFECT_TYPE_SERVO (6):
 EFFECT_TYPE_SMOKE_GENERATOR (7):
   - Param1 (LSB): Heater enabled (0=off, 1=on)
   - Param2 (LSB): Fan speed (0-255)
+
+EFFECT_TYPE_NEON_FLICKER (8):
+  - Param1 (LSB/MSB): Ignition time in ms (0-65535)
+  - Param2 (LSB): Brightness (0-255)
 
 */
 
