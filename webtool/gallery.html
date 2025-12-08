@@ -220,6 +220,7 @@
             const outlineColor = signalNode.getAttribute('outlineColor') || '#000000';
             const borderColor = signalNode.getAttribute('borderColor') || 'none';
             const borderWidth = signalNode.getAttribute('borderWidth') || '0';
+            const decorations = signalNode.getElementsByTagName('decoration');
             const lightbulbs = signalNode.getElementsByTagName('lightbulb');
 
             // Calculate ViewBox
@@ -283,6 +284,22 @@
                 path.setAttribute("fill", outlineColor);
                 path.setAttribute("stroke", borderColor);
                 path.setAttribute("stroke-width", borderWidth);
+                group.appendChild(path);
+            }
+
+            // Draw decorations
+            for (let i = 0; i < decorations.length; i++) {
+                const dec = decorations[i];
+                const d = dec.getAttribute('d');
+                const color = dec.getAttribute('color') || 'white';
+                const stroke = dec.getAttribute('stroke') || 'none';
+                const strokeWidth = dec.getAttribute('strokeWidth') || '0';
+
+                const path = document.createElementNS(svgNS, "path");
+                path.setAttribute("d", d);
+                path.setAttribute("fill", color);
+                path.setAttribute("stroke", stroke);
+                path.setAttribute("stroke-width", strokeWidth);
                 group.appendChild(path);
             }
 
