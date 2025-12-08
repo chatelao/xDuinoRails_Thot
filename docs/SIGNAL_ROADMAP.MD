@@ -27,52 +27,30 @@ This document outlines the current status of signal implementations and future p
 ### Mechanical Signals
 - [ ] **Semaphore Signals** (Various types)
 
-## 🇧🇪 Belgium (BE)
+## 🇨🇭 Switzerland (CH)
 
-### Light Signals (SNCB/NMBS)
-- [ ] **Grand Signal d'Arrêt** (Main Stop Signal) - Often combined with warning aspects.
-- [ ] **Signal d'Avertissement** (Warning Signal) - Precedes a stop signal.
-- [ ] **Petit Signal d'Arrêt** (Small Stop Signal) - Used for shunting and minor movements (ground level).
-- [ ] **Signal Simplifié** (Simplified Signal)
-- [ ] **IOT** (Indicateur d'Opérations Terminées) - Completed operations indicator.
+### System L (Light Signals)
+- [x] **Hauptsignal 2L** (2 Lamps) - `CH-L-Hauptsignal-2L`
+- [x] **Hauptsignal 3L** (3 Lamps) - `CH-L-Hauptsignal-3L`
+- [x] **Hauptsignal 4L** (4 Lamps) - `CH-L-Hauptsignal-4L`
+- [x] **Hauptsignal 5L** (5 Lamps) - `CH-L-Hauptsignal-5L`
+- [x] **Hauptsignal 7L** (7 Lamps) - `CH-L-Hauptsignal-7L`
+- [x] **Vorsignal Standard** (Distant) - `CH-L-Vorsignal-Standard`
+- [x] **Vorsignal Kombi** (Combined) - `CH-L-Vorsignal-Kombi`
+- [x] **Zwergsignal** (Dwarf) - `CH-Zwergsignal`
+- [x] **Rangierhaltsignal** (Shunting Stop) - `CH-Rangierhaltsignal`
+- [x] **Räumungssignal** (Evacuation) - `CH-Raeumungssignal`
 
-### Mechanical Signals
-- [ ] **Semaphore** (Paddle Signals) - Historically used, largely replaced.
+### System N (Numeric/Light)
+- [x] **Hauptsignal** - `CH-N-Hauptsignal-1`
+- [x] **Vorsignal** - `CH-N-Vorsignal-1`
 
-## 🇨🇿 Czech Republic (CZ)
-
-### Light Signals (AŽD Types)
-- [ ] **AŽD 71** (Standard Color Light) - Widely used, identifiable by specific shield shape.
-- [ ] **AŽD 97** (Modern LED) - Newer generation of light signals.
-- [ ] **Opakovací návěstidlo** (Repeater Signal) - Pre-distants or repeaters.
-- [ ] **Seřaďovací návěstidlo** (Shunting Signal) - Blue/White lights.
-
-### Mechanical Signals (Mechanická návěstidla)
-- [ ] **Vjezdové návěstidlo** (Entry Semaphore) - Often two arms.
-- [ ] **Odjezdové návěstidlo** (Exit Semaphore) - Often one arm.
-- [ ] **Předvěst** (Mechanical Distant) - Disc signal.
-
-## 🇩🇰 Denmark (DK)
-
-### Light Signals (DSB/Banedanmark)
-- [ ] **Daglyssignal** (Daylight Signal) - Main signal system (Entry, Exit, Block).
-- [ ] **PU-signal** (Passage/Exit Signal) - Combined function.
-- [ ] **I-signal** (Indkørselssignal) - Entry signal.
-- [ ] **U-signal** (Udkørselssignal) - Exit signal.
-- [ ] **Dvæergsignal** (Dwarf Signal) - Shunting.
+### Auxiliary Signals
+- [x] **Zp Signal** (Departure/Brake Test) - `CH-ZP-Signal`
 
 ### Mechanical Signals
-- [ ] **Armsignal** (Semaphore) - Historical.
-
-## 🇫🇷 France (FR)
-
-### Light Signals
-- [x] **Signalisation Lumineuse** (Main Signal) - `FR-Signalisation-Lumineuse-1`
-- [x] **Carré Violet** (Shunting/Stop) - `FR-Carre-Violet-1`
-
-### Mechanical Signals
-- [ ] **Cible** (Target/Disc Signals)
-- [ ] **Aile** (Semaphore Wings)
+- [ ] **Hipp'sche Wendescheibe** (Turning Disc Signal)
+- [ ] **Semaphore** (Main & Distant)
 
 ## 🇩🇪 Germany (DE)
 
@@ -100,32 +78,21 @@ This document outlines the current status of signal implementations and future p
 - [ ] **Vr-Vorsignal** (Semaphore Distant) - *Vr 0, Vr 1, Vr 2*
 - [ ] **Sh-Sperrsignal** (Mechanical Shunting)
 
-## 🇭🇺 Hungary (HU)
+## 🇫🇷 France (FR)
 
-### Light Signals (MÁV)
-- [ ] **Főjelző** (Main Signal) - Similar to OSShD / German H/V concepts but with speed signaling.
-- [ ] **Előjelző** (Distant Signal)
-- [ ] **Tolatásjelző** (Shunting Signal) - Blue/White lights.
+### Light Signals
+- [x] **Signalisation Lumineuse** (Main Signal) - `FR-Signalisation-Lumineuse-1`
+- [x] **Carré Violet** (Shunting/Stop) - `FR-Carre-Violet-1`
 
 ### Mechanical Signals
-- [ ] **Alakjelző** (Semaphore) - Still in use on secondary lines.
+- [ ] **Cible** (Target/Disc Signals)
+- [ ] **Aile** (Semaphore Wings)
 
 ## 🇮🇹 Italy (IT)
 
 ### Light Signals
 - [x] **Segnale Luminoso** (Main Signal) - `IT-Segnale-Luminoso-1`
 - [x] **Marmotta** (Shunting Signal) - `IT-Marmotta`
-
-## 🇯🇵 Japan (JP)
-
-### Light Signals (JR Group)
-- [ ] **Color Light Signal** (3, 4, 5, 6-Aspect) - For main lines and high-density traffic.
-- [ ] **Repeater Signal** (Chūkei shingōki) - Repeating the aspect of the next signal.
-- [ ] **Shunting Signal** (Irekae shingōki) - Position-light style dwarf signals.
-- [ ] **Route Indicator** - Often alphanumeric or arrow based.
-
-### Mechanical Signals
-- [ ] **Semaphore** (Udegi shingōki) - Historically significant, rare today.
 
 ## 🇳🇱 Netherlands (NL)
 
@@ -136,16 +103,6 @@ This document outlines the current status of signal implementations and future p
 ### Mechanical Signals
 - [ ] **Armsein** (Semaphore)
 
-## 🇳🇴 Norway (NO)
-
-### Light Signals (Bane NOR)
-- [ ] **Hovedsignal** (Main Signal) - Standard entry/exit/block signal (Red/Green).
-- [ ] **Forsignal** (Distant Signal) - Yellow/Green flashing combinations.
-- [ ] **Dvergsignal** (Dwarf Signal) - Shunting.
-
-### Mechanical Signals
-- [ ] **Semaforsignal** - Historical.
-
 ## 🇵🇱 Poland (PL)
 
 ### Light Signals
@@ -155,52 +112,6 @@ This document outlines the current status of signal implementations and future p
 
 ### Mechanical Signals
 - [ ] **Kształtowe** (Semaphore Signals)
-
-## 🇪🇸 Spain (ES)
-
-### Light Signals (RENFE/ADIF)
-- [ ] **Señal Principal** (Main Signal) - Standard color light (Green, Red, Yellow).
-- [ ] **Señal de Maniobra** (Shunting Signal) - Often dwarf "Monobloque" style.
-- [ ] **Indicador Alfanumérico** (Alphanumeric Indicator) - Speed or route info.
-- [ ] **High Speed Signal** - Specific signaling for AVE lines (LZB/ETCS markers).
-
-### Mechanical Signals
-- [ ] **Señal Mecánica** - Historic semaphore types.
-
-## 🇸🇪 Sweden (SE)
-
-### Light Signals (Trafikverket)
-- [ ] **Huvudsignal** (Main Signal) - 2 to 5 lights depending on function.
-- [ ] **Försignal** (Distant Signal) - Blinking white light logic (unique to SE).
-- [ ] **Dvärgsignal** (Dwarf Signal) - Used for shunting and as a "check" signal.
-
-### Mechanical Signals
-- [ ] **Semafor** - Historical.
-
-## 🇨🇭 Switzerland (CH)
-
-### System L (Light Signals)
-- [x] **Hauptsignal 2L** (2 Lamps) - `CH-L-Hauptsignal-2L`
-- [x] **Hauptsignal 3L** (3 Lamps) - `CH-L-Hauptsignal-3L`
-- [x] **Hauptsignal 4L** (4 Lamps) - `CH-L-Hauptsignal-4L`
-- [x] **Hauptsignal 5L** (5 Lamps) - `CH-L-Hauptsignal-5L`
-- [x] **Hauptsignal 7L** (7 Lamps) - `CH-L-Hauptsignal-7L`
-- [x] **Vorsignal Standard** (Distant) - `CH-L-Vorsignal-Standard`
-- [x] **Vorsignal Kombi** (Combined) - `CH-L-Vorsignal-Kombi`
-- [x] **Zwergsignal** (Dwarf) - `CH-Zwergsignal`
-- [x] **Rangierhaltsignal** (Shunting Stop) - `CH-Rangierhaltsignal`
-- [x] **Räumungssignal** (Evacuation) - `CH-Raeumungssignal`
-
-### System N (Numeric/Light)
-- [x] **Hauptsignal** - `CH-N-Hauptsignal-1`
-- [x] **Vorsignal** - `CH-N-Vorsignal-1`
-
-### Auxiliary Signals
-- [x] **Zp Signal** (Departure/Brake Test) - `CH-ZP-Signal`
-
-### Mechanical Signals
-- [ ] **Hipp'sche Wendescheibe** (Turning Disc Signal)
-- [ ] **Semaphore** (Main & Distant)
 
 ## 🇬🇧 United Kingdom (UK)
 
@@ -223,3 +134,52 @@ This document outlines the current status of signal implementations and future p
 
 ### Mechanical Signals
 - [ ] **Semaphore** (Upper/Lower Quadrant)
+
+## 🇧🇪 Belgium (BE)
+
+### Light Signals (SNCB/NMBS)
+- [ ] **Groot Stopsein** (Main Stop Signal) - `BE-Groot-Stopsein`
+- [ ] **Voorsein** (Warning Signal) - `BE-Voorsein`
+- [ ] **Gecombineerd Sein** (Combined Stop & Warning) - `BE-Gecombineerd-Sein`
+- [ ] **Vereenvoudigd Stopsein** (Simplified Stop Signal) - `BE-Vereenvoudigd-Stopsein`
+- [ ] **Klein Stopsein** (Small Stop Signal) - `BE-Klein-Stopsein`
+- [ ] **IOT-Sein** (Completed Operations Indicator) - `BE-IOT-Sein`
+
+## 🇪🇸 Spain (ES)
+
+### Light Signals (RENFE)
+- [ ] **Señal Principal** (Main Signal) - `ES-Senal-Principal`
+- [ ] **Señal Avanzada** (Distant Signal) - `ES-Senal-Avanzada`
+- [ ] **Señal de Maniobras** (Shunting Signal) - `ES-Senal-Maniobras`
+- [ ] **Señal de Salida** (Departure Signal) - `ES-Senal-Salida`
+- [ ] **Indicadora de Entrada** (Entrance Indicator) - `ES-Indicadora-Entrada`
+
+## 🇯🇵 Japan (JP)
+
+### Light Signals (JR)
+- [ ] **Jōnai Shingōki** (Home Signal) - `JP-Jonai-Shingoki`
+- [ ] **Shuppatsu Shingōki** (Starting Signal) - `JP-Shuppatsu-Shingoki`
+- [ ] **Heisoku Shingōki** (Block Signal) - `JP-Heisoku-Shingoki`
+- [ ] **Enpō Shingōki** (Distant Signal) - `JP-Enpo-Shingoki`
+- [ ] **Tsūka Shingōki** (Passing Signal) - `JP-Tsuka-Shingoki`
+- [ ] **Chūkei Shingōki** (Repeater Signal) - `JP-Chukei-Shingoki`
+- [ ] **Irekae Shingōki** (Shunting Signal) - `JP-Irekae-Shingoki`
+- [ ] **Yūdō Shingōki** (Call-On Signal) - `JP-Yudo-Shingoki`
+
+## 🇸🇪 Scandinavia (SE)
+
+### Light Signals (Trafikverket - Sweden)
+- [ ] **Huvudsignal** (Main Signal) - `SE-Huvudsignal`
+- [ ] **Försignal** (Distant Signal) - `SE-Forsignal`
+- [ ] **Slutpunktsstopplykta** (End Point Stop Light) - `SE-Slutpunktsstopplykta`
+- [ ] **Dvärgsignal** (Dwarf Signal) - `SE-Dvargsignal`
+- [ ] **Vägskyddssignal** (Level Crossing Signal) - `SE-Vagskyddssignal`
+
+## 🇨🇿 Czech Republic (CZ)
+
+### Light Signals (AZD)
+- [ ] **Hlavní návěstidlo** (Main Signal) - `CZ-Hlavni-Navestidlo`
+- [ ] **Předvěst** (Distant Signal) - `CZ-Predvest`
+- [ ] **Seřaďovací návěstidlo** (Shunting Signal) - `CZ-Seradovaci-Navestidlo`
+- [ ] **Indikátorové návěstidlo** (Indicator Signal) - `CZ-Indikatorove-Navestidlo`
+- [ ] **Krycí návěstidlo** (Cover Signal) - `CZ-Kryci-Navestidlo`
