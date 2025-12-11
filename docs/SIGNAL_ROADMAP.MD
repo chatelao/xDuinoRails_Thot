@@ -98,7 +98,7 @@ This document outlines the current status of signal implementations and future p
 
 ### Light Signals
 - [x] **Hoofdsein** (Main Signal) - `NL-Hoofdsein`
-- [ ] **Dwergsein** (Dwarf Signal)
+- [x] **Dwergsein** (Dwarf Signal) - `NL-Dwergsein`
 
 ### Mechanical Signals
 - [ ] **Armsein** (Semaphore)
