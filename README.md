@@ -20,13 +20,8 @@ You can also share specific signal configurations by copying the URL, as the vie
 
 *   `docs/`: Contains all project documentation, including signal system concepts, CV tables, and wiring diagrams.
 *   `firmware/`: The PlatformIO project for the decoder's firmware.
-*   `hardware/`: Schematics, PCB layouts, and other hardware-related files.
 
 ## Getting Started
-
-### Hardware
-
-The decoder is designed for the Seeed Studio XIAO RP2040. You can find detailed schematics and wiring instructions in the `hardware/` directory.
 
 ### Firmware
 
