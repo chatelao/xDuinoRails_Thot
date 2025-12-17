@@ -25,7 +25,9 @@ Die folgende Liste ist priorisiert und repräsentiert die wichtigsten Entwicklun
 
 **Phase 1: Architektur-Modernisierung & Kern-Features**
 1.  [ ] **Dynamischer Signal-Dispatcher:** Entwicklung eines zentralen Dispatchers, der Signal-Objekte zur Laufzeit basierend auf CV-Werten instanziiert. Ermöglicht mehrere, verschiedene Signaltypen pro Decoder.
-2.  [ ] **Datengetriebene Signal-Definitionen (XML/JSON):** Verlagerung der Signallogik (Aspekte, Zustände, Regeln) aus dem C++ Code in Konfigurationsdateien, die vom Decoder geparst werden.
+2.  [ ] **Hybride, datengetriebene Signal-Definitionen:** Entwicklung einer zweistufigen Architektur für maximale Flexibilität bei minimalem Speicherbedarf auf der MCU.
+    - **Stufe 1 (Konfigurations-Tool):** Ein externes PC-Tool (oder das Web-Interface) ermöglicht die Definition von Signalen in einem benutzerfreundlichen Format (XML/JSON). Dieses Tool kompiliert die Definitionen in ein hochoptimiertes, speichersparendes binäres Format.
+    - **Stufe 2 (Firmware):** Der Decoder enthält einen Satz an Standard-Signalen im binären Format. Über das Web-Interface können benutzerdefinierte binäre Definitionen auf den Decoder geladen werden, die die internen Definitionen überschreiben oder erweitern. Die Firmware parst ausschließlich dieses effiziente Binärformat.
 3.  [ ] **Servo-Subsystem-Integration:** Implementierung einer robusten Servo-Ansteuerungsklasse, inklusive Endlagen-Justierung, Geschwindigkeitssteuerung und sanftem Anlauf/Stopp.
 4.  [ ] **Erweiterung für mechanische Signale:** Definition und Implementierung der ersten mechanischen Signale (z.B. deutsches `Hp`-Formsignal) unter Nutzung des Servo-Subsystems.
 5.  [ ] **Umfassendes Unit-Testing-Framework:** Aufbau einer soliden Test-Suite (z.B. mit GoogleTest) für die Kern-Logik (DCC-Parser, Signal-Dispatcher, etc.), um Stabilität zu gewährleisten.
