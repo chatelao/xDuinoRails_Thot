@@ -71,6 +71,19 @@ Die folgende Liste ist priorisiert und repräsentiert die wichtigsten Entwicklun
 
 This document outlines the current status of signal implementations and future plans, categorized by country and signal technology.
 
+| Country | Haupt | Neben | Zwerg |
+| :--- | :---: | :---: | :---: |
+| 🇦🇹 Austria | ✅ | ✅ | ✅ |
+| 🇦🇺 Australia | ✅ | ❌ | ✅ |
+| 🇨🇭 Switzerland | ✅ | ✅ | ✅ |
+| 🇩🇪 Germany | ✅ | ✅ | ✅ |
+| 🇫🇷 France | ✅ | ❌ | ✅ |
+| 🇮🇹 Italy | ✅ | ❌ | ✅ |
+| 🇳🇱 Netherlands | ✅ | ❌ | ✅ |
+| 🇵🇱 Poland | ✅ | ✅ | ✅ |
+| 🇬🇧 United Kingdom | ✅ | ❌ | ✅ |
+| 🇺🇸 United States | ✅ | ❌ | ✅ |
+
 ## Status Legend
 - [x] Implemented (XML definition exists)
 - [ ] Planned / Missing (Not yet implemented)
