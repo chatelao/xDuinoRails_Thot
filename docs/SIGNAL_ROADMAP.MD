@@ -27,7 +27,25 @@ Die folgende Liste ist priorisiert und repräsentiert die wichtigsten Entwicklun
 1.  [ ] **Dynamischer Signal-Dispatcher:** Entwicklung eines zentralen Dispatchers, der Signal-Objekte zur Laufzeit basierend auf CV-Werten instanziiert. Ermöglicht mehrere, verschiedene Signaltypen pro Decoder.
 2.  [ ] **Hybride, datengetriebene Signal-Definitionen:** Entwicklung einer zweistufigen Architektur für maximale Flexibilität bei minimalem Speicherbedarf auf der MCU.
     - **Stufe 1 (Konfigurations-Tool):** Ein externes PC-Tool (oder das Web-Interface) ermöglicht die Definition von Signalen in einem benutzerfreundlichen Format (XML/JSON). Dieses Tool kompiliert die Definitionen in ein hochoptimiertes, speichersparendes binäres Format.
-    - **Stufe 2 (Firmware):** Der Decoder enthält einen Satz an Standard-Signalen im binären Format. Über das Web-Interface können benutzerdefinierte binäre Definitionen auf den Decoder geladen werden, die die internen Definitionen überschreiben oder erweitern. Die Firmware parst ausschließlich dieses effiziente Binärformat.
+    - **Stufe 2 (Firmware & Binärformat):** Der Decoder parst ausschließlich ein binäres Format, das auf dem IETF-Standard **CBOR (Concise Binary Object Representation, RFC 8949)** basiert. CBOR wurde für "constrained devices" (z.B. IoT-Sensoren) entwickelt und bietet maximale Kompaktheit bei minimalem Parsing-Aufwand. Eine Signaldefinition in CBOR könnte z.B. so strukturiert sein:
+      ```
+      [
+        // Signal 1: "Hauptsignal"
+        {
+          1: "DE-HV-Hauptsignal-1", // Key 1: Signal-ID (String)
+          2: [                  // Key 2: Array of Lights
+            { 0: 1, 1: 0, 2: 230 },    // Light 1 (id, x, y)
+            { 0: 2, 1: 120, 2: 0 },   // Light 2
+            { 0: 3, 1: -120, 2: 0 }   // Light 3
+          ],
+          3: [                  // Key 3: Array of Aspects
+            { 0: "Hp0", 1: [[2, "#ff0000"], [3, "#ff0000"]] }, // Aspect "Hp0": Light 2 & 3 are red
+            { 0: "Hp1", 1: [[1, "#00ff00"]] }                  // Aspect "Hp1": Light 1 is green
+          ]
+        }
+      ]
+      ```
+      Die Keys (1, 2, 3) sind hierbei numerisch, um zusätzlich Platz zu sparen. Der Decoder enthält einen Satz an Standard-Signalen in diesem CBOR-Format und kann über die Konfigurations-Schnittstelle neue/geänderte Definitionen empfangen.
 3.  [ ] **Intelligentes Dimmen & Glühlampen-Simulation:** Überarbeitung der Dimm-Funktion, um das träge Auf- und Abglimmen von Glühlampen physikalisch korrekt zu simulieren.
 4.  [ ] **Servo-Subsystem-Integration:** Implementierung einer robusten Servo-Ansteuerungsklasse, inklusive Endlagen-Justierung, Geschwindigkeitssteuerung und sanftem Anlauf/Stopp.
 5.  [ ] **Erweiterung für mechanische Signale:** Definition und Implementierung der ersten mechanischen Signale (z.B. deutsches `Hp`-Formsignal) unter Nutzung des Servo-Subsystems.
