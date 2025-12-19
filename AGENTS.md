@@ -42,4 +42,4 @@ Add a comment to each testcase
 - Add outlines if available to each signal in the XML definition.
 - Add the official technical short- and longnames to the signal aspects (e.g., short="Fb1" long="Fahrbegriff 1").
 - The `name` attribute is mandatory, but `short` and `long` names are optional.
-- Generate the SVG and PNG files from the XML definitions before each commit using `firmware/scripts/generate_svgs.py`.
+- Generate the SVG and PNG files from the XML definitions before each commit using `scripts/generate_svgs.py`.

@@ -123,12 +123,10 @@ def generate_svg(xml_file, output_dir):
         print(f"Error processing {xml_file}: {e}")
 
 if __name__ == "__main__":
-    output_dir = "firmware/definitions/generated_svgs"
+    output_dir = "definitions/generated_svgs"
     os.makedirs(output_dir, exist_ok=True)
 
-    # Find XMLs
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # firmware
-    def_dir = os.path.join(base_dir, "definitions")
+    def_dir = "definitions"
 
     for xml_file in glob.glob(os.path.join(def_dir, "*.xml")):
         print(f"Generating SVGs for {xml_file}")
