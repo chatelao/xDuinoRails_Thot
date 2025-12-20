@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="de" name="DE-ZS-Signal" svg="DE-ZS-Signal.svg" outline="M -200,200 L 200,200 L 200,-200 L -200,-200 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L_Zs1_Top" x="0" y="100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L_Zs1_BL" x="-80" y="-80" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L_Zs1_BR" x="80" y="-80" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L_Zs7_TL" x="-80" y="80" color="yellow" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L_Zs7_TR" x="80" y="80" color="yellow" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L_Zs7_Bot" x="0" y="-100" color="yellow" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Zs 1" short="Zs1" long="Ersatzsignal">
+        <light id="L_Zs1_Top" />
+        <light id="L_Zs1_BL" />
+        <light id="L_Zs1_BR" />
+      </aspect>
+      <aspect name="Zs 7" short="Zs7" long="Gegengleisfahrt-Ersatzsignal">
+        <light id="L_Zs7_TL" />
+        <light id="L_Zs7_TR" />
+        <light id="L_Zs7_Bot" />
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>

@@ -1,0 +1,51 @@
+{
+  "de": [
+    "de-BUE.xml",
+    "de-HL.xml",
+    "de-HV.xml",
+    "de-KS.xml",
+    "de-SV.xml",
+    "de-ZP.xml",
+    "de-ZS.xml"
+  ],
+  "fr": [
+    "fr-Carre.xml",
+    "fr-Signalisation.xml"
+  ],
+  "pl": [
+    "pl-Hauptsignal.xml",
+    "pl-Manewrowa.xml",
+    "pl-Vorsignal.xml"
+  ],
+  "at": [
+    "at-Hauptsignal.xml",
+    "at-Zwergsignal.xml"
+  ],
+  "nl": [
+    "nl-Dwergsein.xml",
+    "nl-Hoofdsein.xml"
+  ],
+  "uk": [
+    "uk-Colour.xml",
+    "uk-Ground.xml"
+  ],
+  "ch": [
+    "ch-L.xml",
+    "ch-N.xml",
+    "ch-Raeumungssignal.xml",
+    "ch-Rangierhaltsignal.xml",
+    "ch-ZP.xml",
+    "ch-Zwergsignal.xml"
+  ],
+  "it": [
+    "it-Marmotta.xml",
+    "it-Segnale.xml"
+  ],
+  "us": [
+    "us-3.xml",
+    "us-Dwarf.xml"
+  ],
+  "au": [
+    "au-NSW.xml"
+  ]
+}

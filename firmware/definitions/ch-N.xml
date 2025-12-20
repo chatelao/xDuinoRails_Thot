@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="ch" name="CH-N-Hauptsignal-1" svg="CH-N-Hauptsignal-1.svg" outline="M -350,350 L 350,350 L 350,-350 L -350,-350 Z" outlineColor="#000000">
+    <decorations>
+      <decoration d="M 0,0 m -340,0 a 340,340 0 1,0 680,0 a 340,340 0 1,0 -680,0 M 0,0 m -310,0 a 310,310 0 1,1 620,0 a 310,310 0 1,1 -620,0" color="white" />
+    </decorations>
+    <lightbulbs>
+      <lightbulb id="L1" x="139" y="-80" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" />
+      <lightbulb id="L2" x="-139" y="-80" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" />
+      <lightbulb id="L3" x="0" y="160" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Halt" short="Halt" long="Halt">
+        <light id="L3" />
+      </aspect>
+      <aspect name="Freie Fahrt" short="Fb1" long="Fahrbegriff 1">
+        <light id="L1" />
+      </aspect>
+      <aspect name="Warnung" short="Fb2" long="Fahrbegriff 2">
+        <light id="L2" />
+      </aspect>
+      <aspect name="Hilfssignal" short="Hilfssignal" long="Hilfssignal">
+        <light id="L3" blink="true" />
+      </aspect>
+    </aspects>
+  </signal>
+  <signal country="ch" name="CH-N-Vorsignal-1" svg="CH-N-Vorsignal-1.svg" outline="M -250,250 L 250,250 L 250,-250 L -250,-250 Z" outlineColor="#000000" borderColor="#ffffff" borderWidth="20">
+    <lightbulbs>
+      <lightbulb id="L1" x="120" y="0" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" />
+      <lightbulb id="L2" x="-120" y="0" color="orange" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Freie Fahrt" short="Fb1*" long="Ankündigung Freie Fahrt">
+        <light id="L1" />
+      </aspect>
+      <aspect name="Warnung" short="Warnung" long="Warnung">
+        <light id="L2" />
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>

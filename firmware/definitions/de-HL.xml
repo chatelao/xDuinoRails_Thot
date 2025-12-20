@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="de" name="DE-HL-Signal" svg="DE-HL-Signal.svg" outline="M -350,1000 L 350,1000 L 350,-1000 L -350,-1000 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="750" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" />
+      <lightbulb id="L2" x="0" y="250" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" />
+      <lightbulb id="L3" x="0" y="-250" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" />
+      <lightbulb id="L4" x="0" y="-750" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" />
+      <lightbulb id="L5" x="0" y="-900" color="green" d="M -150,-30 L 150,-30 L 150,30 L -150,30 Z" />
+      <lightbulb id="L6" x="0" y="-900" color="yellow" d="M -150,-30 L 150,-30 L 150,30 L -150,30 Z" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Hl 13" short="Hl13" long="Halt">
+        <light id="L3" />
+      </aspect>
+      <aspect name="Hl 1" short="Hl1" long="Fahrt">
+        <light id="L2" />
+      </aspect>
+      <aspect name="Hl 10" short="Hl10" long="Halt erwarten">
+        <light id="L1" />
+      </aspect>
+      <aspect name="Hl 9a" short="Hl9a" long="Fahrt 40 km/h">
+        <light id="L1" />
+      </aspect>
+      <aspect name="Hl 9b" short="Hl9b" long="Fahrt 60 km/h">
+        <light id="L1" />
+        <light id="L6" />
+      </aspect>
+      <aspect name="Hl 12a" short="Hl12a" long="Fahrt 40 km/h, Halt erwarten">
+        <light id="L1" />
+        <light id="L4" />
+      </aspect>
+      <aspect name="Hl 12b" short="Hl12b" long="Fahrt 60 km/h, Halt erwarten">
+        <light id="L1" />
+        <light id="L6" />
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>

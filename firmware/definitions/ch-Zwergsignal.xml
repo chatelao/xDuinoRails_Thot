@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="ch" name="CH-Zwergsignal" svg="CH-Zwergsignal.svg" outline="M -150,150 L 0,150 L 150,0 L 150,-150 L -150,-150 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L1" x="-80" y="-80" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L2" x="-80" y="80" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L3" x="80" y="-80" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Halt" short="Halt" long="Halt">
+        <light id="L1" />
+        <light id="L3" />
+      </aspect>
+      <aspect name="Fahrt" short="Fahrt" long="Fahrt">
+        <light id="L1" />
+        <light id="L2" />
+      </aspect>
+      <aspect name="Fahrt mit Vorsicht" short="FahrtV" long="Fahrt mit Vorsicht">
+        <light id="L2" />
+        <light id="L3" />
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>

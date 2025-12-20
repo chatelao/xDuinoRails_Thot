@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="uk" name="UK-Colour-Light-Signal-4-Aspect" svg="UK-Colour-Light-Signal-4-Aspect.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="30" color="yellow" />
+      <lightbulb id="L2" x="0" y="20" color="green" />
+      <lightbulb id="L3" x="0" y="10" color="yellow" />
+      <lightbulb id="L4" x="0" y="0" color="red" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Clear" short="G" long="Clear">
+        <light id="L2" />
+      </aspect>
+      <aspect name="Preliminary caution" short="YY" long="Preliminary caution">
+        <light id="L1" />
+        <light id="L3" />
+      </aspect>
+      <aspect name="Caution" short="Y" long="Caution">
+        <light id="L3" />
+      </aspect>
+      <aspect name="Danger" short="R" long="Danger">
+        <light id="L4" />
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>

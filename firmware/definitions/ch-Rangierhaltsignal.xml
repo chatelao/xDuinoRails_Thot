@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="ch" name="CH-Rangierhaltsignal" svg="CH-Rangierhaltsignal.svg" outline="M -260,260 L 260,260 L 260,-260 L -260,-260 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L1" x="-200" y="200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L3" x="0" y="200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L5" x="200" y="200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L7" x="-100" y="100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L8" x="0" y="100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L9" x="100" y="100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L11" x="-200" y="0" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L12" x="-100" y="0" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L13" x="0" y="0" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L14" x="100" y="0" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L15" x="200" y="0" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L17" x="-100" y="-100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L18" x="0" y="-100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L19" x="100" y="-100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L21" x="-200" y="-200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L23" x="0" y="-200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L25" x="200" y="-200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Halt" short="Halt" long="Halt für Rangierbewegung">
+        <light id="L3" />
+        <light id="L8" />
+        <light id="L13" />
+        <light id="L18" />
+        <light id="L23" />
+        <light id="L11" />
+        <light id="L12" />
+        <light id="L14" />
+        <light id="L15" />
+      </aspect>
+      <aspect name="Zustimmung" short="Zustimmung" long="Zustimmung zur Rangierbewegung">
+        <light id="L21" />
+        <light id="L17" />
+        <light id="L13" />
+        <light id="L9" />
+        <light id="L5" />
+      </aspect>
+      <aspect name="Rangieren verboten" short="Verboten" long="Rangieren verboten">
+        <light id="L3" />
+        <light id="L8" />
+        <light id="L13" />
+        <light id="L18" />
+        <light id="L23" />
+        <light id="L11" />
+        <light id="L12" />
+        <light id="L14" />
+        <light id="L15" />
+      </aspect>
+      <aspect name="Rangieren erlaubt" short="Erlaubt" long="Rangieren erlaubt">
+        <light id="L21" />
+        <light id="L17" />
+        <light id="L13" />
+        <light id="L9" />
+        <light id="L5" />
+      </aspect>
+    </aspects>
+  </signal>
+  <signal country="ch" name="CH-Rangierhaltsignal-V2" svg="CH-Rangierhaltsignal-V2.svg" outline="M -260,260 L 260,260 L 260,-260 L -260,-260 Z" outlineColor="#000000">
+    <decorations>
+      <decoration d="M -260,-40 L 260,-40 L 260,40 L -260,40 Z" color="white" />
+      <decoration d="M -40,-260 L 40,-260 L 40,260 L -40,260 Z" color="white" />
+    </decorations>
+    <lightbulbs>
+      <lightbulb id="L1" x="-200" y="200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L5" x="200" y="200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L7" x="-100" y="100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L9" x="100" y="100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L13" x="0" y="0" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L17" x="-100" y="-100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L19" x="100" y="-100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L21" x="-200" y="-200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L25" x="200" y="-200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Zustimmung" short="Zustimmung" long="Zustimmung zur Rangierbewegung">
+        <light id="L21" />
+        <light id="L17" />
+        <light id="L13" />
+        <light id="L9" />
+        <light id="L5" />
+      </aspect>
+      <aspect name="Rangieren erlaubt" short="Erlaubt" long="Rangieren erlaubt">
+        <light id="L21" />
+        <light id="L17" />
+        <light id="L13" />
+        <light id="L9" />
+        <light id="L5" />
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>

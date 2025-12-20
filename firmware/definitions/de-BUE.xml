@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="de" name="DE-BUE-Signal" svg="DE-BUE-Signal.svg" outline="M -250,300 L 250,300 L 250,-100 L -250,-100 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L1_Yellow" x="-150" y="0" color="yellow" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+      <lightbulb id="L2_Yellow" x="150" y="0" color="yellow" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+      <lightbulb id="L3_White" x="0" y="200" color="white" d="m -60, 0 a 60,60 0 1,0 120,0 a 60,60 0 1,0 -120,0" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Bü 0" short="Bue0" long="Halt vor dem Bahnübergang">
+        <light id="L1_Yellow" />
+        <light id="L2_Yellow" />
+      </aspect>
+      <aspect name="Bü 1" short="Bue1" long="Bahnübergang befahrbar">
+        <light id="L3_White" />
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>

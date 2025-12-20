@@ -424,27 +424,51 @@
             }
 
             try {
-                // Fetch the XML definition for the selected country
-                const response = await fetch(`../firmware/definitions/${country}.xml`);
+                const manifestResponse = await fetch(`../firmware/definitions/manifest.json`);
+                if (!manifestResponse.ok) {
+                    throw new Error('Could not load manifest.json');
+                }
+                const manifest = await manifestResponse.json();
+                const countryFiles = manifest[country] || [];
 
-                if (!response.ok) {
-                    throw new Error(`Failed to load definition for ${country} (Status: ${response.status})`);
+                if (countryFiles.length === 0) {
+                    throw new Error(`No definition files found for country: ${country}`);
                 }
 
-                const text = await response.text();
+                // Create a placeholder root for the combined XML
                 const parser = new DOMParser();
-                currentXmlDoc = parser.parseFromString(text, "text/xml");
+                currentXmlDoc = parser.parseFromString('<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd"></signalDefinitions>', "text/xml");
+                const combinedRoot = currentXmlDoc.documentElement;
 
-                const parserError = currentXmlDoc.querySelector('parsererror');
-                if (parserError) {
-                    throw new Error('Error parsing XML');
+
+                for (const file of countryFiles) {
+                    const response = await fetch(`../firmware/definitions/${file}`);
+                    if (!response.ok) {
+                        console.warn(`Could not load ${file}`);
+                        continue;
+                    }
+                    const text = await response.text();
+                    const xmlDoc = parser.parseFromString(text, "text/xml");
+
+                     if (xmlDoc.querySelector('parsererror')) {
+                        console.warn(`Error parsing ${file}`);
+                        continue;
+                    }
+
+                    const signals = xmlDoc.getElementsByTagName('signal');
+                    for (const signal of signals) {
+                        // Import node into the main document to avoid issues
+                        const importedSignal = currentXmlDoc.importNode(signal, true);
+                        combinedRoot.appendChild(importedSignal);
+                    }
                 }
 
-                const signals = currentXmlDoc.getElementsByTagName('signal');
 
+                const signals = combinedRoot.getElementsByTagName('signal');
                 if (signals.length === 0) {
-                    throw new Error('No signals found in definition');
+                    throw new Error('No signals found in any definition file for this country');
                 }
+
 
                 const signalOptions = [];
                 for (let i = 0; i < signals.length; i++) {

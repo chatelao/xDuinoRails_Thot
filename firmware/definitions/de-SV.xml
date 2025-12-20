@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="de" name="DE-SV-Signal" svg="DE-SV-Signal.svg" outline="M -250,150 L 250,150 L 250,-150 L -250,-150 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L_Left_R" x="-150" y="0" color="red" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+      <lightbulb id="L_Left_G" x="-150" y="0" color="green" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+      <lightbulb id="L_Left_Y" x="-150" y="0" color="yellow" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+      <lightbulb id="L_Right_R" x="150" y="0" color="red" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+      <lightbulb id="L_Right_G" x="150" y="0" color="green" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+      <lightbulb id="L_Right_Y" x="150" y="0" color="yellow" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Sv 0" short="Sv0" long="Halt">
+        <light id="L_Left_R" />
+        <light id="L_Right_R" />
+      </aspect>
+      <aspect name="Sv 1" short="Sv1" long="Fahrt">
+        <light id="L_Left_G" />
+        <light id="L_Right_G" />
+      </aspect>
+      <aspect name="Sv 2" short="Sv2" long="Fahrt, Halt erwarten">
+        <light id="L_Left_G" />
+        <light id="L_Right_Y" />
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>

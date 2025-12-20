@@ -164,18 +164,44 @@
         }
 
         async function loadCountrySignals(countryCode, gridElement) {
-            const response = await fetch(`../firmware/definitions/${countryCode}.xml`);
-            if (!response.ok) throw new Error(`Status ${response.status}`);
+            const manifestResponse = await fetch(`../firmware/definitions/manifest.json`);
+            if (!manifestResponse.ok) {
+                throw new Error('Could not load manifest.json');
+            }
+            const manifest = await manifestResponse.json();
+            const countryFiles = manifest[countryCode] || [];
 
-            const text = await response.text();
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(text, "text/xml");
-
-            if (xmlDoc.querySelector('parsererror')) {
-                throw new Error('XML parsing error');
+            if (countryFiles.length === 0) {
+                gridElement.innerHTML = '<div style="grid-column: 1/-1; text-align: center; font-style: italic;">No definition files found.</div>';
+                return;
             }
 
-            const signals = Array.from(xmlDoc.getElementsByTagName('signal'));
+            const allSignals = [];
+            const parser = new DOMParser();
+
+            for (const file of countryFiles) {
+                try {
+                    const response = await fetch(`../firmware/definitions/${file}`);
+                    if (!response.ok) {
+                        console.warn(`Failed to load ${file}`);
+                        continue;
+                    }
+                    const text = await response.text();
+                    const xmlDoc = parser.parseFromString(text, "text/xml");
+
+                    if (xmlDoc.querySelector('parsererror')) {
+                        console.warn(`XML parsing error in ${file}`);
+                        continue;
+                    }
+
+                    const signals = Array.from(xmlDoc.getElementsByTagName('signal'));
+                    allSignals.push(...signals);
+                } catch (e) {
+                    console.error(`Error processing ${file}:`, e);
+                }
+            }
+
+            const signals = allSignals;
 
             // Sort by name
             signals.sort((a, b) => {
