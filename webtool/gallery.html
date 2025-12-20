@@ -164,7 +164,7 @@
         }
 
         async function loadCountrySignals(countryCode, gridElement) {
-            const manifestResponse = await fetch(`../firmware/definitions/manifest.json`);
+            const manifestResponse = await fetch(`../definitions/manifest.json`);
             if (!manifestResponse.ok) {
                 throw new Error('Could not load manifest.json');
             }
