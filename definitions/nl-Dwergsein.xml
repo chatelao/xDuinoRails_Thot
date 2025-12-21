@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="nl" name="NL-Dwergsein" svg="NL-Dwergsein.svg" outline="M -200,250 L 200,250 L 200,-200 L -200,-200 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L_Green" x="0" y="100" color="green" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+      <lightbulb id="L_Red" x="-100" y="-80" color="red" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+      <lightbulb id="L_Yellow" x="100" y="-80" color="yellow" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Groen" short="Groen" long="Groen">
+        <light id="L_Green" />
+      </aspect>
+      <aspect name="Groen knipper" short="GroenK" long="Groen knipper">
+        <light id="L_Green" blink="true" />
+      </aspect>
+      <aspect name="Geel" short="Geel" long="Geel">
+        <light id="L_Yellow" />
+      </aspect>
+      <aspect name="Geel knipper" short="GeelK" long="Geel knipper">
+        <light id="L_Yellow" blink="true" />
+      </aspect>
+      <aspect name="Rood" short="Rood" long="Rood">
+        <light id="L_Red" />
+      </aspect>
+      <aspect name="Rood knipper" short="RoodK" long="Rood knipper">
+        <light id="L_Red" blink="true" />
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>
