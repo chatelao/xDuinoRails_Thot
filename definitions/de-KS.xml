@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="de" name="DE-KS-Signal" svg="DE-KS-Signal.svg" outline="M -350,750 L 350,750 L 350,-750 L -350,-750 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="500" color="green" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" />
+      <lightbulb id="L2" x="0" y="0" color="red" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" />
+      <lightbulb id="L3" x="0" y="-500" color="yellow" d="m -100, 0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0" />
+      <lightbulb id="L4" x="-80" y="-330" color="white" d="m -60, 0 a 60,60 0 1,0 120,0 a 60,60 0 1,0 -120,0" />
+      <lightbulb id="L5" x="80" y="-170" color="white" d="m -60, 0 a 60,60 0 1,0 120,0 a 60,60 0 1,0 -120,0" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Hp 0" short="Hp0" long="Halt">
+        <light id="L2" />
+      </aspect>
+      <aspect name="Ks 1" short="Ks1" long="Fahrt / Fahrt erwarten">
+        <light id="L1" />
+      </aspect>
+      <aspect name="Ks 2" short="Ks2" long="Halt erwarten">
+        <light id="L3" />
+      </aspect>
+      <aspect name="Sh 1" short="Sh1" long="Fahrverbot aufgehoben">
+        <light id="L4" />
+        <light id="L5" />
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="de" name="DE-ZP-Signal" svg="DE-ZP-Signal.svg" outline="M -200,400 L 200,400 L 200,-400 L -200,-400 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L_ZP9" x="0" y="200" color="green" d="M 0,0 m -100,0 a 100,100 0 1,0 200,0 a 100,100 0 1,0 -200,0 M 0,0 m -70,0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0" />
+      <lightbulb id="L_ZP_Top" x="0" y="-100" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L_ZP_Mid" x="0" y="-200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+      <lightbulb id="L_ZP_Bot" x="0" y="-300" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Zp 9" short="Zp9" long="Abfahren">
+        <light id="L_ZP9" />
+      </aspect>
+      <aspect name="Zp 6" short="Zp6" long="Bremse anlegen">
+        <light id="L_ZP_Top" />
+      </aspect>
+      <aspect name="Zp 7" short="Zp7" long="Bremse lösen">
+        <light id="L_ZP_Top" />
+        <light id="L_ZP_Mid" />
+      </aspect>
+      <aspect name="Zp 8" short="Zp8" long="Bremse in Ordnung">
+        <light id="L_ZP_Top" />
+        <light id="L_ZP_Mid" />
+        <light id="L_ZP_Bot" />
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>

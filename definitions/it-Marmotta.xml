@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="it" name="IT-Marmotta" svg="IT-Marmotta.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="-50" y="0" color="white" />
+      <lightbulb id="L2" x="50" y="0" color="white" />
+      <lightbulb id="L3" x="0" y="50" color="white" />
+      <lightbulb id="L4" x="0" y="-50" color="white" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Stop" short="Stop" long="Via impedita">
+        <light id="L1" />
+        <light id="L2" />
+      </aspect>
+      <aspect name="Proceed" short="Via" long="Via libera">
+        <light id="L3" />
+        <light id="L4" />
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>

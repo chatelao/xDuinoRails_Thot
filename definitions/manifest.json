@@ -1,0 +1,51 @@
+{
+  "de": [
+    "../definitions/de-BUE.xml",
+    "../definitions/de-HL.xml",
+    "../definitions/de-HV.xml",
+    "../definitions/de-KS.xml",
+    "../definitions/de-SV.xml",
+    "../definitions/de-ZP.xml",
+    "../definitions/de-ZS.xml"
+  ],
+  "fr": [
+    "../definitions/fr-Carre.xml",
+    "../definitions/fr-Signalisation.xml"
+  ],
+  "pl": [
+    "../definitions/pl-Hauptsignal.xml",
+    "../definitions/pl-Manewrowa.xml",
+    "../definitions/pl-Vorsignal.xml"
+  ],
+  "at": [
+    "../definitions/at-Hauptsignal.xml",
+    "../definitions/at-Zwergsignal.xml"
+  ],
+  "nl": [
+    "../definitions/nl-Dwergsein.xml",
+    "../definitions/nl-Hoofdsein.xml"
+  ],
+  "uk": [
+    "../definitions/uk-Colour.xml",
+    "../definitions/uk-Ground.xml"
+  ],
+  "ch": [
+    "../definitions/ch-L.xml",
+    "../definitions/ch-N.xml",
+    "../definitions/ch-Raeumungssignal.xml",
+    "../definitions/ch-Rangierhaltsignal.xml",
+    "../definitions/ch-ZP.xml",
+    "../definitions/ch-Zwergsignal.xml"
+  ],
+  "it": [
+    "../definitions/it-Marmotta.xml",
+    "../definitions/it-Segnale.xml"
+  ],
+  "us": [
+    "../definitions/us-3.xml",
+    "../definitions/us-Dwarf.xml"
+  ],
+  "au": [
+    "../definitions/au-NSW.xml"
+  ]
+}

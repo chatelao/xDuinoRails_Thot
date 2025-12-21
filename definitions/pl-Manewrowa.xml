@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="pl" name="PL-Manewrowa" svg="PL-Manewrowa.svg" outline="M -150,300 L 150,300 L 150,-300 L -150,-300 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="150" color="blue" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+      <lightbulb id="L2" x="0" y="-150" color="white" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Ms1 Zabroniona" short="Ms1" long="Jazda manewrowa zabroniona">
+        <light id="L1" />
+      </aspect>
+      <aspect name="Ms2 Dozwolona" short="Ms2" long="Jazda manewrowa dozwolona">
+        <light id="L2" />
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>

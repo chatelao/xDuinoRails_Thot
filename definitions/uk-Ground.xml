@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="uk" name="UK-Ground-Position-Light" svg="UK-Ground-Position-Light.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="-50" y="0" color="red" />
+      <lightbulb id="L2" x="50" y="0" color="red" />
+      <lightbulb id="L3" x="-50" y="0" color="white" />
+      <lightbulb id="L4" x="50" y="100" color="white" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Danger" short="Stop" long="Danger">
+        <light id="L1" />
+        <light id="L2" />
+      </aspect>
+      <aspect name="Proceed" short="Go" long="Proceed">
+        <light id="L3" />
+        <light id="L4" />
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>

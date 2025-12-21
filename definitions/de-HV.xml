@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="de" name="DE-HV-Hauptsignal-1" svg="DE-HV-Hauptsignal-1.svg" outline="M -350,400 L -250,500 L 250,500 L 350,400 L 350,-1100 L -350,-1100 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="230" color="green" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0" />
+      <lightbulb id="L2_Left" x="-120" y="0" color="red" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0" />
+      <lightbulb id="L2_Right" x="120" y="0" color="red" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0" />
+      <lightbulb id="L3" x="0" y="-810" color="yellow" d="m -70, 0 a 70,70 0 1,0 140,0 a 70,70 0 1,0 -140,0" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Hp 0" short="Hp0" long="Halt">
+        <light id="L2_Left" />
+        <light id="L2_Right" />
+      </aspect>
+      <aspect name="Hp 1" short="Hp1" long="Fahrt">
+        <light id="L1" />
+      </aspect>
+      <aspect name="Hp 2" short="Hp2" long="Langsamfahrt">
+        <light id="L1" />
+        <light id="L3" />
+      </aspect>
+    </aspects>
+  </signal>
+  <signal country="de" name="DE-HV-Zwergsignal-1" svg="DE-HV-Zwergsignal-1.svg" outline="M -200,200 L 200,200 L 200,-200 L -200,-200 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L1_RED" x="-100" y="0" color="red" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+      <lightbulb id="L2_RED" x="100" y="0" color="red" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+      <lightbulb id="L3_WHITE" x="-100" y="-100" color="white" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+      <lightbulb id="L4_WHITE" x="100" y="100" color="white" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Sh 0" short="Sh0" long="Halt / Fahrverbot">
+        <light id="L1_RED" />
+        <light id="L2_RED" />
+      </aspect>
+      <aspect name="Sh 1" short="Sh1" long="Fahrverbot aufgehoben">
+        <light id="L3_WHITE" />
+        <light id="L4_WHITE" />
+      </aspect>
+    </aspects>
+  </signal>
+  <signal country="de" name="DE-HV-Vorsignal-1" svg="DE-HV-Vorsignal-1.svg" outline="M -400,-400 L -400,0 L 0,400 L 400,400 L 400,0 L 0,-400 Z" outlineColor="#000000">
+    <lightbulbs>
+      <lightbulb id="L_TR_Y" x="27" y="250" color="yellow" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+      <lightbulb id="L_TR_G" x="240" y="250" color="green" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+      <lightbulb id="L_BL_Y" x="-27" y="-250" color="yellow" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+      <lightbulb id="L_BL_G" x="-240" y="-250" color="green" d="m -80, 0 a 80,80 0 1,0 160,0 a 80,80 0 1,0 -160,0" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Vr 0" short="Vr0" long="Halt erwarten">
+        <light id="L_BL_Y" />
+        <light id="L_TR_Y" />
+      </aspect>
+      <aspect name="Vr 1" short="Vr1" long="Fahrt erwarten">
+        <light id="L_BL_G" />
+        <light id="L_TR_G" />
+      </aspect>
+      <aspect name="Vr 2" short="Vr2" long="Langsamfahrt erwarten">
+        <light id="L_BL_Y" />
+        <light id="L_TR_G" />
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>

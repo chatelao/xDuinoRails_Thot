@@ -121,83 +121,93 @@
 
     <script>
         const galleryContainer = document.getElementById('gallery-container');
-        const countries = [
-            { code: 'at', name: 'Austria (AT)' },
-            { code: 'au', name: 'Australia (AU)' },
-            { code: 'ch', name: 'Switzerland (CH)' },
-            { code: 'de', name: 'Germany (DE)' },
-            { code: 'fr', name: 'France (FR)' },
-            { code: 'it', name: 'Italy (IT)' },
-            { code: 'nl', name: 'Netherlands (NL)' },
-            { code: 'pl', name: 'Poland (PL)' },
-            { code: 'uk', name: 'United Kingdom (UK)' },
-            { code: 'us', name: 'United States (US)' }
-        ];
+        const countryNames = {
+            at: 'Austria (AT)', au: 'Australia (AU)', ch: 'Switzerland (CH)',
+            de: 'Germany (DE)', fr: 'France (FR)', it: 'Italy (IT)',
+            nl: 'Netherlands (NL)', pl: 'Poland (PL)', uk: 'United Kingdom (UK)',
+            us: 'United States (US)'
+        };
 
         async function initGallery() {
             galleryContainer.innerHTML = '';
 
-            for (const country of countries) {
-                const section = document.createElement('div');
-                section.className = 'country-section';
+            try {
+                const manifestResponse = await fetch('../definitions/manifest.json');
+                if (!manifestResponse.ok) throw new Error('Failed to load manifest.json');
+                const manifest = await manifestResponse.json();
 
-                const title = document.createElement('h2');
-                title.className = 'country-title';
-                title.textContent = country.name;
-                section.appendChild(title);
+                const countryCodes = Object.keys(manifest).sort();
 
-                const grid = document.createElement('div');
-                grid.className = 'signal-grid';
-                grid.id = `grid-${country.code}`;
-                section.appendChild(grid);
+                for (const code of countryCodes) {
+                    const section = document.createElement('div');
+                    section.className = 'country-section';
 
-                galleryContainer.appendChild(section);
+                    const title = document.createElement('h2');
+                    title.className = 'country-title';
+                    title.textContent = countryNames[code] || code.toUpperCase();
+                    section.appendChild(title);
 
-                // Fetch and render concurrently-ish (per country)
-                try {
-                    await loadCountrySignals(country.code, grid);
-                } catch (e) {
-                    console.error(`Error loading ${country.code}:`, e);
-                    grid.innerHTML = `<div class="error">Failed to load definitions for ${country.name}</div>`;
+                    const grid = document.createElement('div');
+                    grid.className = 'signal-grid';
+                    section.appendChild(grid);
+
+                    galleryContainer.appendChild(section);
+
+                    // The load function is now async, but we don't wait for each
+                    // This allows countries to load in parallel
+                    loadCountrySignals(manifest[code], grid, code);
                 }
+            } catch (e) {
+                console.error('Gallery initialization failed:', e);
+                galleryContainer.innerHTML = `<div class="error" style="text-align: center;">${e.message}</div>`;
             }
         }
 
-        async function loadCountrySignals(countryCode, gridElement) {
-            const response = await fetch(`../firmware/definitions/${countryCode}.xml`);
-            if (!response.ok) throw new Error(`Status ${response.status}`);
+        async function loadCountrySignals(files, gridElement, countryCode) {
+            try {
+                const allSignals = [];
+                const promises = files.map(file => fetch(file)
+                    .then(response => {
+                        if (!response.ok) throw new Error(`Failed to load ${file}`);
+                        return response.text();
+                    })
+                    .then(text => {
+                        const parser = new DOMParser();
+                        const xmlDoc = parser.parseFromString(text, "text/xml");
+                        if (xmlDoc.querySelector('parsererror')) {
+                            throw new Error(`XML parsing error in ${file}`);
+                        }
+                        const signals = xmlDoc.getElementsByTagName('signal');
+                        for (let i = 0; i < signals.length; i++) {
+                            allSignals.push(signals[i]);
+                        }
+                    })
+                );
 
-            const text = await response.text();
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(text, "text/xml");
+                await Promise.all(promises);
+                const signals = allSignals;
 
-            if (xmlDoc.querySelector('parsererror')) {
-                throw new Error('XML parsing error');
-            }
+                // Sort by name
+                signals.sort((a, b) => {
+                    const nameA = a.getAttribute('name') || '';
+                    const nameB = b.getAttribute('name') || '';
+                    return nameA.localeCompare(nameB);
+                });
 
-            const signals = Array.from(xmlDoc.getElementsByTagName('signal'));
+                if (signals.length === 0) {
+                    gridElement.innerHTML = '<div style="grid-column: 1/-1; text-align: center; font-style: italic;">No signals found.</div>';
+                    return;
+                }
 
-            // Sort by name
-            signals.sort((a, b) => {
-                const nameA = a.getAttribute('name') || '';
-                const nameB = b.getAttribute('name') || '';
-                return nameA.localeCompare(nameB);
-            });
+                for (const signalNode of signals) {
+                    const name = signalNode.getAttribute('name');
+                    if (!name) continue;
 
-            if (signals.length === 0) {
-                gridElement.innerHTML = '<div style="grid-column: 1/-1; text-align: center; font-style: italic;">No signals found.</div>';
-                return;
-            }
+                    const card = document.createElement('a');
+                    card.className = 'signal-card';
+                    card.href = `index.html#country=${countryCode}&signal=${encodeURIComponent(name)}`;
 
-            for (const signalNode of signals) {
-                const name = signalNode.getAttribute('name');
-                if (!name) continue;
-
-                const card = document.createElement('a');
-                card.className = 'signal-card';
-                card.href = `index.html#country=${countryCode}&signal=${encodeURIComponent(name)}`;
-
-                const preview = document.createElement('div');
+                    const preview = document.createElement('div');
                 preview.className = 'signal-preview';
 
                 const svg = generateSignalSVG(signalNode);
@@ -211,6 +221,10 @@
                 card.appendChild(nameDiv);
 
                 gridElement.appendChild(card);
+                }
+            } catch (e) {
+                console.error(`Error processing signals for ${countryCode}:`, e);
+                gridElement.innerHTML = `<div class="error" style="grid-column: 1/-1;">${e.message}</div>`;
             }
         }
 

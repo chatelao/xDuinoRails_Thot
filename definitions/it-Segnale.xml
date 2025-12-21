@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
+  <signal country="it" name="IT-Segnale-Luminoso-1" svg="IT-Segnale-Luminoso-1.svg">
+    <lightbulbs>
+      <lightbulb id="L1" x="0" y="10" color="green" />
+      <lightbulb id="L2" x="0" y="0" color="red" />
+      <lightbulb id="L3" x="0" y="-10" color="yellow" />
+    </lightbulbs>
+    <aspects>
+      <aspect name="Stop" short="R" long="Via impedita">
+        <light id="L2" />
+      </aspect>
+      <aspect name="Proceed" short="V" long="Via libera">
+        <light id="L1" />
+      </aspect>
+      <aspect name="Proceed at reduced speed" short="G" long="Via libera con avviso di ridotta velocità">
+        <light id="L1" />
+        <light id="L3" />
+      </aspect>
+    </aspects>
+  </signal>
+</signalDefinitions>

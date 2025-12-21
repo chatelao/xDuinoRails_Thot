@@ -1,58 +1,58 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <signalDefinitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="signals.xsd">
   <signal country="au" name="AU-NSW-Single-Light" svg="AU-NSW-Single-Light.svg">
     <lightbulbs>
-      <lightbulb id="L1" x="0" y="500" color="green"/>
-      <lightbulb id="L2" x="0" y="0" color="yellow"/>
-      <lightbulb id="L3" x="0" y="-500" color="red"/>
-      <lightbulb id="L4" x="0" y="-1000" color="red"/>
+      <lightbulb id="L1" x="0" y="500" color="green" />
+      <lightbulb id="L2" x="0" y="0" color="yellow" />
+      <lightbulb id="L3" x="0" y="-500" color="red" />
+      <lightbulb id="L4" x="0" y="-1000" color="red" />
     </lightbulbs>
     <aspects>
       <aspect name="Clear" short="Clear" long="Clear">
-        <light id="L1"/>
+        <light id="L1" />
       </aspect>
       <aspect name="Caution" short="Caution" long="Caution">
-        <light id="L2"/>
+        <light id="L2" />
       </aspect>
       <aspect name="Stop" short="Stop" long="Stop">
-        <light id="L3"/>
-        <light id="L4"/>
+        <light id="L3" />
+        <light id="L4" />
       </aspect>
     </aspects>
   </signal>
   <signal country="au" name="AU-NSW-Double-Light" svg="AU-NSW-Double-Light.svg">
     <lightbulbs>
-      <lightbulb id="L1" x="0" y="500" color="green"/>
-      <lightbulb id="L2" x="0" y="0" color="red"/>
-      <lightbulb id="L3" x="0" y="-500" color="yellow"/>
+      <lightbulb id="L1" x="0" y="500" color="green" />
+      <lightbulb id="L2" x="0" y="0" color="red" />
+      <lightbulb id="L3" x="0" y="-500" color="yellow" />
     </lightbulbs>
     <aspects>
       <aspect name="Clear" short="Clear" long="Clear">
-        <light id="L1"/>
+        <light id="L1" />
       </aspect>
       <aspect name="Caution" short="Caution" long="Caution">
-        <light id="L3"/>
+        <light id="L3" />
       </aspect>
       <aspect name="Medium" short="Medium" long="Medium">
-        <light id="L1"/>
-        <light id="L3"/>
+        <light id="L1" />
+        <light id="L3" />
       </aspect>
       <aspect name="Stop" short="Stop" long="Stop">
-        <light id="L2"/>
+        <light id="L2" />
       </aspect>
     </aspects>
   </signal>
   <signal country="au" name="AU-NSW-Shunt-Color-Light" svg="AU-NSW-Shunt-Color-Light.svg">
     <lightbulbs>
-      <lightbulb id="L1" x="0" y="200" color="yellow"/>
-      <lightbulb id="L2" x="0" y="0" color="red"/>
+      <lightbulb id="L1" x="0" y="200" color="yellow" />
+      <lightbulb id="L2" x="0" y="0" color="red" />
     </lightbulbs>
     <aspects>
       <aspect name="Stop" short="Stop" long="Stop">
-        <light id="L2"/>
+        <light id="L2" />
       </aspect>
       <aspect name="Proceed" short="Proceed" long="Proceed">
-        <light id="L1"/>
+        <light id="L1" />
       </aspect>
     </aspects>
   </signal>

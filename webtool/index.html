@@ -288,7 +288,6 @@
 
         // Map signal names to signal data objects
         let currentSignals = {};
-        let currentXmlDoc = null;
         let loadedCountry = null;
 
         // --- State Management ---
@@ -415,7 +414,6 @@
             displayDiv.innerHTML = '<p class="placeholder">Select a signal to view it.</p>';
             aspectTableContainer.innerHTML = '';
             currentSignals = {};
-            currentXmlDoc = null;
             loadedCountry = null;
 
             if (!country) {
@@ -424,26 +422,42 @@
             }
 
             try {
-                // Fetch the XML definition for the selected country
-                const response = await fetch(`../firmware/definitions/${country}.xml`);
+                const manifestResponse = await fetch('../definitions/manifest.json');
+                if (!manifestResponse.ok) {
+                    throw new Error('Failed to load manifest.json');
+                }
+                const manifest = await manifestResponse.json();
+                const filesForCountry = manifest[country] || [];
 
-                if (!response.ok) {
-                    throw new Error(`Failed to load definition for ${country} (Status: ${response.status})`);
+                if (filesForCountry.length === 0) {
+                    console.log(`No definition files found for country: ${country}`);
+                    return; // Nothing to load
                 }
 
-                const text = await response.text();
-                const parser = new DOMParser();
-                currentXmlDoc = parser.parseFromString(text, "text/xml");
+                const allSignals = [];
+                const promises = filesForCountry.map(file => fetch(file)
+                    .then(response => {
+                        if (!response.ok) throw new Error(`Failed to load ${file}`);
+                        return response.text();
+                    })
+                    .then(text => {
+                        const parser = new DOMParser();
+                        const xmlDoc = parser.parseFromString(text, "text/xml");
+                        if (xmlDoc.querySelector('parsererror')) {
+                           throw new Error(`Error parsing XML from ${file}`);
+                        }
+                        const signals = xmlDoc.getElementsByTagName('signal');
+                        for (let i = 0; i < signals.length; i++) {
+                            allSignals.push(signals[i]);
+                        }
+                    })
+                );
 
-                const parserError = currentXmlDoc.querySelector('parsererror');
-                if (parserError) {
-                    throw new Error('Error parsing XML');
-                }
-
-                const signals = currentXmlDoc.getElementsByTagName('signal');
+                await Promise.all(promises);
+                const signals = allSignals;
 
                 if (signals.length === 0) {
-                    throw new Error('No signals found in definition');
+                    throw new Error('No signals found in any definition file for this country');
                 }
 
                 const signalOptions = [];
@@ -496,7 +510,7 @@
 
             } catch (e) {
                 console.error(e);
-                displayDiv.innerHTML = `<p class="error">Error: ${e.message}.<br>Ensure you are viewing this via a web server that serves the entire repository.</p>`;
+                displayDiv.innerHTML = `<p class="error">Error: ${e.message}.<br>Ensure you are viewing this via a web server that serves the 'definitions' directory.</p>`;
             }
         }
 
