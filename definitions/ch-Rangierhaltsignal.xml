@@ -21,24 +21,6 @@
       <lightbulb id="L25" x="200" y="-200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
     </lightbulbs>
     <aspects>
-      <aspect name="Halt" short="Halt" long="Halt für Rangierbewegung">
-        <light id="L3" />
-        <light id="L8" />
-        <light id="L13" />
-        <light id="L18" />
-        <light id="L23" />
-        <light id="L11" />
-        <light id="L12" />
-        <light id="L14" />
-        <light id="L15" />
-      </aspect>
-      <aspect name="Zustimmung" short="Zustimmung" long="Zustimmung zur Rangierbewegung">
-        <light id="L21" />
-        <light id="L17" />
-        <light id="L13" />
-        <light id="L9" />
-        <light id="L5" />
-      </aspect>
       <aspect name="Rangieren verboten" short="Verboten" long="Rangieren verboten">
         <light id="L3" />
         <light id="L8" />
@@ -50,7 +32,7 @@
         <light id="L14" />
         <light id="L15" />
       </aspect>
-      <aspect name="Rangieren erlaubt" short="Erlaubt" long="Rangieren erlaubt">
+      <aspect name="Rangieren gestattet" short="Gestattet" long="Rangieren gestattet">
         <light id="L21" />
         <light id="L17" />
         <light id="L13" />
@@ -76,14 +58,7 @@
       <lightbulb id="L25" x="200" y="-200" color="white" d="m -40, 0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0" />
     </lightbulbs>
     <aspects>
-      <aspect name="Zustimmung" short="Zustimmung" long="Zustimmung zur Rangierbewegung">
-        <light id="L21" />
-        <light id="L17" />
-        <light id="L13" />
-        <light id="L9" />
-        <light id="L5" />
-      </aspect>
-      <aspect name="Rangieren erlaubt" short="Erlaubt" long="Rangieren erlaubt">
+      <aspect name="Rangieren gestattet" short="Gestattet" long="Rangieren gestattet">
         <light id="L21" />
         <light id="L17" />
         <light id="L13" />

@@ -39,13 +39,6 @@
         <light id="L18" />
         <light id="L23" />
       </aspect>
-      <aspect name="Rangieren erlaubt" short="Erlaubt" long="Rangieren erlaubt">
-        <light id="L3" />
-        <light id="L8" />
-        <light id="L13" />
-        <light id="L18" />
-        <light id="L23" />
-      </aspect>
     </aspects>
   </signal>
 </signalDefinitions>
